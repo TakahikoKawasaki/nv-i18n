@@ -65,7 +65,7 @@ public enum LanguageCode
     ar("Arabic"),
 
     /**
-     * <a href-"http://en.wikipedia.org/wiki/Assamese_language">Assamese</a>
+     * <a href="http://en.wikipedia.org/wiki/Assamese_language">Assamese</a>
      */
     as("Assamese"),
 
@@ -971,6 +971,12 @@ public enum LanguageCode
      * Get a LanguageCode that corresponds to a given
      * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code.
      *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean)
+     * getByCode}(code, false), meaning the case of the given
+     * code is ignored.
+     * </p>
+     *
      * @param code
      *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code.
      *
@@ -979,10 +985,35 @@ public enum LanguageCode
      */
     public static LanguageCode getByCode(String code)
     {
+        return getByCode(code, false);
+    }
+
+
+    /**
+     * Get a LanguageCode that corresponds to a given
+     * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code.
+     *
+     * @param code
+     *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code.
+     *
+     * @param caseSensitive
+     *         If true, the given code should consist of lower-case letters only.
+     *         If false, this method internally normalizes the given code by
+     *         {@link String#toLowerCase()} and then performs search. For example,
+     *         {@code getByCode("JA", true)} returns null, but on the other hand,
+     *         {@code getByCode("JA", false)} returns {@code LanguageCode.ja}.
+     *
+     * @return
+     *         A LanguageCode instance, or null if not found.
+     */
+    public static LanguageCode getByCode(String code, boolean caseSensitive)
+    {
         if (code == null)
         {
             return null;
         }
+
+        code = normalize(code, caseSensitive);
 
         try
         {
@@ -991,6 +1022,19 @@ public enum LanguageCode
         catch (IllegalArgumentException e)
         {
             return null;
+        }
+    }
+
+
+    private static String normalize(String code, boolean caseSensitive)
+    {
+        if (caseSensitive)
+        {
+            return code;
+        }
+        else
+        {
+            return code.toLowerCase();
         }
     }
 }
