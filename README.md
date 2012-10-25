@@ -7,6 +7,10 @@ Overview
 Package to support internationalization, containing ISO 3166-1 country code enum,
 ISO 639-1 language code enum, etc.
 
+* CountryCode  : ISO 3166-1 country code.
+* LanguageCode : ISO 639-1 language code.
+* LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
+
 License
 -------
 
@@ -29,22 +33,18 @@ Example
         System.out.println("[" + code + "] " + code.getName());
     }
 
-    // Get detailed information about a country code.
-    CountryCode cc = CountryCode.getByCode("JP");
-    System.out.println("Country name = " + cc.getName());                  // "Japan"
-    System.out.println("ISO 3166-1 alpha-2 code = " + cc.getAlpha2());     // "JP"
-    System.out.println("ISO 3166-1 alpha-3 code = " + cc.getAlpha3());     // "JPN"
-    System.out.println("ISO 3166-1 numeric code = " + cc.getNumeric());    // 392
-
     // List all the language codes.
     for (LanguageCode code : LanguageCode.values())
     {
         System.out.println("[" + code + "] " + code.getName());
     }
 
-    // Get detailed information about a language code.
-    LanguageCoe lc = LanguageCode.getByCode("ja");
-    System.out.println("Language name = " + lc.getName());                 // "Japanese"
+    // List all the locale codes.
+    for (LocaleCode code : LocaleCode.values())
+    {
+        System.out.println("[" + code + "] " + code.getLanguage() +
+                           ", " + code.getCountry());
+    }
 
 See Also
 --------
@@ -60,13 +60,12 @@ TODO
 ----
 
 * To register this to Maven Central Repository.
-* To add a class to represent a language tag.
-* To add a class to parse Accept-Language HTTP header.
+* To add ScriptCode.
 
 Note
 ----
 
-This deprecates https://github.com/TakahikoKawasaki/CountryCode
+This nv-i18n deprecates https://github.com/TakahikoKawasaki/CountryCode
 
 Author
 ------
