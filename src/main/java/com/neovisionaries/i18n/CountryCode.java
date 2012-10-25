@@ -21,13 +21,12 @@ import java.util.Map;
 
 
 /**
- * <a href="http://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a>
- * country code.
+ * <a href="http://en.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a> country code.
  *
  * <p>
  * Enum names of this enum themselves are represented by
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
- * codes. There are instance methods to get the country name ({@link #getName()}), the
+ * code. There are instance methods to get the country name ({@link #getName()}), the
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" >ISO 3166-1 alpha-3</a>
  * code ({@link #getAlpha3()}) and the
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1 numeric</a>
@@ -38,21 +37,27 @@ import java.util.Map;
  * </p>
  *
  * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
- * <span style="color: darkgreen;">// EXAMPLE</span>
+ * <span style="color: darkgreen;">// List all the country codes.</span>
+ * for (CountryCode code : CountryCode.values())
+ * {
+ *     <span style="color: darkgreen;">// For example, "[US] United States" is printed.</span>
+ *     System.out.println("[" + code + "] " + code.{@link #getName()});
+ * }
  *
- * CountryCode cc = CountryCode.{@link #getByCode(String) getByCode}("JP");
+ * <span style="color: darkgreen;">// Get a CountryCode instance by ISO 3166-1 code.</span>
+ * CountryCode code = CountryCode.{@link #getByCode(String) getByCode}("JP");
  *
- * <span style="color: darkgreen;">// Country name</span>
- * System.out.println("Country name = " + cc.{@link #getName()});                  <span style="color: darkgreen;">// "Japan"</span>
- *
- * <span style="color: darkgreen;">// ISO 3166-1 alpha-2 code</span>
- * System.out.println("ISO 3166-1 alpha-2 code = " + cc.{@link #getAlpha2()});     <span style="color: darkgreen;">// "JP"</span>
- *
- * <span style="color: darkgreen;">// ISO 3166-1 alpha-3 code</span>
- * System.out.println("ISO 3166-1 alpha-3 code = " + cc.{@link #getAlpha3()});     <span style="color: darkgreen;">// "JPN"</span>
- *
- * <span style="color: darkgreen;">// ISO 3166-1 numeric code</span>
- * System.out.println("ISO 3166-1 numeric code = " + cc.{@link #getNumeric()});    <span style="color: darkgreen;">// 392</span>
+ * <span style="color: darkgreen;">// Print all the information. Output will be:</span>
+ * <span style="color: darkgreen;">//</span>
+ * <span style="color: darkgreen;">//     Country name            = Japan</span>
+ * <span style="color: darkgreen;">//     ISO 3166-1 alpha-2 code = JP</span>
+ * <span style="color: darkgreen;">//     ISO 3166-1 alpha-3 code = JPN</span>
+ * <span style="color: darkgreen;">//     ISO 3166-1 numeric code = 392</span>
+ * <span style="color: darkgreen;">//</span>
+ * System.out.println("Country name            = " + code.{@link #getName()});
+ * System.out.println("ISO 3166-1 alpha-2 code = " + code.{@link #getAlpha2()});
+ * System.out.println("ISO 3166-1 alpha-3 code = " + code.{@link #getAlpha3()});
+ * System.out.println("ISO 3166-1 numeric code = " + code.{@link #getNumeric()});
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -2070,7 +2075,7 @@ public enum CountryCode
      *
      * @param caseSensitive
      *         If true, the given code should consist of upper-case letters only.
-     *         If false, this method internally normalizes the given code by
+     *         If false, this method internally canonicalizes the given code by
      *         {@link String#toUpperCase()} and then performs search. For example,
      *         {@code getByCode("jp", true)} returns null, but on the other hand,
      *         {@code getByCode("jp", false)} returns {@code CountryCode.JP}.
@@ -2088,11 +2093,11 @@ public enum CountryCode
         switch (code.length())
         {
             case 2:
-                code = normalize(code, caseSensitive);
+                code = canonicalize(code, caseSensitive);
                 return getByAlpha2Code(code);
 
             case 3:
-                code = normalize(code, caseSensitive);
+                code = canonicalize(code, caseSensitive);
                 return getByAlpha3Code(code);
 
             default:
@@ -2101,7 +2106,20 @@ public enum CountryCode
     }
 
 
-    private static String normalize(String code, boolean caseSensitive)
+    /**
+     * Canonicalize the given country code. This method is package-private.
+     *
+     * @param code
+     *         ISO 3166-1 alpha-2 or alpha-3 country code.
+     *
+     * @param caseSensitive
+     *         True if the code should be handled case-sensitively.
+     *
+     * @return
+     *         If 'caseSensitive' is true, 'code' is returned as is.
+     *         Otherwise, code.toUpperCase() is returned.
+     */
+    static String canonicalize(String code, boolean caseSensitive)
     {
         if (caseSensitive)
         {

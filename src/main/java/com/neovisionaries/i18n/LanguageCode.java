@@ -20,6 +20,24 @@ package com.neovisionaries.i18n;
  * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
  * language code.
  *
+ * <p>
+ * Enum names of this enum themselves are represented by
+ * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
+ * (2-letter lower-case alphabets).
+ * </p>
+ *
+ * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
+ * <span style="color: darkgreen;">// List all the language codes.</span>
+ * for (LanguageCode code : LanguageCode.values())
+ * {
+ *     <span style="color: darkgreen;">// For example, "[ar] Arabic" is printed.</span>
+ *     System.out.println("[" + code + "] " + code.{@link #getName()});
+ * }
+ *
+ * <span style="color: darkgreen;">// Get a LanguageCode instance by ISO 639-1 code.</span>
+ * LanguageCode code = LanguageCode.{@link #getByCode(String) getByCode}("fr");
+ * </pre>
+ *
  * @author Takahiko Kawasaki
  */
 public enum LanguageCode
@@ -998,7 +1016,7 @@ public enum LanguageCode
      *
      * @param caseSensitive
      *         If true, the given code should consist of lower-case letters only.
-     *         If false, this method internally normalizes the given code by
+     *         If false, this method internally canonicalizes the given code by
      *         {@link String#toLowerCase()} and then performs search. For example,
      *         {@code getByCode("JA", true)} returns null, but on the other hand,
      *         {@code getByCode("JA", false)} returns {@code LanguageCode.ja}.
@@ -1013,7 +1031,7 @@ public enum LanguageCode
             return null;
         }
 
-        code = normalize(code, caseSensitive);
+        code = canonicalize(code, caseSensitive);
 
         try
         {
@@ -1026,7 +1044,20 @@ public enum LanguageCode
     }
 
 
-    private static String normalize(String code, boolean caseSensitive)
+    /**
+     * Canonicalize the given language code. This method is package-private.
+     *
+     * @param code
+     *         ISO 639-1 code.
+     *
+     * @param caseSensitive
+     *         True if the code should be handled case-sensitively.
+     *
+     * @return
+     *         If 'caseSensitive' is true, 'code' is returned as is.
+     *         Otherwise, code.toLowerCase() is returned.
+     */
+    static String canonicalize(String code, boolean caseSensitive)
     {
         if (caseSensitive)
         {
