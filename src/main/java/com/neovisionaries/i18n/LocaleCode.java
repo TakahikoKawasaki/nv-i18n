@@ -16,6 +16,30 @@
 package com.neovisionaries.i18n;
 
 
+/**
+ * Locale code.
+ *
+ * <p>
+ * The entries of this enum was generated based on the output from
+ * {@link java.util.Locale#getAvailableLocales()
+ * Locale.getAvailableLocales()} of Java SE 7, but locales whose
+ * format do not match either 'xx' or 'xx-XX' were excluded.
+ * </p>
+ *
+ * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
+ * <span style="color: darkgreen;">// List all the locale codes.</span>
+ * for (LocaleCode code : LocaleCode.values())
+ * {
+ *     <span style="color: darkgreen;">// For example, "[de-DE] German, Germany" is printed.</span>
+ *     System.out.println("[" + code + "] " + code.{@link #getLanguage()} + ", " + code.{@link #getCountry()});
+ * }
+ *
+ * <span style="color: darkgreen;">// Get a LocaleCode instance by code.</span>
+ * LocaleCode code = LocaleCode.{@link #getByCode(String) getByCode}("en-GB");
+ * </pre>
+ *
+ * @author Takahiko Kawasaki
+ */
 public enum LocaleCode
 {
     /**
@@ -791,21 +815,182 @@ public enum LocaleCode
     }
 
 
+    /**
+     * Get the language code.
+     *
+     * @return
+     *         The language code. This method always returns a non-null value.
+     */
     public LanguageCode getLanguage()
     {
         return language;
     }
 
 
+    /**
+     * Get the country code.
+     *
+     * @return
+     *         The country code. This method may return null.
+     *         For example, {@link #en}.getCountry() returns null.
+     */
     public CountryCode getCountry()
     {
         return country;
     }
 
 
+    /**
+     * Get the string expression of this locale code. Its format is
+     * either of the following:
+     *
+     * <ul>
+     * <li><i>language</i></li>
+     * <li><i>language</i><code>-</code><i>country</i>
+     * </ul>
+     *
+     * <p>
+     * where <i>language</i> is an <a
+     * href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
+     * and <i>country</i> is an ISO 3166-1 <a
+     * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a>
+     * code. 
+     * </p>
+     *
+     * @return
+     *         The string expression of this locale code.
+     */
     @Override
     public String toString()
     {
         return string;
+    }
+
+
+    /**
+     * Get a LocaleCode instance that corresponds to the given code.
+     *
+     * <p>
+     * This method just calls {@link #getByCode(String, boolean)
+     * getByCode}(code, false).
+     * </p>
+     *
+     * @param code
+     *         A locale code.
+     *
+     * @return
+     *         A LocaleCode instance, or null if not found.
+     *
+     * @see #getByCode(String, boolean)
+     */
+    public static LocaleCode getByCode(String code)
+    {
+        return getByCode(code, false);
+    }
+
+
+    /**
+     * Get a LocaleCode instance that corresponds to the given code.
+     *
+     * <p>
+     * The format of the code should be either of the following:
+     * </p>
+     *
+     * <ul>
+     * <li><i>language</i></li>
+     * <li><i>language</i><code>-</code><i>country</i>
+     * </ul>
+     *
+     * <p>
+     * where <i>language</i> is an <a
+     * href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
+     * and <i>country</i> is an <a
+     * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
+     * alpha-2</a> code. The separator between <i>language</i> and
+     * <i>country</i> should be a hyphen (<code>-</code>) or an underscore
+     * (<code>_</code>).
+     * </p>
+     *
+     * @param code
+     *         A locale code.
+     *
+     * @param caseSensitive
+     *         If true, the <i>language</i> part of the given code must be
+     *         lower-case and the <i>country</i> part, if any, must be
+     *         upper-case. If false, this method internally canonicalizes
+     *         the given code and then performs search.
+     *
+     * @return
+     *         A LocaleCode instance, or null if not found.
+     */
+    public static LocaleCode getByCode(String code, boolean caseSensitive)
+    {
+        if (code == null)
+        {
+            return null;
+        }
+
+        switch (code.length())
+        {
+            case 2:
+                return getByCode2(code, caseSensitive);
+
+            case 5:
+                return getByCode5(code, caseSensitive);
+
+            default:
+                return null;
+        }
+    }
+
+
+    private static LocaleCode getByCode2(String code, boolean caseSensitive)
+    {
+        // The code is expected to represent a language code.
+        code = LanguageCode.canonicalize(code, caseSensitive);
+
+        return getByCanonicalizedCode(code);
+    }
+
+
+    private static LocaleCode getByCode5(String code, boolean caseSensitive)
+    {
+        // The code is expected to be "<language>-<country>".
+
+        // Get the character that separates the language code from the country code.
+        char separator = code.charAt(2);
+
+        // The letter in the center must be either '-' or '_'.
+        if (separator != '-' && separator != '_')
+        {
+            // A valid delimiter was not found.
+            return null;
+        }
+
+        // Extract the language part and the country part from the given code.
+        String language = code.substring(0, 2);
+        String country = code.substring(3);
+
+        // Canonicalize.
+        language = LanguageCode.canonicalize(language, caseSensitive);
+        country = CountryCode.canonicalize(country, caseSensitive);
+
+        // Build a canonicalized code.
+        code = language + "_" + country;
+
+        return getByCanonicalizedCode(code);
+    }
+
+
+    private static LocaleCode getByCanonicalizedCode(String code)
+    {
+        try
+        {
+            return Enum.valueOf(LocaleCode.class, code);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return null;
+        }
     }
 }
