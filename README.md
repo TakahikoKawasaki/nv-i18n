@@ -11,18 +11,24 @@ ISO 639-1 language code enum, etc.
 * LanguageCode : ISO 639-1 language code.
 * LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
 
+
 License
 -------
 
 Apache License, Version 2.0
 
+
 Download
 --------
 
-    https://github.com/TakahikoKawasaki/nv-i18n.git
+    git clone https://github.com/TakahikoKawasaki/nv-i18n.git
+
 
 Javadoc
 -------
+
+[com.neovisionaris.i18n javadoc](http://TakahikoKawasaki.github.com/nv-i18n/)
+
 
 Example
 -------
@@ -46,6 +52,7 @@ Example
                            ", " + code.getCountry());
     }
 
+
 See Also
 --------
 
@@ -56,16 +63,19 @@ See Also
 * [ISO 3166-1 numeric](http://en.wikipedia.org/wiki/ISO_3166-1_numeric)
 * [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
 
+
 TODO
 ----
 
 * To register this to Maven Central Repository.
 * To add ScriptCode.
 
+
 Note
 ----
 
 This nv-i18n deprecates https://github.com/TakahikoKawasaki/CountryCode
+
 
 Author
 ------
