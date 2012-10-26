@@ -16,6 +16,9 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.Locale;
+
+
 /**
  * Locale code.
  *
@@ -185,7 +188,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#de German}
      */
-    de(LanguageCode.de, null),
+    de(LanguageCode.de, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.GERMAN;
+        }
+    },
 
     /**
      * {@link LanguageCode#de German}, {@link CountryCode#AT Austria}
@@ -225,7 +235,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#en English}
      */
-    en(LanguageCode.en, null),
+    en(LanguageCode.en, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ENGLISH;
+        }
+    },
 
     /**
      * {@link LanguageCode#en English}, {@link CountryCode#AU Australia}
@@ -410,7 +427,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#fr French}
      */
-    fr(LanguageCode.fr, null),
+    fr(LanguageCode.fr, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.FRENCH;
+        }
+    },
 
     /**
      * {@link LanguageCode#fr French}, {@link CountryCode#BE Belgium}
@@ -420,7 +444,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#fr French}, {@link CountryCode#CA Canada}
      */
-    fr_CA(LanguageCode.fr, CountryCode.CA),
+    fr_CA(LanguageCode.fr, CountryCode.CA)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.CANADA_FRENCH;
+        }
+    },
 
     /**
      * {@link LanguageCode#fr French}, {@link CountryCode#CH Switzerland}
@@ -505,7 +536,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#it Italian}
      */
-    it(LanguageCode.it, null),
+    it(LanguageCode.it, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ITALIAN;
+        }
+    },
 
     /**
      * {@link LanguageCode#it Italian}, {@link CountryCode#CH Switzerland}
@@ -520,7 +558,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#ja Japanese}
      */
-    ja(LanguageCode.ja, null),
+    ja(LanguageCode.ja, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.JAPANESE;
+        }
+    },
 
     /**
      * {@link LanguageCode#ja Japanese}, {@link CountryCode#JP Japan}
@@ -528,12 +573,19 @@ public enum LocaleCode
     ja_JP(LanguageCode.ja, CountryCode.JP),
 
     /**
-     * {@link LanguageCode#ko Korian}
+     * {@link LanguageCode#ko Korean}
      */
-    ko(LanguageCode.ko, null),
+    ko(LanguageCode.ko, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.KOREAN;
+        }
+    },
 
     /**
-     * {@link LanguageCode#ko Korian}, {@link CountryCode#KR Republic of Korea}
+     * {@link LanguageCode#ko Korean}, {@link CountryCode#KR Republic of Korea}
      */
     ko_KR(LanguageCode.ko, CountryCode.KR),
 
@@ -770,12 +822,26 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#zh Chinese}
      */
-    zh(LanguageCode.zh, null),
+    zh(LanguageCode.zh, null)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.CHINESE;
+        }
+    },
 
     /**
      * {@link LanguageCode#zh Chinese}, {@link CountryCode#CN China}
      */
-    zh_CN(LanguageCode.zh, CountryCode.CN),
+    zh_CN(LanguageCode.zh, CountryCode.CN)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.SIMPLIFIED_CHINESE;
+        }
+    },
 
     /**
      * {@link LanguageCode#zh Chinese}, {@link CountryCode#HK Hong Kong}
@@ -790,7 +856,14 @@ public enum LocaleCode
     /**
      * {@link LanguageCode#zh Chinese}, {@link CountryCode#TW Taiwan, Province of China}
      */
-    zh_TW(LanguageCode.zh, CountryCode.TW),
+    zh_TW(LanguageCode.zh, CountryCode.TW)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.TRADITIONAL_CHINESE;
+        }
+    }
     ;
 
 
@@ -867,6 +940,19 @@ public enum LocaleCode
     }
 
 
+    public Locale toLocale()
+    {
+        if (country != null)
+        {
+            return new Locale(language.name(), country.name());
+        }
+        else
+        {
+            return new Locale(language.name());
+        }
+    }
+
+
     /**
      * Get a LocaleCode instance that corresponds to the given code.
      *
@@ -933,7 +1019,8 @@ public enum LocaleCode
         switch (code.length())
         {
             case 2:
-                return getByCode2(code, caseSensitive);
+                // The given code is regarded as a language code.
+                return getByCode(code, null, caseSensitive);
 
             case 5:
                 return getByCode5(code, caseSensitive);
@@ -944,26 +1031,75 @@ public enum LocaleCode
     }
 
 
-    private static LocaleCode getByCode2(String code, boolean caseSensitive)
+    public static LocaleCode getByCode(String language, String country)
     {
-        // The code is expected to represent a language code.
-        code = LanguageCode.canonicalize(code, caseSensitive);
+        return getByCode(language, country, false);
+    }
 
-        return getByCanonicalizedCode(code);
+
+    public static LocaleCode getByCode(String language, String country, boolean caseSensitive)
+    {
+        // Canonicalize the given language code.
+        language = LanguageCode.canonicalize(language, caseSensitive);
+
+        if (language == null)
+        {
+            // There is no LocaleCode whose language is not given.
+            return null;
+        }
+
+        // Canonicalize the given country code.
+        country = CountryCode.canonicalize(country, caseSensitive);
+
+        if (country == null)
+        {
+            return getByEnumName(language);
+        }
+        else
+        {
+            return getByEnumName(language + "_" + country);
+        }
+
+    }
+
+
+    public static LocaleCode getByLocale(Locale locale)
+    {
+        if (locale == null)
+        {
+            return null;
+        }
+
+        // Locale.getLanguage() returns either an empty string or
+        // a lower-case ISO 639 code.
+        String language = locale.getLanguage();
+
+        // Locale.getCountry() returns either an empty string or
+        // a upper-case ISO 3166-1 alphe-2 code.
+        String country = locale.getCountry();
+
+        // 'language' and 'country' are already lower-case and upper-case,
+        // so true can be given as the third argument.
+        return getByCode(language, country, true);
     }
 
 
     private static LocaleCode getByCode5(String code, boolean caseSensitive)
     {
-        // The code is expected to be "<language>-<country>".
-
         // Get the character that separates the language code from the country code.
         char separator = code.charAt(2);
 
-        // The letter in the center must be either '-' or '_'.
-        if (separator != '-' && separator != '_')
+        if (separator == '_')
         {
-            // A valid delimiter was not found.
+            if (caseSensitive)
+            {
+                // The given code can be handled as name.
+                return getByEnumName(code);
+            }
+        }
+        else if (separator != '-')
+        {
+            // Bad format.
             return null;
         }
 
@@ -971,22 +1107,15 @@ public enum LocaleCode
         String language = code.substring(0, 2);
         String country = code.substring(3);
 
-        // Canonicalize.
-        language = LanguageCode.canonicalize(language, caseSensitive);
-        country = CountryCode.canonicalize(country, caseSensitive);
-
-        // Build a canonicalized code.
-        code = language + "_" + country;
-
-        return getByCanonicalizedCode(code);
+        return getByCode(language, country, caseSensitive);
     }
 
 
-    private static LocaleCode getByCanonicalizedCode(String code)
+    private static LocaleCode getByEnumName(String name)
     {
         try
         {
-            return Enum.valueOf(LocaleCode.class, code);
+            return Enum.valueOf(LocaleCode.class, name);
         }
         catch (IllegalArgumentException e)
         {

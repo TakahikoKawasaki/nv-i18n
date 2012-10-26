@@ -2107,7 +2107,7 @@ public enum CountryCode
 
 
     /**
-     * Canonicalize the given country code. This method is package-private.
+     * Canonicalize the given country code.
      *
      * @param code
      *         ISO 3166-1 alpha-2 or alpha-3 country code.
@@ -2116,11 +2116,17 @@ public enum CountryCode
      *         True if the code should be handled case-sensitively.
      *
      * @return
-     *         If 'caseSensitive' is true, 'code' is returned as is.
-     *         Otherwise, code.toUpperCase() is returned.
+     *         If 'code' is null or an empty string, null is returned.
+     *         Otherwise, if 'caseSensitive' is true, 'code' is returned
+     *         as is. Otherwise, code.toUpperCase() is returned.
      */
     static String canonicalize(String code, boolean caseSensitive)
     {
+        if (code == null || code.length() == 0)
+        {
+            return null;
+        }
+
         if (caseSensitive)
         {
             return code;

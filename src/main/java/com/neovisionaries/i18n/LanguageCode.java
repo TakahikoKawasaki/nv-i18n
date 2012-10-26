@@ -465,7 +465,7 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Korean_language">Korean</a>
      */
-    ko("Korian"),
+    ko("Korean"),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Kanuri_language">Kanuri</a>
@@ -1013,6 +1013,10 @@ public enum LanguageCode
      *
      * @param code
      *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code.
+     *         Note that if the given code is one of legacy language codes
+     *         ("iw", "ji" and "in"), it is treated as its official counterpart
+     *         ("he", "yi" and "id", respectively). For example, if "in" is given,
+     *         this method returns {@code LanguageCode.id}.
      *
      * @param caseSensitive
      *         If true, the given code should consist of lower-case letters only.
@@ -1045,7 +1049,20 @@ public enum LanguageCode
 
 
     /**
-     * Canonicalize the given language code. This method is package-private.
+     * Canonicalize the given language code.
+     *
+     * <ol>
+     * <li>If the given code is null or an empty string, null is returned.
+     * <li>Otherwise, if the given code matches one of three legacy
+     *     language code ("iw", "ji" and "in"), its official counterpart
+     *     ("he", "yi" and "id", respectively) is returned. Note that
+     *     String.equals(Object) is used for comparison if caseSensitive
+     *     is true and that String.equalsIgnoreCase(String) is used if
+     *     caseSensitive is false.
+     * <li>Otherwise, if caseSensitive is true, the given code is returned
+     *     as is.
+     * <li>Otherwise, code.toLowercase() is returned.
+     * </ol>
      *
      * @param code
      *         ISO 639-1 code.
@@ -1054,11 +1071,38 @@ public enum LanguageCode
      *         True if the code should be handled case-sensitively.
      *
      * @return
-     *         If 'caseSensitive' is true, 'code' is returned as is.
-     *         Otherwise, code.toLowerCase() is returned.
+     *         Canonicalized language code.
      */
     static String canonicalize(String code, boolean caseSensitive)
     {
+        if (code == null || code.length() == 0)
+        {
+            return null;
+        }
+
+        // Support legacy language codes. Map three obsolete language codes
+        // { "iw", "ji", "in" } to new official ones { "he", "yi", "id" }.
+        final String[] legacy = { "iw", "ji", "in" };
+        final String[] official = { "he", "yi", "id" };
+
+        for (int i = 0; i < legacy.length; ++i)
+        {
+            if (caseSensitive)
+            {
+                if (code.equals(legacy[i]))
+                {
+                    return official[i];
+                }
+            }
+            else
+            {
+                if (code.equalsIgnoreCase(legacy[i]))
+                {
+                    return official[i];
+                }
+            }
+        }
+
         if (caseSensitive)
         {
             return code;
