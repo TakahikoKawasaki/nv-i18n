@@ -16,6 +16,9 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.Locale;
+
+
 /**
  * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
  * language code.
@@ -31,11 +34,17 @@ package com.neovisionaries.i18n;
  * for (LanguageCode code : LanguageCode.values())
  * {
  *     <span style="color: darkgreen;">// For example, "[ar] Arabic" is printed.</span>
- *     System.out.println("[" + code + "] " + code.{@link #getName()});
+ *     System.out.format("[%s] %s\n", code, code.{@link #getName()});
  * }
  *
  * <span style="color: darkgreen;">// Get a LanguageCode instance by ISO 639-1 code.</span>
  * LanguageCode code = LanguageCode.{@link #getByCode(String) getByCode}("fr");
+ *
+ * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
+ * Locale locale = code.{@link #toLocale()};
+ *
+ * <span style="color: darkgreen;">// Get a LanguageCode by a Locale instance.</span>
+ * code = LanguageCode.{@link #getByLocale(Locale) getByLocale}(locale);
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -205,7 +214,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/German_language">German</a>
      */
-    de("German"),
+    de("German")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.GERMAN;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Dhivehi_language">Divehi</a>
@@ -230,7 +246,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/English_language">English</a>
      */
-    en("English"),
+    en("English")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ENGLISH;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Esperanto">Esperanto</a>
@@ -280,7 +303,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/French_language">French</a>
      */
-    fr("French"),
+    fr("French")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.FRENCH;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/West_Frisian_language">West Frisian</a>
@@ -405,7 +435,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Italian_language">Italian</a>
      */
-    it("Italian"),
+    it("Italian")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ITALIAN;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Inuktitut">Inuktitut</a>
@@ -415,7 +452,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Japanese_language">Japanese</a>
      */
-    ja("Japanese"),
+    ja("Japanese")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.JAPANESE;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Javanese_language">Javanese</a>
@@ -465,7 +509,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Korean_language">Korean</a>
      */
-    ko("Korean"),
+    ko("Korean")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.KOREAN;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Kanuri_language">Kanuri</a>
@@ -955,7 +1006,14 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Chinese_language">Chinese</a>
      */
-    zh("Chinese"),
+    zh("Chinese")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.CHINESE;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Zulu_language">Zulu</a>
@@ -982,6 +1040,66 @@ public enum LanguageCode
     public String getName()
     {
         return name;
+    }
+
+
+    /**
+     * Convert this LanguageCode instance to a {@link Locale} instance.
+     *
+     * <p>
+     * In most cases, this method creates a new Locale instance
+     * every time it is called, but some LanguageCode instances return
+     * their corresponding entries in Locale class. For example,
+     * {@link #ja LanguageCode.ja} always returns {@link Locale#JAPANESE}.
+     * </p>
+     *
+     * <p>
+     * The table below lists LanguageCode entries whose toLocale()
+     * do not create new Locale instances but return entries in
+     * Locale class.
+     * </p>
+     *
+     * <table border="1" style="border-collapse: collapse;" cellpadding="5">
+     * <tr bgcolor="#FF8C00">
+     *   <th>LanguageCode</th>
+     *   <th>Locale</th>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#de LanguageCode.de}</td>
+     *   <td>{@link Locale#GERMAN}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#en LanguageCode.en}</td>
+     *   <td>{@link Locale#ENGLISH}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#fr LanguageCode.fr}</td>
+     *   <td>{@link Locale#FRENCH}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#it LanguageCode.it}</td>
+     *   <td>{@link Locale#ITALIAN}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#ja LanguageCode.ja}</td>
+     *   <td>{@link Locale#JAPANESE}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#ko LanguageCode.ko}</td>
+     *   <td>{@link Locale#KOREAN}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link LanguageCode#zh LanguageCode.zh}</td>
+     *   <td>{@link Locale#CHINESE}</td>
+     * </tr>
+     * </table>
+     *
+     * @return
+     *         A Locale instance that matches this LanguageCode.
+     */
+    public Locale toLocale()
+    {
+        return new Locale(name());
     }
 
 
@@ -1016,26 +1134,26 @@ public enum LanguageCode
      *         Note that if the given code is one of legacy language codes
      *         ("iw", "ji" and "in"), it is treated as its official counterpart
      *         ("he", "yi" and "id", respectively). For example, if "in" is given,
-     *         this method returns {@code LanguageCode.id}.
+     *         this method returns {@link #id LanguageCode.id}.
      *
      * @param caseSensitive
      *         If true, the given code should consist of lower-case letters only.
      *         If false, this method internally canonicalizes the given code by
      *         {@link String#toLowerCase()} and then performs search. For example,
      *         {@code getByCode("JA", true)} returns null, but on the other hand,
-     *         {@code getByCode("JA", false)} returns {@code LanguageCode.ja}.
+     *         {@code getByCode("JA", false)} returns {@link #ja LanguageCode.ja}.
      *
      * @return
      *         A LanguageCode instance, or null if not found.
      */
     public static LanguageCode getByCode(String code, boolean caseSensitive)
     {
+        code = canonicalize(code, caseSensitive);
+
         if (code == null)
         {
             return null;
         }
-
-        code = canonicalize(code, caseSensitive);
 
         try
         {
@@ -1045,6 +1163,31 @@ public enum LanguageCode
         {
             return null;
         }
+    }
+
+
+    /**
+     * Get a LanguageCode that corresponds to the language code of
+     * the given {@link Locale} instance.
+     *
+     * @param locale
+     *         A Locale instance.
+     *
+     * @return
+     *         A LanguageCode instance, or null if not found.
+     *
+     * @see Locale#getLanguage()
+     */
+    public static LanguageCode getByLocale(Locale locale)
+    {
+        if (locale == null)
+        {
+            return null;
+        }
+
+        // Locale.getLanguage() returns either an empty string or
+        // a lowercase ISO 639 code.
+        return getByCode(locale.getLanguage(), true);
     }
 
 

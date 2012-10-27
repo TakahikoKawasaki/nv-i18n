@@ -17,6 +17,7 @@ package com.neovisionaries.i18n;
 
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -26,7 +27,8 @@ import java.util.Map;
  * <p>
  * Enum names of this enum themselves are represented by
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
- * code. There are instance methods to get the country name ({@link #getName()}), the
+ * code (2-letter upper-case alphabets). There are instance methods to get the
+ * country name ({@link #getName()}), the
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3" >ISO 3166-1 alpha-3</a>
  * code ({@link #getAlpha3()}) and the
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1 numeric</a>
@@ -41,7 +43,7 @@ import java.util.Map;
  * for (CountryCode code : CountryCode.values())
  * {
  *     <span style="color: darkgreen;">// For example, "[US] United States" is printed.</span>
- *     System.out.println("[" + code + "] " + code.{@link #getName()});
+ *     System.out.format("[%s] %s\n", code, code.{@link #getName()});
  * }
  *
  * <span style="color: darkgreen;">// Get a CountryCode instance by ISO 3166-1 code.</span>
@@ -53,11 +55,19 @@ import java.util.Map;
  * <span style="color: darkgreen;">//     ISO 3166-1 alpha-2 code = JP</span>
  * <span style="color: darkgreen;">//     ISO 3166-1 alpha-3 code = JPN</span>
  * <span style="color: darkgreen;">//     ISO 3166-1 numeric code = 392</span>
+ * <span style="color: darkgreen;">//     Assignment state        = OFFICIALLY_ASSIGNED</span>
  * <span style="color: darkgreen;">//</span>
  * System.out.println("Country name            = " + code.{@link #getName()});
  * System.out.println("ISO 3166-1 alpha-2 code = " + code.{@link #getAlpha2()});
  * System.out.println("ISO 3166-1 alpha-3 code = " + code.{@link #getAlpha3()});
  * System.out.println("ISO 3166-1 numeric code = " + code.{@link #getNumeric()});
+ * System.out.println("Assignment state        = " + code.{@link #getAssignment()});
+ *
+ * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
+ * Locale locale = code.{@link #toLocale()};
+ *
+ * <span style="color: darkgreen;">// Get a CountryCode by a Locale instance.</span>
+ * code = CountryCode.{@link #getByLocale(Locale) getByLocale}(locale);
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -118,7 +128,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AN">AN</a>, ANHH, 530,
      * Traditionally reserved]
      */
-    AN("Netherlands Antilles", "ANHH", 530, Assignment.TRADITIONALLY_RESERVED),
+    AN("Netherlands Antilles", "ANHH", 530, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Angola">Angola</a>
@@ -309,7 +319,7 @@ public enum CountryCode
      *
      * @see #MM
      */
-    BU("Burma", "BUMM", 104, Assignment.TRADITIONALLY_RESERVED),
+    BU("Burma", "BUMM", 104, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Bouvet_Island">Bouvet Island</a>
@@ -344,7 +354,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CA">CA</a>, CAN, 124,
      * Officially assigned]
      */
-    CA("Canada", "CAN", 124, Assignment.OFFICIALLY_ASSIGNED),
+    CA("Canada", "CAN", 124, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.CANADA;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Cocos_(Keeling)_Islands">Cocos (Keeling) Islands</a>
@@ -414,7 +431,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CN">CN</a>, CHN, 156,
      * Officially assigned]
      */
-    CN("China", "CHN", 156, Assignment.OFFICIALLY_ASSIGNED),
+    CN("China", "CHN", 156, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.CHINA;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Colombia">Colombia</a>
@@ -435,7 +459,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CS">CS</a>, CSXX, 891,
      * Traditionally reserved]
      */
-    CS("Serbia and Montenegro", "CSXX", 891, Assignment.TRADITIONALLY_RESERVED),
+    CS("Serbia and Montenegro", "CSXX", 891, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Cuba">Cuba</a>
@@ -484,7 +508,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#DE">DE</a>, DEU, 276,
      * Officially assigned]
      */
-    DE("Germany", "DEU", 276, Assignment.OFFICIALLY_ASSIGNED),
+    DE("Germany", "DEU", 276, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.GERMANY;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Djibouti">Djibouti</a>
@@ -612,7 +643,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FR">FR</a>, FRA, 250,
      * Officially assigned]
      */
-    FR("France", "FRA", 250, Assignment.OFFICIALLY_ASSIGNED),
+    FR("France", "FRA", 250, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.FRANCE;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Gabon">Gabon </a>
@@ -626,7 +664,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#GB">GB</a>, GBR, 826,
      * Officially assigned]
      */
-    GB("United Kingdom", "GBR", 826, Assignment.OFFICIALLY_ASSIGNED),
+    GB("United Kingdom", "GBR", 826, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.UK;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Grenada">Grenada</a>
@@ -857,7 +902,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#IT">IT</a>, ITA, 380,
      * Officially assigned]
      */
-    IT("Italy", "ITA", 380, Assignment.OFFICIALLY_ASSIGNED),
+    IT("Italy", "ITA", 380, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ITALY;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Jersey">Jersey</a>
@@ -885,7 +937,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#JP">JP</a>, JPN, 392,
      * Officially assigned]
      */
-    JP("Japan", "JPN", 392, Assignment.OFFICIALLY_ASSIGNED),
+    JP("Japan", "JPN", 392, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.JAPAN;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Kenya">Kenya</a>
@@ -941,7 +1000,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#KR">KR</a>, KOR, 410,
      * Officially assigned]
      */
-    KR("Republic of Korea", "KOR", 410, Assignment.OFFICIALLY_ASSIGNED),
+    KR("Republic of Korea", "KOR", 410, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.KOREA;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Kuwait">Kuwait</a>
@@ -1279,7 +1345,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#NT">NT</a>, NTHH, 536,
      * Traditionally reserved]
      */
-    NT("Neutral Zone", "NTHH", 536, Assignment.TRADITIONALLY_RESERVED),
+    NT("Neutral Zone", "NTHH", 536, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Niue">Niue</a>
@@ -1484,7 +1550,7 @@ public enum CountryCode
      *
      * @see #FI
      */
-    SF("Finland", "FIN", 246, Assignment.TRADITIONALLY_RESERVED),
+    SF("Finland", "FIN", 246, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Singapore">Singapore</a>
@@ -1684,7 +1750,7 @@ public enum CountryCode
      * ISO 3166-1 numeric code is unknown.
      * </p>
      */
-    TP("East Timor", "TPTL", 0, Assignment.TRADITIONALLY_RESERVED),
+    TP("East Timor", "TPTL", 0, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Turkey">Turkey</a>
@@ -1712,7 +1778,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TW">TW</a>, TWN, 158,
      * Officially assigned]
      */
-    TW("Taiwan, Province of China", "TWN", 158, Assignment.OFFICIALLY_ASSIGNED),
+    TW("Taiwan, Province of China", "TWN", 158, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.TAIWAN;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Tanzania">United Republic of Tanzania</a>
@@ -1747,7 +1820,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#US">US</a>, USA, 840,
      * Officially assigned]
      */
-    US("United States", "USA", 840, Assignment.OFFICIALLY_ASSIGNED),
+    US("United States", "USA", 840, Assignment.OFFICIALLY_ASSIGNED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.US;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Uruguay">Uruguay</a>
@@ -1845,7 +1925,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#YU">YU</a>, YUCS, 890,
      * Traditionally reserved]
      */
-    YU("Yugoslavia", "YUCS", 890, Assignment.TRADITIONALLY_RESERVED),
+    YU("Yugoslavia", "YUCS", 890, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/South_Africa">South Africa</a>
@@ -1870,7 +1950,7 @@ public enum CountryCode
      * ISO 3166-1 numeric code is unknown.
      * </p>
      */
-    ZR("Zaire", "ZRCD", 0, Assignment.TRADITIONALLY_RESERVED),
+    ZR("Zaire", "ZRCD", 0, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Zimbabwe">Zimbabwe</a>
@@ -1882,7 +1962,8 @@ public enum CountryCode
 
 
     /**
-     * Code assignment state in ISO 3166-1.
+     * Code assignment state in <a href="http://en.wikipedia.org/wiki/ISO_3166-1"
+     * >ISO 3166-1</a>.
      *
      * @see <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Decoding_table"
      *       >Decoding table of ISO 3166-1 alpha-2 codes</a>
@@ -1915,11 +1996,11 @@ public enum CountryCode
 
         /**
          * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Transitional_reservations"
-         * >Traditionally reserved</a>.
+         * >Transitionally reserved</a>.
          *
          * Deleted from ISO 3166-1 but reserved transitionally.
          */
-        TRADITIONALLY_RESERVED,
+        TRANSITIONALLY_RESERVED,
 
         /**
          * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Indeterminate_reservations"
@@ -2039,7 +2120,79 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to a given ISO 3166-1
+     * Convert this CountryCode instance to a {@link Locale} instance.
+     *
+     * <p>
+     * In most cases, this method creates a new Locale instance
+     * every time it is called, but some CountryCode instances return
+     * their corresponding entries in Locale class. For example,
+     * {@link #CA CountryCode.CA} always returns {@link Locale#CANADA}.
+     * </p>
+     *
+     * <p>
+     * The table below lists CountryCode entries whose toLocale()
+     * do not create new Locale instances but return entries in
+     * Locale class.
+     * </p>
+     *
+     * <table border="1" style="border-collapse: collapse;" cellpadding="5">
+     * <tr bgcolor="#FF8C00">
+     *   <th>CountryCode</th>
+     *   <th>Locale</th>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#CA CountryCode.CA}</td>
+     *   <td>{@link Locale#CANADA}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#CN CountryCode.CN}</td>
+     *   <td>{@link Locale#CHINA}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#DE CountryCode.DE}</td>
+     *   <td>{@link Locale#GERMANY}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#FR CountryCode.FR}</td>
+     *   <td>{@link Locale#FRANCE}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#GB CountryCode.GB}</td>
+     *   <td>{@link Locale#UK}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#IT CountryCode.IT}</td>
+     *   <td>{@link Locale#ITALY}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#JP CountryCode.JP}</td>
+     *   <td>{@link Locale#JAPAN}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#KR CountryCode.KR}</td>
+     *   <td>{@link Locale#KOREA}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#TW CountryCode.TW}</td>
+     *   <td>{@link Locale#TAIWAN}</td>
+     * </tr>
+     * <tr>
+     *   <td>{@link CountryCode#US CountryCode.US}</td>
+     *   <td>{@link Locale#US}</td>
+     * </tr>
+     * </table>
+     *
+     * @return
+     *         A Locale instance that matches this CountryCode.
+     */
+    public Locale toLocale()
+    {
+        return new Locale("", name());
+    }
+
+
+    /**
+     * Get a CountryCode that corresponds to the given ISO 3166-1
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
      *
@@ -2056,6 +2209,8 @@ public enum CountryCode
      *
      * @return
      *         A CountryCode instance, or null if not found.
+     *
+     * @see #getByCode(String, boolean)
      */
     public static CountryCode getByCode(String code)
     {
@@ -2064,7 +2219,7 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to a given ISO 3166-1
+     * Get a CountryCode that corresponds to the given ISO 3166-1
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
      *
@@ -2078,7 +2233,7 @@ public enum CountryCode
      *         If false, this method internally canonicalizes the given code by
      *         {@link String#toUpperCase()} and then performs search. For example,
      *         {@code getByCode("jp", true)} returns null, but on the other hand,
-     *         {@code getByCode("jp", false)} returns {@code CountryCode.JP}.
+     *         {@code getByCode("jp", false)} returns {@link #JP CountryCode.JP}.
      *
      * @return
      *         A CountryCode instance, or null if not found.
@@ -2103,6 +2258,31 @@ public enum CountryCode
             default:
                 return null;
         }
+    }
+
+
+    /**
+     * Get a CountryCode that corresponds to the country code of
+     * the given {@link Locale} instance.
+     *
+     * @param locale
+     *         A Locale instance.
+     *
+     * @return
+     *         A CountryCode instance, or null if not found.
+     *
+     * @see Locale#getCountry()
+     */
+    public static CountryCode getByLocale(Locale locale)
+    {
+        if (locale == null)
+        {
+            return null;
+        }
+
+        // Locale.getCountry() returns either an empty string or
+        // an uppercase ISO 3166 2-letter code.
+        return getByCode(locale.getCountry(), true);
     }
 
 
@@ -2158,7 +2338,7 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to a given
+     * Get a CountryCode that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1
      * numeric</a> code.
      *

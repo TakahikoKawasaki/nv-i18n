@@ -36,20 +36,23 @@ Example
     // List all the country codes.
     for (CountryCode code : CountryCode.values())
     {
-        System.out.println("[" + code + "] " + code.getName());
+        System.out.format("[%s] %s\n", code, code.getName());
     }
 
     // List all the language codes.
     for (LanguageCode code : LanguageCode.values())
     {
-        System.out.println("[" + code + "] " + code.getName());
+        System.out.format("[%s] %s\n", code, code.getName());
     }
 
     // List all the locale codes.
     for (LocaleCode code : LocaleCode.values())
     {
-        System.out.println("[" + code + "] " + code.getLanguage() +
-                           ", " + code.getCountry());
+        String language = code.getLanguage().getName();
+        String country  = code.getCountry() != null
+                        ? code.getCountry().getName() : null;
+
+        System.out.format("[%s] %s, %s\n", code, language, country);
     }
 
 
@@ -68,7 +71,8 @@ TODO
 ----
 
 * To register this to Maven Central Repository.
-* To add ScriptCode.
+* To add missing entries to CountryCode.
+* To add ScriptCode if time allows.
 
 
 Note
