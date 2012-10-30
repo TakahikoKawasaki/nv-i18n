@@ -56,6 +56,16 @@ Example
     }
 
 
+Maven
+-----
+
+    <dependency>
+        <groupId>com.neovisionaries</groupId>
+        <artifactId>nv-i18n</artifactId>
+        <version>1.0</version>
+    </depenency>
+
+
 See Also
 --------
 
