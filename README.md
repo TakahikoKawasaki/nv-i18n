@@ -70,19 +70,20 @@ See Also
 --------
 
 * [nv-i18n @ GitHub](https://github.com/TakahikoKawasaki/nv-i18n)
-* [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1)
-* [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
-* [ISO 3166-1 alpha-3](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
-* [ISO 3166-1 numeric](http://en.wikipedia.org/wiki/ISO_3166-1_numeric)
-* [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
+* Country Code [ISO 3166-1](http://en.wikipedia.org/wiki/ISO_3166-1)
+* Country Code [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+* Country Code [ISO 3166-1 alpha-3](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
+* Country Code [ISO 3166-1 numeric](http://en.wikipedia.org/wiki/ISO_3166-1_numeric)
+* Language Code [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
 
 
 TODO
 ----
 
-* To register this to Maven Central Repository.
 * To add missing entries to CountryCode.
-* To add ScriptCode if time allows.
+* To add ScriptCode.
+* To integrate Currency.java (http://blog.noblemaster.com/2012/11/01/iso-4217-currency-list-currency-java/)
+* To support ISO 639-2 in LanguageCode.
 
 
 Note
