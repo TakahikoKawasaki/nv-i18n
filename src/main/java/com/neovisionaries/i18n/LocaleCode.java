@@ -923,7 +923,7 @@ public enum LocaleCode
      *
      * @return
      *         The country code. This method may return null.
-     *         For example, LocaleCode.{@link #en}.getCountry() returns null.
+     *         For example, {@link #en LocaleCode.en}.getCountry() returns null.
      */
     public CountryCode getCountry()
     {
