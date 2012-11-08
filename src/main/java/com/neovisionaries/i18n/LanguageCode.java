@@ -1030,21 +1030,22 @@ public enum LanguageCode
 
     private LanguageCode(LanguageAlpha3Code alpha3)
     {
-        this.alpha3 = ul(alpha3);
+        List<LanguageAlpha3Code> list = new ArrayList<LanguageAlpha3Code>(1);
+
+        list.add(alpha3);
+
+        this.alpha3 = Collections.unmodifiableList(list);
     }
 
 
     private LanguageCode(LanguageAlpha3Code alpha3T, LanguageAlpha3Code alpha3B)
     {
-        this.alpha3 = ul(alpha3T, alpha3B);
-    }
+        List<LanguageAlpha3Code> list = new ArrayList<LanguageAlpha3Code>(2);
 
+        list.add(alpha3T);
+        list.add(alpha3B);
 
-    private static List<LanguageAlpha3Code> ul(LanguageAlpha3Code... codes)
-    {
-        List<LanguageAlpha3Code> list = new ArrayList<LanguageAlpha3Code>(codes.length);
-
-        return Collections.unmodifiableList(list);
+        this.alpha3 = Collections.unmodifiableList(list);
     }
 
 
