@@ -72,8 +72,8 @@ package com.neovisionaries.i18n;
  * </tr>
  * <tr>
  * <td>{@link LanguageCode#fa fa}</td>
- * <td>{@link LanguageAlpha3Code#per per}</td>
  * <td>{@link LanguageAlpha3Code#fas fas}</td>
+ * <td>{@link LanguageAlpha3Code#per per}</td>
  * <td><a href="http://en.wikipedia.org/wiki/Persian_language">Persian</a></td>
  * </tr>
  * <tr>
