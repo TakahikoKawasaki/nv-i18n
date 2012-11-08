@@ -3716,6 +3716,7 @@ public enum LanguageAlpha3Code
             return null;
         }
 
+        code = LanguageCode.canonicalize(code, caseSensitive);
         LanguageCode alpha2 = LanguageCode.getByEnumName(code);
 
         if (alpha2 == null)
