@@ -151,7 +151,15 @@ package com.neovisionaries.i18n;
  * <td><a href="http://en.wikipedia.org/wiki/Albanian_language">Albanian</a></td>
  * </tr>
  * </table>
- * 
+ *
+ * <p>
+ * Note that the current implementation of LanguageAlpha3Code has not
+ * been completed yet. In other words, there are many missing ISO 639-2
+ * codes. The entries listed now are limited to ones that have
+ * corresponding ISO 639-1 code (2-letter lowercase code). Missing
+ * entries will be added in the future.
+ * </p>
+ *
  * @since 1.1
  * @author Takahiko Kawasaki
  */
