@@ -23,8 +23,8 @@ package com.neovisionaries.i18n;
  * <p>
  * Most languages have just one ISO 639-2 code, but there are some languages
  * that have 2 codes, ISO 639-2/T code ("terminological" code) and ISO 639-2/B
- * code ("bibliographic" code). The table below list up langueses having two ISO
- * 639-2 codes.
+ * code ("bibliographic" code). The table below lists up langueses having two
+ * ISO 639-2 codes.
  * </p>
  * 
  * <table border="1" style="border-collapse: collapse" cellpadding="5">
@@ -1028,7 +1028,7 @@ public enum LanguageAlpha3Code
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Persian_language">Persian</a>
-     * ({@link LanguageCode#fa fa}) for bibliographic applications.
+     * ({@link LanguageCode#fa fa}) for terminology applications.
      * 
      * @see #per
      */
@@ -1044,7 +1044,7 @@ public enum LanguageAlpha3Code
         @Override
         public Usage getUsage()
         {
-            return Usage.BIBLIOGRAPHY;
+            return Usage.TERMINOLOGY;
         }
 
 
@@ -2525,7 +2525,7 @@ public enum LanguageAlpha3Code
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Persian_language">Persian</a>
-     * ({@link LanguageCode#fa fa}) for terminology applications.
+     * ({@link LanguageCode#fa fa}) for bibliographic applications.
      * 
      * @see #fas
      */
@@ -2541,7 +2541,7 @@ public enum LanguageAlpha3Code
         @Override
         public Usage getUsage()
         {
-            return Usage.TERMINOLOGY;
+            return Usage.BIBLIOGRAPHY;
         }
 
 
@@ -3596,11 +3596,11 @@ public enum LanguageAlpha3Code
     {
         if (getUsage() == Usage.BIBLIOGRAPHY)
         {
-            return getSynonym();
+            return this;
         }
         else
         {
-            return this;
+            return getSynonym();
         }
     }
 
@@ -3625,11 +3625,11 @@ public enum LanguageAlpha3Code
     {
         if (getUsage() == Usage.TERMINOLOGY)
         {
-            return getSynonym();
+            return this;
         }
         else
         {
-            return this;
+            return getSynonym();
         }
     }
 
@@ -3655,8 +3655,7 @@ public enum LanguageAlpha3Code
      *        Note that if the given code is one of legacy language codes
      *        ("iw", "ji" and "in"), it is treated as its official counterpart
      *        ("he", "yi" and "id", respectively). For example, if "in" is
-     *        given,
-     *        this method returns {@link #ind LanguageAlpha3Code.ind}.
+     *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      * 
      * @return
      *         A LanguageAlpha3Code instance, or null if not found.
@@ -3687,8 +3686,7 @@ public enum LanguageAlpha3Code
      *        Note that if the given code is one of legacy language codes
      *        ("iw", "ji" and "in"), it is treated as its official counterpart
      *        ("he", "yi" and "id", respectively). For example, if "in" is
-     *        given,
-     *        this method returns {@link #ind LanguageAlpha3Code.ind}.
+     *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      * 
      * @param caseSensitive
      *        If true, the given code should consist of lowercase letters only.
@@ -3732,7 +3730,7 @@ public enum LanguageAlpha3Code
             return null;
         }
 
-        return alpha2.getAlpha3().get(0);
+        return alpha2.getAlpha3();
     }
 
 

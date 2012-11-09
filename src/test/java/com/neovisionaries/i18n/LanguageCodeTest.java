@@ -716,418 +716,145 @@ public class LanguageCodeTest
     @Test
     public void test97()
     {
-        assertEquals(LanguageCode.bo.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.bo.getAlpha3(), LanguageAlpha3Code.bod);
     }
 
 
     @Test
     public void test98()
     {
-        assertEquals(LanguageCode.bo.getAlpha3().get(0), LanguageAlpha3Code.bod);
+        assertEquals(LanguageCode.eu.getAlpha3(), LanguageAlpha3Code.eus);
     }
 
 
     @Test
     public void test99()
     {
-        assertEquals(LanguageCode.bo.getAlpha3().get(1), LanguageAlpha3Code.tib);
+        assertEquals(LanguageCode.cs.getAlpha3(), LanguageAlpha3Code.ces);
     }
 
 
     @Test
     public void test100()
     {
-        assertEquals(LanguageCode.eu.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.cy.getAlpha3(), LanguageAlpha3Code.cym);
     }
 
 
     @Test
     public void test101()
     {
-        assertEquals(LanguageCode.eu.getAlpha3().get(0), LanguageAlpha3Code.eus);
+        assertEquals(LanguageCode.de.getAlpha3(), LanguageAlpha3Code.deu);
     }
 
 
     @Test
     public void test102()
     {
-        assertEquals(LanguageCode.eu.getAlpha3().get(1), LanguageAlpha3Code.baq);
+        assertEquals(LanguageCode.el.getAlpha3(), LanguageAlpha3Code.ell);
     }
 
 
     @Test
     public void test103()
     {
-        assertEquals(LanguageCode.cs.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.fa.getAlpha3(), LanguageAlpha3Code.fas);
     }
 
 
     @Test
     public void test104()
     {
-        assertEquals(LanguageCode.cs.getAlpha3().get(0), LanguageAlpha3Code.ces);
+        assertEquals(LanguageCode.fr.getAlpha3(), LanguageAlpha3Code.fra);
     }
 
 
     @Test
     public void test105()
     {
-        assertEquals(LanguageCode.cs.getAlpha3().get(1), LanguageAlpha3Code.cze);
+        assertEquals(LanguageCode.hy.getAlpha3(), LanguageAlpha3Code.hye);
     }
 
 
     @Test
     public void test106()
     {
-        assertEquals(LanguageCode.cy.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.is.getAlpha3(), LanguageAlpha3Code.isl);
     }
 
 
     @Test
     public void test107()
     {
-        assertEquals(LanguageCode.cy.getAlpha3().get(0), LanguageAlpha3Code.cym);
+        assertEquals(LanguageCode.ka.getAlpha3(), LanguageAlpha3Code.kat);
     }
 
 
     @Test
     public void test108()
     {
-        assertEquals(LanguageCode.cy.getAlpha3().get(1), LanguageAlpha3Code.wel);
+        assertEquals(LanguageCode.mi.getAlpha3(), LanguageAlpha3Code.mri);
     }
 
 
     @Test
     public void test109()
     {
-        assertEquals(LanguageCode.de.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.mk.getAlpha3(), LanguageAlpha3Code.mkd);
     }
 
 
     @Test
     public void test110()
     {
-        assertEquals(LanguageCode.de.getAlpha3().get(0), LanguageAlpha3Code.deu);
+        assertEquals(LanguageCode.ms.getAlpha3(), LanguageAlpha3Code.msa);
     }
 
 
     @Test
     public void test111()
     {
-        assertEquals(LanguageCode.de.getAlpha3().get(1), LanguageAlpha3Code.ger);
+        assertEquals(LanguageCode.my.getAlpha3(), LanguageAlpha3Code.mya);
     }
 
 
     @Test
     public void test112()
     {
-        assertEquals(LanguageCode.el.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.nl.getAlpha3(), LanguageAlpha3Code.nld);
     }
 
 
     @Test
     public void test113()
     {
-        assertEquals(LanguageCode.el.getAlpha3().get(0), LanguageAlpha3Code.ell);
+        assertEquals(LanguageCode.ro.getAlpha3(), LanguageAlpha3Code.ron);
     }
 
 
     @Test
     public void test114()
     {
-        assertEquals(LanguageCode.el.getAlpha3().get(1), LanguageAlpha3Code.gre);
+        assertEquals(LanguageCode.sk.getAlpha3(), LanguageAlpha3Code.slk);
     }
 
 
     @Test
     public void test115()
     {
-        assertEquals(LanguageCode.fa.getAlpha3().size(), 2);
+        assertEquals(LanguageCode.sq.getAlpha3(), LanguageAlpha3Code.sqi);
     }
 
 
     @Test
     public void test116()
     {
-        assertEquals(LanguageCode.fa.getAlpha3().get(0), LanguageAlpha3Code.fas);
+        assertEquals(LanguageCode.ja.getAlpha3(), LanguageAlpha3Code.jpn);
     }
 
 
     @Test
     public void test117()
-    {
-        assertEquals(LanguageCode.fa.getAlpha3().get(1), LanguageAlpha3Code.per);
-    }
-
-
-    @Test
-    public void test118()
-    {
-        assertEquals(LanguageCode.fr.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test119()
-    {
-        assertEquals(LanguageCode.fr.getAlpha3().get(0), LanguageAlpha3Code.fra);
-    }
-
-
-    @Test
-    public void test120()
-    {
-        assertEquals(LanguageCode.fr.getAlpha3().get(1), LanguageAlpha3Code.fre);
-    }
-
-
-    @Test
-    public void test121()
-    {
-        assertEquals(LanguageCode.hy.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test122()
-    {
-        assertEquals(LanguageCode.hy.getAlpha3().get(0), LanguageAlpha3Code.hye);
-    }
-
-
-    @Test
-    public void test123()
-    {
-        assertEquals(LanguageCode.hy.getAlpha3().get(1), LanguageAlpha3Code.arm);
-    }
-
-
-    @Test
-    public void test124()
-    {
-        assertEquals(LanguageCode.is.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test125()
-    {
-        assertEquals(LanguageCode.is.getAlpha3().get(0), LanguageAlpha3Code.isl);
-    }
-
-
-    @Test
-    public void test126()
-    {
-        assertEquals(LanguageCode.is.getAlpha3().get(1), LanguageAlpha3Code.ice);
-    }
-
-
-    @Test
-    public void test127()
-    {
-        assertEquals(LanguageCode.ka.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test128()
-    {
-        assertEquals(LanguageCode.ka.getAlpha3().get(0), LanguageAlpha3Code.kat);
-    }
-
-
-    @Test
-    public void test129()
-    {
-        assertEquals(LanguageCode.ka.getAlpha3().get(1), LanguageAlpha3Code.geo);
-    }
-
-
-    @Test
-    public void test130()
-    {
-        assertEquals(LanguageCode.mi.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test131()
-    {
-        assertEquals(LanguageCode.mi.getAlpha3().get(0), LanguageAlpha3Code.mri);
-    }
-
-
-    @Test
-    public void test132()
-    {
-        assertEquals(LanguageCode.mi.getAlpha3().get(1), LanguageAlpha3Code.mao);
-    }
-
-
-    @Test
-    public void test133()
-    {
-        assertEquals(LanguageCode.mk.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test134()
-    {
-        assertEquals(LanguageCode.mk.getAlpha3().get(0), LanguageAlpha3Code.mkd);
-    }
-
-
-    @Test
-    public void test135()
-    {
-        assertEquals(LanguageCode.mk.getAlpha3().get(1), LanguageAlpha3Code.mac);
-    }
-
-
-    @Test
-    public void test136()
-    {
-        assertEquals(LanguageCode.ms.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test137()
-    {
-        assertEquals(LanguageCode.ms.getAlpha3().get(0), LanguageAlpha3Code.msa);
-    }
-
-
-    @Test
-    public void test138()
-    {
-        assertEquals(LanguageCode.ms.getAlpha3().get(1), LanguageAlpha3Code.may);
-    }
-
-
-    @Test
-    public void test139()
-    {
-        assertEquals(LanguageCode.my.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test140()
-    {
-        assertEquals(LanguageCode.my.getAlpha3().get(0), LanguageAlpha3Code.mya);
-    }
-
-
-    @Test
-    public void test141()
-    {
-        assertEquals(LanguageCode.my.getAlpha3().get(1), LanguageAlpha3Code.bur);
-    }
-
-
-    @Test
-    public void test142()
-    {
-        assertEquals(LanguageCode.nl.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test143()
-    {
-        assertEquals(LanguageCode.nl.getAlpha3().get(0), LanguageAlpha3Code.nld);
-    }
-
-
-    @Test
-    public void test144()
-    {
-        assertEquals(LanguageCode.nl.getAlpha3().get(1), LanguageAlpha3Code.dut);
-    }
-
-
-    @Test
-    public void test145()
-    {
-        assertEquals(LanguageCode.ro.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test146()
-    {
-        assertEquals(LanguageCode.ro.getAlpha3().get(0), LanguageAlpha3Code.ron);
-    }
-
-
-    @Test
-    public void test147()
-    {
-        assertEquals(LanguageCode.ro.getAlpha3().get(1), LanguageAlpha3Code.rum);
-    }
-
-
-    @Test
-    public void test148()
-    {
-        assertEquals(LanguageCode.sk.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test149()
-    {
-        assertEquals(LanguageCode.sk.getAlpha3().get(0), LanguageAlpha3Code.slk);
-    }
-
-
-    @Test
-    public void test150()
-    {
-        assertEquals(LanguageCode.sk.getAlpha3().get(1), LanguageAlpha3Code.slo);
-    }
-
-
-    @Test
-    public void test151()
-    {
-        assertEquals(LanguageCode.sq.getAlpha3().size(), 2);
-    }
-
-
-    @Test
-    public void test152()
-    {
-        assertEquals(LanguageCode.sq.getAlpha3().get(0), LanguageAlpha3Code.sqi);
-    }
-
-
-    @Test
-    public void test153()
-    {
-        assertEquals(LanguageCode.sq.getAlpha3().get(1), LanguageAlpha3Code.alb);
-    }
-
-
-    @Test
-    public void test154()
-    {
-        assertEquals(LanguageCode.ja.getAlpha3().size(), 1);
-    }
-
-
-    @Test
-    public void test155()
-    {
-        assertEquals(LanguageCode.ja.getAlpha3().get(0), LanguageAlpha3Code.jpn);
-    }
-
-
-    @Test
-    public void test156()
     {
         assertEquals(LanguageCode.ja.getName(), "Japanese");
     }
