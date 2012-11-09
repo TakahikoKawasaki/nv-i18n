@@ -9,6 +9,7 @@ ISO 639-1 language code enum, etc.
 
 * CountryCode  : ISO 3166-1 country code.
 * LanguageCode : ISO 639-1 language code.
+* LanguageAlpha3Code : ISO 639-2 language code.
 * LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
 
 
@@ -62,7 +63,7 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </depenency>
 
 
@@ -75,15 +76,17 @@ See Also
 * Country Code [ISO 3166-1 alpha-3](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
 * Country Code [ISO 3166-1 numeric](http://en.wikipedia.org/wiki/ISO_3166-1_numeric)
 * Language Code [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
+* Language Alpha3 Code [ISO 639-2](http://en.wikipedia.org/wiki/ISO_639-2)
 
 
 TODO
 ----
 
 * To add missing entries to CountryCode.
+* To add missing entries to LanguageAlpha3Code.
 * To add ScriptCode.
 * To integrate Currency.java (http://blog.noblemaster.com/2012/11/01/iso-4217-currency-list-currency-java/)
-* To support ISO 639-2 in LanguageCode.
+* To add international telephone dial number.
 
 
 Note
