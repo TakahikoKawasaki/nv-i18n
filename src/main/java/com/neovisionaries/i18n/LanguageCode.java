@@ -2579,17 +2579,18 @@ public enum LanguageCode
      * </p>
      * 
      * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
+     *
      * LanguageCode alpha2 = ...;
      *
      * {@link LanguageAlpha3Code} alpha3B = alpha2.{@link #getAlpha3()}.{@link
-     * LanguageAlpha3Code#getAlpha3B()};
+     * LanguageAlpha3Code#getAlpha3B() getAlpha3B()};
      * </pre>
      *
      * <p>
      * The above code does no harm for most LanguageCodes that have
-     * just one ISO 639-2 code. {@link LanguageAlpha3Code#getAlpha3B()}
-     * of such LanguageAlpha3Code instances just return themselves
-     * (= <code>this</code> object).
+     * just one ISO 639-2 code. {@link LanguageAlpha3Code#getAlpha3B()
+     * getAlpha3B()} of such LanguageAlpha3Code instances just return
+     * themselves (= <code>this</code> object).
      * </p>
      *
      * <p>
