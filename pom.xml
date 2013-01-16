@@ -92,7 +92,16 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
                     <fork>true</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalJOption>-J-Duser.language=en</additionalJOption>
                 </configuration>
             </plugin>
         </plugins>
