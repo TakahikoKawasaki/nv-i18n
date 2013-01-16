@@ -17,7 +17,7 @@
  *     &lt;groupId&gt;</span>com.neovisionaries<span class="tag">&lt;/groupId&gt;
  *     &lt;artifactId&gt;</span>nv-i18n<span class="tag">&lt;/artifactId&gt;
  *     &lt;version&gt;</span>1.2<span class="tag">&lt;/version&gt;
- * &lt;/depenency&gt;</span><!--
+ * &lt;/dependency&gt;</span><!--
  * --></pre>
  *
  * @version 1.2
