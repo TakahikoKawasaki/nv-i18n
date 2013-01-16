@@ -9,15 +9,18 @@
  * <p>
  * For Maven:
  * </p>
- * <pre>
- * &lt;dependency&gt;
- *     &lt;groupId>com.neovisionaries&lt;/groupId&gt;
- *     &lt;artifactId>nv-i18n&lt;/artifactId&gt;
- *     &lt;version>1.1&lt;/version&gt;
- * &lt;/depenency&gt;
- * </pre>
+ * <style type="text/css">
+ * span.tag { color: #45818e; }
+ * </style>
+ * <pre style="margin: 1em; padding: 0.5em; border: solid 1px black;">
+ * <span class="tag">&lt;dependency&gt;
+ *     &lt;groupId&gt;</span>com.neovisionaries<span class="tag">&lt;/groupId&gt;
+ *     &lt;artifactId&gt;</span>nv-i18n<span class="tag">&lt;/artifactId&gt;
+ *     &lt;version&gt;</span>1.2<span class="tag">&lt;/version&gt;
+ * &lt;/depenency&gt;</span><!--
+ * --></pre>
  *
- * @version 1.1
+ * @version 1.2
  * @author Takahiko Kawasaki
  */
 package com.neovisionaries.i18n;

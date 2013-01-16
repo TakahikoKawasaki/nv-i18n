@@ -28,7 +28,7 @@ Download
 Javadoc
 -------
 
-[com.neovisionaris.i18n javadoc](http://TakahikoKawasaki.github.com/nv-i18n/)
+[nv-i18n javadoc](http://TakahikoKawasaki.github.com/nv-i18n/)
 
 
 Example
@@ -56,6 +56,12 @@ Example
         System.out.format("[%s] %s, %s\n", code, language, country);
     }
 
+    // List all the script codes.
+    for (ScriptCode code : ScriptCode.values())
+    {
+        System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
+    }
+
 
 Maven
 -----
@@ -63,7 +69,7 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.1</version>
+        <version>1.2</version>
     </depenency>
 
 
@@ -77,6 +83,7 @@ See Also
 * Country Code [ISO 3166-1 numeric](http://en.wikipedia.org/wiki/ISO_3166-1_numeric)
 * Language Code [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
 * Language Alpha3 Code [ISO 639-2](http://en.wikipedia.org/wiki/ISO_639-2)
+* Script Code [ISO 15924](http://en.wikipedia.org/wiki/ISO_15924)
 
 
 TODO
@@ -84,15 +91,13 @@ TODO
 
 * To add missing entries to CountryCode.
 * To add missing entries to LanguageAlpha3Code.
-* To add ScriptCode.
-* To integrate Currency.java (http://blog.noblemaster.com/2012/11/01/iso-4217-currency-list-currency-java/)
 * To add international telephone dial number.
 
 
 Note
 ----
 
-This nv-i18n deprecates https://github.com/TakahikoKawasaki/CountryCode
+This nv-i18n supersedes https://github.com/TakahikoKawasaki/CountryCode
 
 
 Author
