@@ -5,12 +5,13 @@ Overview
 --------
 
 Package to support internationalization, containing ISO 3166-1 country code enum,
-ISO 639-1 language code enum, etc.
+ISO 639-1 language code enum, ISO 15924 script code enum, etc.
 
 * CountryCode  : ISO 3166-1 country code.
 * LanguageCode : ISO 639-1 language code.
 * LanguageAlpha3Code : ISO 639-2 language code.
 * LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
+* ScriptCode   : ISO 15924 script code.
 
 
 License
@@ -69,8 +70,8 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.2</version>
-    </depenency>
+        <version>1.3</version>
+    </dependency>
 
 
 See Also
