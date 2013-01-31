@@ -1232,7 +1232,22 @@ public enum LocaleCode
         return getByCode(language, country, true);
     }
     
-    
+    /**
+     * Get a LocaleCode instance that corresponds to the given
+     * country code
+     * 
+     * @param country
+     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+     *         >ISO 3166-1 alpha-2</a> country code.
+     *
+     * @param caseSensitive
+     *         If true, the given language code must be lower-case and
+     *         the given country code, if not null, must be upper-case.
+     *         If false, this method internally canonicalizes the given
+     *         codes and then performs search.
+     * @return
+     *         A LocaleCode instance, or null if not found.
+     */
     public static LocaleCode getByCountry(String country, boolean caseSensitive) {
         String search;
         if (caseSensitive) {
