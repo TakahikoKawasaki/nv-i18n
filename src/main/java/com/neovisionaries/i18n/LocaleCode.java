@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Neo Visionaries Inc.
+ * Copyright (C) 2012-2013 Neo Visionaries Inc.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,8 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -57,6 +59,12 @@ import java.util.Locale;
  * {
  *     System.out.println("Locale.en.toLocale() returned Locale.ENGLISH");
  * }
+ *
+ * <span style="color: darkgreen;">// Get a list of LocaleCode instances whose language is Arabic.</span>
+ * List<LocaleCode> list = LocaleCode.{@link #getByLanguage(LanguageCode) getByLanguage}({@link LanguageCode#ar});
+ *
+ * <span style="color: darkgreen;">// Get a list of LocaleCode instances whose country is Switzerland.</span>
+ * list = LocaleCode.{@link #getByCountry(CountryCode) getByCountry}({@link CountryCode#CH});
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -1271,5 +1279,180 @@ public enum LocaleCode
         {
             return null;
         }
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose language matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByLanguage(String, boolean)
+     * getByLanguage}{@code (language, false)}.
+     * </p>
+     *
+     * @param language
+     *         Language code. ISO 639 alpha-2 or alpha-3.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose language matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByLanguage(String language)
+    {
+        return getByLanguage(language, false);
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose language matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByLanguage(LanguageCode)
+     * getByLanguage}{@code (}{@link LanguageCode}{@code .}{@link
+     * LanguageCode#getByCode(String, boolean) getByCode}{@code (language, caseSensitive))}.
+     * </p>
+     *
+     * @param language
+     *         Language code. ISO 639 alpha-2 or alpha-3.
+     *
+     * @param caseSensitive
+     *         If true, the given code should consist of lowercase letters only.
+     *         If false, case is ignored.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose language matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByLanguage(String language, boolean caseSensitive)
+    {
+        return getByLanguage(LanguageCode.getByCode(language, caseSensitive));
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose language matches the given one.
+     *
+     * @param language
+     *         {@code LanguageCode} instance that represents a language.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose language matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByLanguage(LanguageCode language)
+    {
+        List<LocaleCode> list = new ArrayList<LocaleCode>();
+
+        if (language == null)
+        {
+            return list;
+        }
+
+        for (LocaleCode code : values())
+        {
+            if (code.getLanguage() == language)
+            {
+                list.add(code);
+            }
+        }
+
+        return list;
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose country matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByCountry(String, boolean)
+     * getByCountry}{@code (country, false)}.
+     * </p>
+     *
+     * @param country
+     *         Country code. ISO 3166-1 alpha-2 or alpha-3.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose country matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByCountry(String country)
+    {
+        return getByCountry(country, false);
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose country matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByCountry(CountryCode)
+     * getByCountry}{@code (}{@link CountryCode}{@code .}{@link
+     * CountryCode#getByCode(String, boolean) getByCode}{@code
+     * (country, caseSensitive))}.
+     * </p>
+     *
+     * @param country
+     *         Country code. ISO 3166-1 alpha-2 or alpha-3.
+     *
+     * @param caseSensitive
+     *         If true, the given code should consist of uppercase letters only.
+     *         If false, case is ignored.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose country matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByCountry(String country, boolean caseSensitive)
+    {
+        return getByCountry(CountryCode.getByCode(country, caseSensitive));
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose country matches the given one.
+     *
+     * @param country
+     *         {@code CountryCode} instance that represents a country.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose country matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.3
+     */
+    public static List<LocaleCode> getByCountry(CountryCode country)
+    {
+        List<LocaleCode> list = new ArrayList<LocaleCode>();
+
+        if (country == null)
+        {
+            return list;
+        }
+
+        for (LocaleCode code : values())
+        {
+            if (code.getCountry() == country)
+            {
+                list.add(code);
+            }
+        }
+
+        return list;
     }
 }
