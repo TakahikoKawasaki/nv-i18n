@@ -1184,8 +1184,7 @@ public enum LocaleCode
 
         if (language == null)
         {
-            // There is no LocaleCode whose language is not given.
-            return null;
+            return getByCountry(country, caseSensitive);
         }
 
         // Canonicalize the given country code.
@@ -1231,6 +1230,23 @@ public enum LocaleCode
         // 'language' and 'country' are already lower-case and upper-case,
         // so true can be given as the third argument.
         return getByCode(language, country, true);
+    }
+    
+    
+    public static LocaleCode getByCountry(String country, boolean caseSensitive) {
+        String search;
+        if (caseSensitive) {
+            search = country;
+        } else {
+            search = country.toUpperCase();
+        }
+        for (LocaleCode localeCode : values()) {
+            // finds first pair
+            if (localeCode.getCountry() != null && localeCode.getCountry().name().equals(search)) {
+                return localeCode;
+            }
+        }
+        return null;
     }
 
 
