@@ -16,6 +16,7 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.Currency;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -2188,6 +2189,54 @@ public enum CountryCode
     public Locale toLocale()
     {
         return new Locale("", name());
+    }
+
+
+    /**
+     * Get the currency.
+     *
+     * <p>
+     * This method is an alias of {@link Currency}{@code .}{@link
+     * Currency#getInstance(Locale) getInstance}{@code (}{@link
+     * #toLocale()}{@code )}. The only difference is that this method
+     * returns null when {@code Currency.getInstance(Locale)}
+     * throws {@code IllegalArgumentException}.
+     * </p>
+     *
+     * <p>
+     * This method returns null when the territory represented by
+     * this {@code CountryCode} instance does not have a currency.
+     * {@link #AQ} (Antarctica) is one example.
+     * </p>
+     *
+     * <p>
+     * In addition, this method returns null also when the ISO 3166
+     * code represented by this {@code CountryCode} instance is not
+     * supported by the implementation of {@link
+     * Currency#getInstance(Locale)}. At the time of this writing,
+     * {@link #SS} (South Sudan) is one example.
+     * </p>
+     *
+     * @return
+     *         A {@code Currency} instance. In some cases, null
+     *         is returned.
+     *
+     * @since 1.4
+     *
+     * @see Currency#getInstance(Locale)
+     */
+    public Currency getCurrency()
+    {
+        try
+        {
+            return Currency.getInstance(toLocale());
+        }
+        catch (IllegalArgumentException e)
+        {
+            // Currency.getInstance(Locale) throws IllegalArgumentException
+            // when the given ISO 3166 code is not supported.
+            return null;
+        }
     }
 
 
