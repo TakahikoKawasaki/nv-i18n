@@ -61,7 +61,7 @@ import java.util.Locale;
  * }
  *
  * <span style="color: darkgreen;">// Get a list of LocaleCode instances whose language is Arabic.</span>
- * List<LocaleCode> list = LocaleCode.{@link #getByLanguage(LanguageCode) getByLanguage}({@link LanguageCode#ar});
+ * List&lt;LocaleCode&gt; list = LocaleCode.{@link #getByLanguage(LanguageCode) getByLanguage}({@link LanguageCode#ar});
  *
  * <span style="color: darkgreen;">// Get a list of LocaleCode instances whose country is Switzerland.</span>
  * list = LocaleCode.{@link #getByCountry(CountryCode) getByCountry}({@link CountryCode#CH});
