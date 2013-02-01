@@ -25,7 +25,7 @@ import java.util.Locale;
  * Locale code.
  *
  * <p>
- * The entries of this enum was generated based on the output from
+ * The list of the enum entries was generated based on the output from
  * {@link java.util.Locale#getAvailableLocales()
  * Locale.getAvailableLocales()} of Java SE 7, but locales whose
  * format do not match either 'xx' or 'xx-XX' were excluded.
