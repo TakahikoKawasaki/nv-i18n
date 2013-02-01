@@ -65,10 +65,13 @@ import java.util.Map;
  * System.out.println("Assignment state        = " + code.{@link #getAssignment()});
  *
  * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
- * Locale locale = code.{@link #toLocale()};
+ * {@link Locale} locale = code.{@link #toLocale()};
  *
  * <span style="color: darkgreen;">// Get a CountryCode by a Locale instance.</span>
  * code = CountryCode.{@link #getByLocale(Locale) getByLocale}(locale);
+ *
+ * <span style="color: darkgreen;">// Get the currency of the country.</span>
+ * {@link Currency} currency = code.{@link #getCurrency()};
  * </pre>
  *
  * @author Takahiko Kawasaki
