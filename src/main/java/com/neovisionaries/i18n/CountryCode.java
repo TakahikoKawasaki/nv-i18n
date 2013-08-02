@@ -83,7 +83,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AD">AD</a>, AND, 16,
      * Officially assigned]
      */
-    AD("Andorra", "AND", 16, Assignment.OFFICIALLY_ASSIGNED),
+    AD("Andorra", "AND", 20, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/United_Arab_Emirates">United Arab Emirates</a>
@@ -1195,7 +1195,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#MO">MO</a>, MCO, 492,
      * Officially assigned]
      */
-    MO("Macao", "MCO", 492, Assignment.OFFICIALLY_ASSIGNED),
+    MO("Macao", "MCO", 446, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Northern_Mariana_Islands">Northern Mariana Islands</a>
