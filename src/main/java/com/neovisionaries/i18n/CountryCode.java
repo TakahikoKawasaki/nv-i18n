@@ -484,7 +484,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CW">CW</a>, CUW, 531,
      * Officially assigned]
      */
-    CW("Cura/u00E7ao", "CUW", 531, Assignment.OFFICIALLY_ASSIGNED),
+    CW("Cura\u00E7ao", "CUW", 531, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Christmas_Island">Christmas Island</a>
