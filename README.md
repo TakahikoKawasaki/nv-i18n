@@ -70,7 +70,7 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
     </dependency>
 
 
