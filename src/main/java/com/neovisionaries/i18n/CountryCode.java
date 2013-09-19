@@ -2025,6 +2025,7 @@ public enum CountryCode
     }
 
 
+    private static final Map<String, CountryCode> countryNameMap = new HashMap<String, CountryCode>();
     private static final Map<String, CountryCode> alpha3Map = new HashMap<String, CountryCode>();
     private static final Map<Integer, CountryCode> numericMap = new HashMap<Integer, CountryCode>();
 
@@ -2033,6 +2034,7 @@ public enum CountryCode
     {
         for (CountryCode cc : values())
         {
+            countryNameMap.put(cc.getName(), cc);
             alpha3Map.put(cc.getAlpha3(), cc);
             numericMap.put(cc.getNumeric(), cc);
         }
@@ -2335,6 +2337,24 @@ public enum CountryCode
         // Locale.getCountry() returns either an empty string or
         // an uppercase ISO 3166 2-letter code.
         return getByCode(locale.getCountry(), true);
+    }
+
+    /**
+     * Get a CountryCode that corresponds to given country namef
+     *
+     * @param name
+     *         The Country name.
+     *
+     * @return
+     *         A CountryCode instance, or null if not found.
+     */
+    public static CountryCode getByCountry(String name){
+        if(name == null)
+        {
+            return null;
+        }
+
+        return countryNameMap.get(name);
     }
 
 
