@@ -35,6 +35,7 @@ Javadoc
 Example
 -------
 
+```java
     // List all the country codes.
     for (CountryCode code : CountryCode.values())
     {
@@ -62,16 +63,19 @@ Example
     {
         System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
     }
+```
 
 
 Maven
 -----
 
+```xml
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
         <version>1.8</version>
     </dependency>
+```
 
 
 See Also
