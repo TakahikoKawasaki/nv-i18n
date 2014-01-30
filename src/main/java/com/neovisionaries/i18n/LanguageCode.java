@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Neo Visionaries Inc.
+ * Copyright (C) 2012-2014 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1612,6 +1612,13 @@ public enum LanguageCode
     /**
      * <a href="http://en.wikipedia.org/wiki/Norwegian_language">Norwegian</a>
      * ({@link LanguageAlpha3Code#nor nor}).
+     *
+     * @deprecated {@link #nb} should be used.
+     * @see <a href="http://i18n.skolelinux.no/localekoder.txt"
+     *      >Spr&aring;kkoder for POSIX locale i Norge</a>
+     * @see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=532487"
+     *      >Red Hat Bugzilla – Bug 532487 Legacy Norwegian locale (no_NO)
+     *      should be removed from language selection menu</a>
      */
     no()
     {
@@ -2577,7 +2584,7 @@ public enum LanguageCode
      * code (ISO 639-2/T code). This method returns ISO 639-2/T code.
      * If you want to get ISO 639-2/B code, write like below.
      * </p>
-     * 
+     *
      * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
      *
      * LanguageCode alpha2 = ...;
@@ -2719,7 +2726,7 @@ public enum LanguageCode
      *   <td><a href="http://en.wikipedia.org/wiki/Albanian_language">Albanian</a></td>
      * </tr>
      * </table>
-     * 
+     *
      *
      * @return
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>

@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-2013 Neo Visionaries Inc.
- * 
+ * Copyright (C) 2012-2014 Neo Visionaries Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -666,6 +666,20 @@ public enum LocaleCode
     mt_MT(LanguageCode.mt, CountryCode.MT),
 
     /**
+     * {@link LanguageCode#nb Norwegian Bokm&aring;l}
+     *
+     * @since 1.8
+     */
+    nb(LanguageCode.nb, null),
+
+    /**
+     * {@link LanguageCode#nb Norwegian Bokm&aring;l}, {@link CountryCode#NO Norway}
+     *
+     * @since 1.8
+     */
+    nb_NO(LanguageCode.nb, CountryCode.NO),
+
+    /**
      * {@link LanguageCode#nl Dutch}
      */
     nl(LanguageCode.nl, null),
@@ -687,11 +701,25 @@ public enum LocaleCode
 
     /**
      * {@link LanguageCode#no Norwegian}
+     *
+     * @deprecated {@link #nb} or {@link #nb_NO} should be used.
+     * @see <a href="http://i18n.skolelinux.no/localekoder.txt"
+     *      >Spr&aring;kkoder for POSIX locale i Norge</a>
+     * @see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=532487"
+     *      >Red Hat Bugzilla – Bug 532487 Legacy Norwegian locale (no_NO)
+     *      should be removed from language selection menu</a>
      */
     no(LanguageCode.no, null),
 
     /**
      * {@link LanguageCode#no Norwegian}, {@link CountryCode#NO Norway}
+     *
+     * @deprecated {@link #nb_NO} should be used.
+     * @see <a href="http://i18n.skolelinux.no/localekoder.txt"
+     *      >Spr&aring;kkoder for POSIX locale i Norge</a>
+     * @see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=532487"
+     *      >Red Hat Bugzilla – Bug 532487 Legacy Norwegian locale (no_NO)
+     *      should be removed from language selection menu</a>
      */
     no_NO(LanguageCode.no, CountryCode.NO),
 
@@ -739,6 +767,20 @@ public enum LocaleCode
      * {@link LanguageCode#ru Russian}, {@link CountryCode#RU Russian Federation}
      */
     ru_RU(LanguageCode.ru, CountryCode.RU),
+
+    /**
+     * {@link LanguageCode#se Northern Sami}
+     *
+     * @since 1.8
+     */
+    se(LanguageCode.se, null),
+
+    /**
+     * {@link LanguageCode#se Northern Sami}, {@link CountryCode#NO Norway}
+     *
+     * @since 1.8
+     */
+    se_NO(LanguageCode.se, CountryCode.NO),
 
     /**
      * {@link LanguageCode#sk Slovak}
@@ -953,7 +995,7 @@ public enum LocaleCode
      * href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
      * and <i>country</i> is an <a
      * href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1
-     * alpha-2</a> code. 
+     * alpha-2</a> code.
      * </p>
      *
      * @return
