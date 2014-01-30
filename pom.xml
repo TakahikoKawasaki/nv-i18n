@@ -9,7 +9,7 @@
 
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>
