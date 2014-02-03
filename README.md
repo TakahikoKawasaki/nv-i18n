@@ -12,6 +12,7 @@ ISO 639-1 language code enum, ISO 15924 script code enum, etc.
 * LanguageAlpha3Code : ISO 639-2 language code.
 * LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
 * ScriptCode   : ISO 15924 script code.
+* CurrencyCode : ISO 4217 currency code.
 
 
 License
@@ -63,6 +64,12 @@ Example
     {
         System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
     }
+
+    // List all the currency codes.
+    for (CurrencyCode code : CurrencyCode.values())
+    {
+        System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
+    }
 ```
 
 
@@ -73,7 +80,7 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.8</version>
+        <version>1.9</version>
     </dependency>
 ```
 
@@ -89,6 +96,7 @@ See Also
 * Language Code [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1)
 * Language Alpha3 Code [ISO 639-2](http://en.wikipedia.org/wiki/ISO_639-2)
 * Script Code [ISO 15924](http://en.wikipedia.org/wiki/ISO_15924)
+* Currency Code [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217)
 
 
 TODO
