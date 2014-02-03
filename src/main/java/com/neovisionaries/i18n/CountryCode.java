@@ -742,11 +742,11 @@ public enum CountryCode
     GF("French Guiana", "GUF", 254, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Guernsey">Guemsey</a>
+     * <a href="http://en.wikipedia.org/wiki/Guernsey">Guernsey</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#GG">GG</a>, GGY, 831,
      * Officially assigned]
      */
-    GG("Guemsey", "GGY", 831, Assignment.OFFICIALLY_ASSIGNED),
+    GG("Guernsey", "GGY", 831, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Ghana">Ghana</a>
