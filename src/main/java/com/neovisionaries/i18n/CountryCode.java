@@ -79,6 +79,13 @@ import java.util.Map;
 public enum CountryCode
 {
     /**
+     * <a href="http://en.wikipedia.org/wiki/Ascension_Island">Ascension Island</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AC">AC</a>, ASC, -1,
+     * Exceptionally reserved]
+     */
+    AC("Ascension Island", "ASC", -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Andorra">Andorra</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AD">AD</a>, AND, 16,
      * Officially assigned]
@@ -452,6 +459,13 @@ public enum CountryCode
     CO("Colombia", "COL", 170, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Clipperton_Island">Clipperton Island</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CP">CP</a>, CPT, -1,
+     * Exceptionally reserved]
+     */
+    CP("Clipperton Island", "CPT", -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Costa_Rica">Costa Rica</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CR">CR</a>, CRI, 188,
      * Officially assigned]
@@ -522,6 +536,13 @@ public enum CountryCode
     },
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Diego_Garcia">Diego Garcia</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#DG">DG</a>, DGA, -1,
+     * Exceptionally reserved]
+     */
+    DG("Diego Garcia", "DGA", -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Djibouti">Djibouti</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#DJ">DJ</a>, DJI, 262,
      * Officially assigned]
@@ -555,6 +576,14 @@ public enum CountryCode
      * Officially assigned]
      */
     DZ("Algeria", "DZA", 12, Assignment.OFFICIALLY_ASSIGNED),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Ceuta">Ceuta</a>,
+     * <a href="http://en.wikipedia.org/wiki/Melilla">Melilla</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#EA">EA</a>, null, -1,
+     * Exceptionally reserved]
+     */
+    EA("Ceuta, Melilla", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Ecuador">Ecuador</a>
@@ -606,6 +635,13 @@ public enum CountryCode
     ET("Ethiopia", "ETH", 231, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/European_Union">European Union</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#EU">EU</a>, null, -1,
+     * Exceptionally reserved]
+     */
+    EU("European Union", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Finland">Finland</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FI">FI</a>, FIN, 246,
      * Officially assigned]
@@ -655,6 +691,13 @@ public enum CountryCode
             return Locale.FRANCE;
         }
     },
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Metropolitan_France">Metropolitan France</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FX">FX</a>, FXX, -1,
+     * Exceptionally reserved]
+     */
+    FX("Metropolitan France", "FXX", -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Gabon">Gabon </a>
@@ -837,6 +880,13 @@ public enum CountryCode
      * Officially assigned]
      */
     HU("Hungary", "HUN", 348, Assignment.OFFICIALLY_ASSIGNED),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Canary_Islands">Canary Islands</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#IC">IC</a>, null, -1,
+     * Exceptionally reserved]
+     */
+    IC("Canary Islands", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Indonesia">Indonesia</a>
@@ -1641,6 +1691,13 @@ public enum CountryCode
     ST("Sao Tome and Principe", "STP", 678, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Soviet_Union">USSR</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SU">SU</a>, SUN, -1,
+     * Exceptionally reserved]
+     */
+    SU("USSR", "SUN", -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/El_Salvador">El Salvador</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SV">SV</a>, SLV, 222,
      * Officially assigned]
@@ -1667,6 +1724,13 @@ public enum CountryCode
      * Officially assigned]
      */
     SZ("Swaziland", "SWZ", 748, Assignment.OFFICIALLY_ASSIGNED),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Tristan_da_Cunha">Tristan da Cunha</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TA">TA</a>, TAA, -1,
+     * Exceptionally reserved.
+     */
+    TA("Tristan da Cunha", "TAA", -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Turks_and_Caicos_Islands">Turks and Caicos Islands</a>
@@ -1811,6 +1875,20 @@ public enum CountryCode
      * Officially assigned]
      */
     UG("Uganda", "UGA", 800, Assignment.OFFICIALLY_ASSIGNED),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/United_Kingdom">United Kingdom</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#UK">UK</a>, null, -1,
+     * Exceptionally reserved]
+     */
+    UK("United Kingdom", null, -1, Assignment.EXCEPTIONALLY_RESERVED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.UK;
+        }
+    },
 
     /**
      * <a href="http://en.wikipedia.org/wiki/United_States_Minor_Outlying_Islands">United States Minor Outlying Islands</a>
@@ -2033,8 +2111,15 @@ public enum CountryCode
     {
         for (CountryCode cc : values())
         {
-            alpha3Map.put(cc.getAlpha3(), cc);
-            numericMap.put(cc.getNumeric(), cc);
+            if (cc.getAlpha3() != null)
+            {
+                alpha3Map.put(cc.getAlpha3(), cc);
+            }
+
+            if (cc.getNumeric() != -1)
+            {
+                numericMap.put(cc.getNumeric(), cc);
+            }
         }
     }
 
@@ -2087,6 +2172,8 @@ public enum CountryCode
      * @return
      *         The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
      *         >ISO 3166-1 alpha-3</a> code.
+     *         Some country codes reserved exceptionally (such as {@link #EU})
+     *         returns {@code null}.
      */
     public String getAlpha3()
     {
@@ -2101,6 +2188,8 @@ public enum CountryCode
      * @return
      *         The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric"
      *         >ISO 3166-1 numeric</a> code.
+     *         Country codes reserved exceptionally (such as {@link #EU})
+     *         returns {@code -1}.
      */
     public int getNumeric()
     {
