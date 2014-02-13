@@ -336,7 +336,7 @@ public enum LocaleCode
     es_AR(LanguageCode.es, CountryCode.AR),
 
     /**
-     * {@link LanguageCode#es Spanish}, {@link CountryCode#BO Plurinational State of Bolivia}
+     * {@link LanguageCode#es Spanish}, {@link CountryCode#BO Bolivia, Plurinational State of}
      */
     es_BO(LanguageCode.es, CountryCode.BO),
 
@@ -426,7 +426,7 @@ public enum LocaleCode
     es_UY(LanguageCode.es, CountryCode.UY),
 
     /**
-     * {@link LanguageCode#es Spanish}, {@link CountryCode#VE Bolivarian Republic of Venezuela}
+     * {@link LanguageCode#es Spanish}, {@link CountryCode#VE Venezuela, Bolivarian Republic of}
      */
     es_VE(LanguageCode.es, CountryCode.VE),
 
@@ -611,7 +611,7 @@ public enum LocaleCode
     },
 
     /**
-     * {@link LanguageCode#ko Korean}, {@link CountryCode#KR Republic of Korea}
+     * {@link LanguageCode#ko Korean}, {@link CountryCode#KR Korea, Republic of}
      */
     ko_KR(LanguageCode.ko, CountryCode.KR),
 
@@ -641,7 +641,7 @@ public enum LocaleCode
     mk(LanguageCode.mk, null),
 
     /**
-     * {@link LanguageCode#mk Macedonian}, {@link CountryCode#MK The former Yugoslav Republic of Macedonia}
+     * {@link LanguageCode#mk Macedonian}, {@link CountryCode#MK Macedonia, the former Yugoslav Republic of}
      */
     mk_MK(LanguageCode.mk, CountryCode.MK),
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2013 Neo Visionaries Inc.
+ * Copyright (C) 2012-2014 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -289,11 +289,11 @@ public enum CountryCode
     BN("Brunei Darussalam", "BRN", 96, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Bolivia">Plurinational State of Bolivia</a>
+     * <a href="http://en.wikipedia.org/wiki/Bolivia">Bolivia, Plurinational State of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#BO">BO</a>, BOL, 68,
      * Officially assigned]
      */
-    BO("Plurinational State of Bolivia", "BOL", 68, Assignment.OFFICIALLY_ASSIGNED),
+    BO("Bolivia, Plurinational State of", "BOL", 68, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Caribbean_Netherlands">Bonaire, Sint Eustatius and Saba</a>
@@ -379,14 +379,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CC">CC</a>, CCK, 166,
      * Officially assigned]
      */
-    CC("Cocos Islands", "CCK", 166, Assignment.OFFICIALLY_ASSIGNED),
+    CC("Cocos (Keeling) Islands", "CCK", 166, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo">The Democratic Republic of the Congo</a>
+     * <a href="http://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo">Congo, the Democratic Republic of the</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CD">CD</a>, COD, 180,
      * Officially assigned]
      */
-    CD("The Democratic Republic of the Congo", "COD", 180, Assignment.OFFICIALLY_ASSIGNED),
+    CD("Congo, the Democratic Republic of the", "COD", 180, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Central_African_Republic">Central African Republic</a>
@@ -662,14 +662,14 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FK">FK</a>, FLK, 238,
      * Officially assigned]
      */
-    FK("Falkland Islands", "FLK", 238, Assignment.OFFICIALLY_ASSIGNED),
+    FK("Falkland Islands (Malvinas)", "FLK", 238, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Federated_States_of_Micronesia">Federated States of Micronesia</a>
+     * <a href="http://en.wikipedia.org/wiki/Federated_States_of_Micronesia">Micronesia, Federated States of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FM">FM</a>, FSM, 583,
      * Officially assigned]
      */
-    FM("Federated States of Micronesia", "FSM", 583, Assignment.OFFICIALLY_ASSIGNED),
+    FM("Micronesia, Federated States of", "FSM", 583, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Faroe_Islands">Faroe Islands</a>
@@ -693,11 +693,11 @@ public enum CountryCode
     },
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Metropolitan_France">Metropolitan France</a>
+     * <a href="http://en.wikipedia.org/wiki/Metropolitan_France">France, Metropolitan</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FX">FX</a>, FXX, -1,
      * Exceptionally reserved]
      */
-    FX("Metropolitan France", "FXX", -1, Assignment.EXCEPTIONALLY_RESERVED),
+    FX("France, Metropolitan", "FXX", -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Gabon">Gabon </a>
@@ -938,11 +938,11 @@ public enum CountryCode
     IQ("Iraq", "IRQ", 368, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Iran">Islamic Republic of Iran</a>
+     * <a href="http://en.wikipedia.org/wiki/Iran">Iran, Islamic Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#IR">IR</a>, IRN, 364,
      * Officially assigned]
      */
-    IR("Islamic Republic of Iran", "IRN", 364, Assignment.OFFICIALLY_ASSIGNED),
+    IR("Iran, Islamic Republic of", "IRN", 364, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Iceland">Iceland</a>
@@ -1043,18 +1043,18 @@ public enum CountryCode
     KN("Saint Kitts and Nevis", "KNA", 659, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/North_Korea">Democratic People's Republic of Korea</a>
+     * <a href="http://en.wikipedia.org/wiki/North_Korea">Korea, Democratic People's Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#KP">KP</a>, PRK, 408,
      * Officially assigned]
      */
-    KP("Democratic People's Republic of Korea", "PRK", 408, Assignment.OFFICIALLY_ASSIGNED),
+    KP("Korea, Democratic People's Republic of", "PRK", 408, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/South_Korea">Republic of Korea</a>
+     * <a href="http://en.wikipedia.org/wiki/South_Korea">Korea, Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#KR">KR</a>, KOR, 410,
      * Officially assigned]
      */
-    KR("Republic of Korea", "KOR", 410, Assignment.OFFICIALLY_ASSIGNED)
+    KR("Korea, Republic of", "KOR", 410, Assignment.OFFICIALLY_ASSIGNED)
     {
         @Override
         public Locale toLocale()
@@ -1176,11 +1176,11 @@ public enum CountryCode
     MC("Monaco", "MCO", 492, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Moldova">Republic of Moldova</a>
+     * <a href="http://en.wikipedia.org/wiki/Moldova">Moldova, Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#MD">MD</a>, MDA, 498,
      * Officially assigned]
      */
-    MD("Republic of Moldova", "MDA", 498, Assignment.OFFICIALLY_ASSIGNED),
+    MD("Moldova, Republic of", "MDA", 498, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Montenegro">Montenegro</a>
@@ -1194,7 +1194,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#MF">MF</a>, MAF, 663,
      * Officially assigned]
      */
-    MF("Saint Martin", "MAF", 663, Assignment.OFFICIALLY_ASSIGNED),
+    MF("Saint Martin (French part)", "MAF", 663, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Madagascar">Madagascar</a>
@@ -1211,11 +1211,11 @@ public enum CountryCode
     MH("Marshall Islands", "MHL", 584, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Republic_of_Macedonia">The former Yugoslav Republic of Macedonia</a>
+     * <a href="http://en.wikipedia.org/wiki/Republic_of_Macedonia">Macedonia, the former Yugoslav Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#MK">MK</a>, MKD, 807,
      * Officially assigned]
      */
-    MK("The former Yugoslav Republic of Macedonia", "MKD", 807, Assignment.OFFICIALLY_ASSIGNED),
+    MK("Macedonia, the former Yugoslav Republic of", "MKD", 807, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Mali">Mali</a>
@@ -1493,11 +1493,11 @@ public enum CountryCode
     PR("Puerto Rico", "PRI", 630, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Palestinian_territories">Occupied Palestinian Territory</a>
+     * <a href="http://en.wikipedia.org/wiki/Palestinian_territories">Palestine, State of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#PS">PS</a>, PSE, 275,
      * Officially assigned]
      */
-    PS("Occupied Palestinian Territory", "PSE", 275, Assignment.OFFICIALLY_ASSIGNED),
+    PS("Palestine, State of", "PSE", 275, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Portugal">Portugal</a>
@@ -1709,7 +1709,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SX">SX</a>, SXM, 534,
      * Officially assigned]
      */
-    SX("Sint Maarten", "SXM", 534, Assignment.OFFICIALLY_ASSIGNED),
+    SX("Sint Maarten (Dutch part)", "SXM", 534, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Syria">Syrian Arab Republic</a>
@@ -1856,11 +1856,11 @@ public enum CountryCode
     },
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Tanzania">United Republic of Tanzania</a>
+     * <a href="http://en.wikipedia.org/wiki/Tanzania">Tanzania, United Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TZ">TZ</a>, TZA, 834,
      * Officially assigned]
      */
-    TZ("United Republic of Tanzania", "TZA", 834, Assignment.OFFICIALLY_ASSIGNED),
+    TZ("Tanzania, United Republic of", "TZA", 834, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Ukraine">Ukraine</a>
@@ -1930,7 +1930,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#VA">VA</a>, VAT, 336,
      * Officially assigned]
      */
-    VA("Holy See", "VAT", 336, Assignment.OFFICIALLY_ASSIGNED),
+    VA("Holy See (Vatican City State)", "VAT", 336, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Saint_Vincent_and_the_Grenadines">Saint Vincent and the Grenadines</a>
@@ -1940,18 +1940,18 @@ public enum CountryCode
     VC("Saint Vincent and the Grenadines", "VCT", 670, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Venezuela">Bolivarian Republic of Venezuela</a>
+     * <a href="http://en.wikipedia.org/wiki/Venezuela">Venezuela, Bolivarian Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#VE">VE</a>, VEN, 862,
      * Officially assigned]
      */
-    VE("Bolivarian Republic of Venezuela", "VEN", 862, Assignment.OFFICIALLY_ASSIGNED),
+    VE("Venezuela, Bolivarian Republic of", "VEN", 862, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/British_Virgin_Islands">British Virgin Islands</a>
+     * <a href="http://en.wikipedia.org/wiki/British_Virgin_Islands">Virgin Islands, British</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#VG">VG</a>, VGB, 92,
      * Officially assigned]
      */
-    VG("British Virgin Islands", "VGB", 92, Assignment.OFFICIALLY_ASSIGNED),
+    VG("Virgin Islands, British", "VGB", 92, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/United_States_Virgin_Islands">Virgin Islands, U.S.</a>
