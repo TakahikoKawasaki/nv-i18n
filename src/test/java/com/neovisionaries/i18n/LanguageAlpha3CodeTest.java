@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-2013 Neo Visionaries Inc.
- * 
+ * Copyright (C) 2012-2014 Neo Visionaries Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -1259,5 +1259,33 @@ public class LanguageAlpha3CodeTest
     public void test175()
     {
         assertSame(LanguageAlpha3Code.jpn.getName(), "Japanese");
+    }
+
+
+    @Test
+    public void test176()
+    {
+        assertSame(getByCode("New", true), LanguageAlpha3Code.New);
+    }
+
+
+    @Test
+    public void test177()
+    {
+        assertSame(getByCode("new", true), LanguageAlpha3Code.New);
+    }
+
+
+    @Test
+    public void test178()
+    {
+        assertNull(getByCode("NEW", true));
+    }
+
+
+    @Test
+    public void test179()
+    {
+        assertEquals("new", LanguageAlpha3Code.New.toString());
     }
 }

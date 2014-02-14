@@ -103,7 +103,6 @@ TODO
 ----
 
 * To add missing entries to CountryCode.
-* To add missing entries to LanguageAlpha3Code.
 * To add international telephone dial number.
 
 
