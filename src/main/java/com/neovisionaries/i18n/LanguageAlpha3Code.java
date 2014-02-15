@@ -15,6 +15,10 @@
  */
 package com.neovisionaries.i18n;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 
 /**
  * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
@@ -350,7 +354,7 @@ public enum LanguageAlpha3Code
     },
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Old_English_language">Old English</a> (ca. 450-1100)
+     * <a href="http://en.wikipedia.org/wiki/Old_English_language">Old English</a> (ca&#0046; 450-1100)
      *
      * @since 1.10
      */
@@ -1595,8 +1599,8 @@ public enum LanguageAlpha3Code
      * >Modern Greek</a> (1453-)
      * ({@link LanguageCode#el el}) for terminology applications.
      *
-     * @see #gre
-     * @see #gre (Acient Greek)
+     * @see #gre Modern Greek (gre)
+     * @see #grc Acient Greek (grc)
      */
     ell("Modern Greek")
     {
@@ -1904,14 +1908,14 @@ public enum LanguageAlpha3Code
     },
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Middle_French_language">Middle French</a> (ca. 1400-1600)
+     * <a href="http://en.wikipedia.org/wiki/Middle_French_language">Middle French</a> (ca&#0046; 1400-1600)
      *
      * @since 1.10
      */
     frm("Middle French"),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Old_French_language">Old French</a> (842-ca. 1400)
+     * <a href="http://en.wikipedia.org/wiki/Old_French_language">Old French</a> (842-ca&#0046; 1400)
      *
      * @since 1.10
      */
@@ -2127,7 +2131,7 @@ public enum LanguageAlpha3Code
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Middle_High_German_language"
-     * >Middle High German</a> (ca. 1050-1500)
+     * >Middle High German</a> (ca&#0046; 1050-1500)
      *
      * @since 1.10
      */
@@ -2151,7 +2155,7 @@ public enum LanguageAlpha3Code
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Old_High_German_language"
-     * >Old High German</a> (ca. 750-1050)
+     * >Old High German</a> (ca&#0046; 750-1050)
      *
      * @since 1.10
      */
@@ -2189,7 +2193,7 @@ public enum LanguageAlpha3Code
      * <a href="http://en.wikipedia.org/wiki/Ancient_Greek_language"
      * >Ancient Greek</a> (to 1453)
      *
-     * @see #ell (Modern Greek)
+     * @see #ell Modern Greek (ell)
      * @since 1.10
      */
     grc("Ancient Greek"),
@@ -2199,8 +2203,8 @@ public enum LanguageAlpha3Code
      * >Modern Greek</a> (1453-)
      * ({@link LanguageCode#el el}) for bibliographic applications.
      *
-     * @see #ell
-     * @see #grc (Acient Greek)
+     * @see #ell Modern Greek (ell)
+     * @see #grc Acient Greek (grc)
      */
     gre("Modern Greek")
     {
@@ -6021,7 +6025,7 @@ public enum LanguageAlpha3Code
      *
      * @return
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
-     *         language code. This method may return null.
+     *         language code. This method may return {@code null}.
      */
     public LanguageCode getAlpha2()
     {
@@ -6053,8 +6057,8 @@ public enum LanguageAlpha3Code
      * the other hand, language codes that have two alpha-3 codes, namely, ISO
      * 639-2/T code ("terminological" code) and ISO 639-2/B code
      * ("bibliographic" code), return their counterparts. For example,
-     * {@link #deu LanguageAlpha3Code.deu}.getSynonym() returns {@link #ger
-     * LanguageAlpha3Code.ger}.
+     * {@link #deu LanguageAlpha3Code.deu}{@code .getSynonym()} returns
+     * {@link #ger LanguageAlpha3Code.ger}.
      * </p>
      *
      * @return
@@ -6075,9 +6079,8 @@ public enum LanguageAlpha3Code
      * href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code and they
      * simply return <code>this</code> object. Only ISO 639-2/T codes
      * ("terminological" codes) return counterpart objects. For example,
-     * {@link LanguageAlpha3Code#fra LanguageAlpha3Code.fra} returns
-     * {@link LanguageAlpha3Code#fre LanguageAlpha3Code.fre}.
-     *
+     * {@link LanguageAlpha3Code#fra LanguageAlpha3Code.fra}{@code .getAlpha3B()}
+     * returns {@link LanguageAlpha3Code#fre LanguageAlpha3Code.fre}.
      * </p>
      *
      * @return
@@ -6104,8 +6107,8 @@ public enum LanguageAlpha3Code
      * href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code and they
      * simply return <code>this</code> object. Only ISO 639-2/B codes
      * ("bibliographic" codes) return counterpart objects. For example,
-     * {@link LanguageAlpha3Code#fre LanguageAlpha3Code.fre} returns
-     * {@link LanguageAlpha3Code#fra LanguageAlpha3Code.fra}.
+     * {@link LanguageAlpha3Code#fre LanguageAlpha3Code.fre}{@code .getAlpha3T()}
+     * returns {@link LanguageAlpha3Code#fra LanguageAlpha3Code.fra}.
      *
      * </p>
      *
@@ -6126,7 +6129,7 @@ public enum LanguageAlpha3Code
 
 
     /**
-     * Get a LanguageAlpha3Code that corresponds to a given
+     * Get a {@code LanguageAlpha3Code} that corresponds to a given
      * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
      * (2-letter lowercase code) or
      * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
@@ -6134,7 +6137,7 @@ public enum LanguageAlpha3Code
      *
      * <p>
      * This method calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false), meaning the case of the given code is ignored.
+     * getByCode}{@code (code, false)}, meaning the case of the given code is ignored.
      * </p>
      *
      * @param code
@@ -6149,7 +6152,7 @@ public enum LanguageAlpha3Code
      *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      *
      * @return
-     *         A LanguageAlpha3Code instance, or null if not found.
+     *         A {@code LanguageAlpha3Code} instance, or {@code null} if not found.
      *         If <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *         code (2-letter code) is given and the language has two
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
@@ -6162,7 +6165,7 @@ public enum LanguageAlpha3Code
 
 
     /**
-     * Get a LanguageAlpha3Code that corresponds to a given
+     * Get a {@code LanguageAlpha3Code} that corresponds to a given
      * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
      * (2-letter lowercase code) or
      * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
@@ -6180,10 +6183,10 @@ public enum LanguageAlpha3Code
      *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      *
      * @param caseSensitive
-     *        If true, the given code should consist of lowercase letters only.
-     *        If false, this method internally canonicalizes the given code by
+     *        If {@code true}, the given code should consist of lowercase letters only.
+     *        If {@code false}, this method internally canonicalizes the given code by
      *        {@link String#toLowerCase()} and then performs search. For
-     *        example, {@code getByCode("JPN", true)} returns null, but on the
+     *        example, {@code getByCode("JPN", true)} returns {@code null}, but on the
      *        other hand, {@code getByCode("JPN", false)} returns {@link #jpn
      *        LanguageAlpha3Code.jpn}.
      *
@@ -6191,7 +6194,7 @@ public enum LanguageAlpha3Code
      *        {@code getByCode("new", true)} return {@link #New} (Newari).
      *
      * @return
-     *         A LanguageAlpha3Code instance, or null if not found.
+     *         A {@code LanguageAlpha3Code} instance, or {@code null} if not found.
      *         If <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *         code (2-letter code) is given and the language has two
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
@@ -6259,5 +6262,102 @@ public enum LanguageAlpha3Code
         }
 
         return code;
+    }
+
+
+    /**
+     * Get a list of {@code LanguageAlpha3Code} by a name regular expression.
+     *
+     * <p>
+     * This method is almost equivalent to {@link #findByName(Pattern)
+     * findByName}{@code (Pattern.compile(regex))}.
+     * </p>
+     *
+     * @param regex
+     *         Regular expression for names.
+     *
+     * @return
+     *         List of {@code LanguageAlpha3Code}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code regex} is {@code null}.
+     *
+     * @throws java.util.regex.PatternSyntaxException
+     *         {@code regex} failed to be compiled.
+     *
+     * @since 1.11
+     */
+    public static List<LanguageAlpha3Code> findByName(String regex)
+    {
+        if (regex == null)
+        {
+            throw new IllegalArgumentException("regex is null.");
+        }
+
+        // Compile the regular expression. This may throw
+        // java.util.regex.PatternSyntaxException.
+        Pattern pattern = Pattern.compile(regex);
+
+        return findByName(pattern);
+    }
+
+
+    /**
+     * Get a list of {@code LanguageAlpha3Code} by a name pattern.
+     *
+     * <p>
+     * For example, the list obtained by the code snippet below:
+     * </p>
+     *
+     * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
+     * Pattern pattern = Pattern.compile(<span style="color: darkred;">"Old.*"</span>);
+     * List&lt;LanguageAlpha3Code&gt; list = LanguageAlpha3Code.findByName(pattern);</pre>
+     *
+     * <p>
+     * contains 7 {@code LanguageAlpha3Code}s as listed below.
+     * </p>
+     *
+     * <ol>
+     * <li>{@link #ang} : Old English
+     * <li>{@link #fro} : Old French
+     * <li>{@link #goh} : Old High German
+     * <li>{@link #non} : Old Norse
+     * <li>{@link #peo} : Old Persian
+     * <li>{@link #pro} : Old Proven&ccedil;al
+     * <li>{@link #sga} : Old Irish
+     * </ol>
+     *
+     * @param pattern
+     *         Pattern to match names.
+     *
+     * @return
+     *         List of {@code LanguageAlpha3Code}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code pattern} is {@code null}.
+     *
+     * @since 1.11
+     */
+    public static List<LanguageAlpha3Code> findByName(Pattern pattern)
+    {
+        if (pattern == null)
+        {
+            throw new IllegalArgumentException("pattern is null.");
+        }
+
+        List<LanguageAlpha3Code> list = new ArrayList<LanguageAlpha3Code>();
+
+        for (LanguageAlpha3Code entry : values())
+        {
+            // If the name matches the given pattern.
+            if (pattern.matcher(entry.getName()).matches())
+            {
+                list.add(entry);
+            }
+        }
+
+        return list;
     }
 }

@@ -16,7 +16,10 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 
 /**
@@ -29,22 +32,34 @@ import java.util.Locale;
  * (2-letter lower-case alphabets).
  * </p>
  *
- * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
+ * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
  * <span style="color: darkgreen;">// List all the language codes.</span>
  * for (LanguageCode code : LanguageCode.values())
  * {
  *     <span style="color: darkgreen;">// For example, "[ar] Arabic" is printed.</span>
- *     System.out.format("[%s] %s\n", code, code.{@link #getName()});
+ *     System.out.format(<span style="color: darkred;">"[%s] %s\n"</span>, code, code.{@link #getName()});
  * }
  *
  * <span style="color: darkgreen;">// Get a LanguageCode instance by ISO 639-1 code.</span>
- * LanguageCode code = LanguageCode.{@link #getByCode(String) getByCode}("fr");
+ * LanguageCode code = LanguageCode.{@link #getByCode(String) getByCode}(<span style="color: darkred;">"fr"</span>);
  *
  * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
  * Locale locale = code.{@link #toLocale()};
  *
  * <span style="color: darkgreen;">// Get a LanguageCode by a Locale instance.</span>
  * code = LanguageCode.{@link #getByLocale(Locale) getByLocale}(locale);
+ *
+ * <span style="color: darkgreen;">// Get a list by a regular expression for names.
+ * //
+ * // The list will contain:
+ * //
+ * //     LanguageCode.an : Aragonese
+ * //     LanguageCode.ja : Japanese
+ * //     LanguageCode.jv : Javanese
+ * //     LanguageCode.su : Sundanese
+ * //     LanguageCode.zh : Chinese
+ * //</span>
+ * List&lt;LanguageCode&gt; list = LanguageCode.{@link #findByName(String) findByName}(<span style="color: darkred;">".*nese"</span>);
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -2514,19 +2529,19 @@ public enum LanguageCode
 
 
     /**
-     * Convert this LanguageCode instance to a {@link Locale} instance.
+     * Convert this {@code LanguageCode} instance to a {@link Locale} instance.
      *
      * <p>
-     * In most cases, this method creates a new Locale instance
-     * every time it is called, but some LanguageCode instances return
-     * their corresponding entries in Locale class. For example,
+     * In most cases, this method creates a new {@code Locale} instance
+     * every time it is called, but some {@code LanguageCode} instances return
+     * their corresponding entries in {@code Locale} class. For example,
      * {@link #ja LanguageCode.ja} always returns {@link Locale#JAPANESE}.
      * </p>
      *
      * <p>
-     * The table below lists LanguageCode entries whose toLocale()
-     * do not create new Locale instances but return entries in
-     * Locale class.
+     * The table below lists {@code LanguageCode} entries whose {@code toLocale()}
+     * do not create new {@code Locale} instances but return entries in
+     * {@code Locale} class.
      * </p>
      *
      * <table border="1" style="border-collapse: collapse;" cellpadding="5">
@@ -2565,7 +2580,7 @@ public enum LanguageCode
      * </table>
      *
      * @return
-     *         A Locale instance that matches this LanguageCode.
+     *         A {@code Locale} instance that matches this {@code LanguageCode}.
      */
     public Locale toLocale()
     {
@@ -2594,9 +2609,9 @@ public enum LanguageCode
      * </pre>
      *
      * <p>
-     * The above code does no harm for most LanguageCodes that have
+     * The above code does no harm for most {@code LanguageCode}s that have
      * just one ISO 639-2 code. {@link LanguageAlpha3Code#getAlpha3B()
-     * getAlpha3B()} of such LanguageAlpha3Code instances just return
+     * getAlpha3B()} of such {@code LanguageAlpha3Code} instances just return
      * themselves (= <code>this</code> object).
      * </p>
      *
@@ -2741,7 +2756,7 @@ public enum LanguageCode
 
 
     /**
-     * Get a LanguageCode that corresponds to a given
+     * Get a {@code LanguageCode} that corresponds to a given
      * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
      * (2-letter lowercase code) or
      * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
@@ -2749,7 +2764,7 @@ public enum LanguageCode
      *
      * <p>
      * This method calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false), meaning the case of the given
+     * getByCode}{@code (code, false)}, meaning the case of the given
      * code is ignored.
      * </p>
      *
@@ -2764,7 +2779,7 @@ public enum LanguageCode
      *         this method returns {@link #id LanguageCode.id}.
      *
      * @return
-     *         A LanguageCode instance, or null if not found.
+     *         A {@code LanguageCode} instance, or {@code null} if not found.
      */
     public static LanguageCode getByCode(String code)
     {
@@ -2773,7 +2788,7 @@ public enum LanguageCode
 
 
     /**
-     * Get a LanguageCode that corresponds to a given
+     * Get a {@code LanguageCode} that corresponds to a given
      * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
      * (2-letter lowercase code) or
      * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
@@ -2790,14 +2805,14 @@ public enum LanguageCode
      *         this method returns {@link #id LanguageCode.id}.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of lowercase letters only.
-     *         If false, this method internally canonicalizes the given code by
+     *         If {@code true}, the given code should consist of lowercase letters only.
+     *         If {@code false}, this method internally canonicalizes the given code by
      *         {@link String#toLowerCase()} and then performs search. For example,
-     *         {@code getByCode("JA", true)} returns null, but on the other hand,
+     *         {@code getByCode("JA", true)} returns {@code null}, but on the other hand,
      *         {@code getByCode("JA", false)} returns {@link #ja LanguageCode.ja}.
      *
      * @return
-     *         A LanguageCode instance, or null if not found.
+     *         A {@code LanguageCode} instance, or {@code null} if not found.
      */
     public static LanguageCode getByCode(String code, boolean caseSensitive)
     {
@@ -2844,14 +2859,14 @@ public enum LanguageCode
 
 
     /**
-     * Get a LanguageCode that corresponds to the language code of
+     * Get a {@code LanguageCode} that corresponds to the language code of
      * the given {@link Locale} instance.
      *
      * @param locale
-     *         A Locale instance.
+     *         A {@code Locale} instance.
      *
      * @return
-     *         A LanguageCode instance, or null if not found.
+     *         A {@code LanguageCode} instance, or {@code null} if not found.
      *
      * @see Locale#getLanguage()
      */
@@ -2872,23 +2887,25 @@ public enum LanguageCode
      * Canonicalize the given language code.
      *
      * <ol>
-     * <li>If the given code is null or an empty string, null is returned.
+     * <li>If the given code is {@code null} or an empty string,
+     *     {@code null} is returned.
      * <li>Otherwise, if the given code matches one of three legacy
      *     language code ("iw", "ji" and "in"), its official counterpart
      *     ("he", "yi" and "id", respectively) is returned. Note that
-     *     String.equals(Object) is used for comparison if caseSensitive
-     *     is true and that String.equalsIgnoreCase(String) is used if
-     *     caseSensitive is false.
-     * <li>Otherwise, if caseSensitive is true, the given code is returned
-     *     as is.
-     * <li>Otherwise, code.toLowercase() is returned.
+     *     {@code String.equals(Object)} is used for comparison if
+     *     {@code  caseSensitive} is {@code true} and that
+     *     {@code  String.equalsIgnoreCase(String)} is used if
+     *     {@code caseSensitive} is {@code false}.
+     * <li>Otherwise, if {@code caseSensitive} is {@code true},
+     *     the given code is returned as is.
+     * <li>Otherwise, {@code code.toLowercase()} is returned.
      * </ol>
      *
      * @param code
      *         ISO 639-1 code.
      *
      * @param caseSensitive
-     *         True if the code should be handled case-sensitively.
+     *         {@code true} if the code should be handled case-sensitively.
      *
      * @return
      *         Canonicalized language code.
@@ -2931,5 +2948,100 @@ public enum LanguageCode
         {
             return code.toLowerCase();
         }
+    }
+
+
+    /**
+     * Get a list of {@code LanguageCode} by a name regular expression.
+     *
+     * <p>
+     * This method is almost equivalent to {@link #findByName(Pattern)
+     * findByName}{@code (Pattern.compile(regex))}.
+     * </p>
+     *
+     * @param regex
+     *         Regular expression for names.
+     *
+     * @return
+     *         List of {@code LanguageCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code regex} is {@code null}.
+     *
+     * @throws java.util.regex.PatternSyntaxException
+     *         {@code regex} failed to be compiled.
+     *
+     * @since 1.11
+     */
+    public static List<LanguageCode> findByName(String regex)
+    {
+        if (regex == null)
+        {
+            throw new IllegalArgumentException("regex is null.");
+        }
+
+        // Compile the regular expression. This may throw
+        // java.util.regex.PatternSyntaxException.
+        Pattern pattern = Pattern.compile(regex);
+
+        return findByName(pattern);
+    }
+
+
+    /**
+     * Get a list of {@code LanguageCode} by a name pattern.
+     *
+     * <p>
+     * For example, the list obtained by the code snippet below:
+     * </p>
+     *
+     * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
+     * Pattern pattern = Pattern.compile(<span style="color: darkred;">".*nese"</span>);
+     * List&lt;LanguageCode&gt; list = LanguageCode.findByName(pattern);</pre>
+     *
+     * <p>
+     * contains 5 {@code LanguageCode}s as listed below.
+     * </p>
+     *
+     * <ol>
+     * <li>{@link #an} : Aragonese
+     * <li>{@link #ja} : Japanese
+     * <li>{@link #jv} : Javanese
+     * <li>{@link #su} : Sundanese
+     * <li>{@link #zh} : Chinese
+     * </ol>
+     *
+     * @param pattern
+     *         Pattern to match names.
+     *
+     * @return
+     *         List of {@code LanguageCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code pattern} is {@code null}.
+     *
+     * @since 1.11
+     */
+    public static List<LanguageCode> findByName(Pattern pattern)
+    {
+        if (pattern == null)
+        {
+            throw new IllegalArgumentException("pattern is null.");
+        }
+
+        List<LanguageCode> list = new ArrayList<LanguageCode>();
+
+        for (LanguageCode entry : values())
+        {
+            // If the name matches the given pattern.
+            if (pattern.matcher(entry.getName()).matches())
+            {
+                list.add(entry);
+            }
+        }
+
+        return list;
     }
 }

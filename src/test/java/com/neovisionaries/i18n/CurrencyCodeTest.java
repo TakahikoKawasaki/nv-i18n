@@ -16,6 +16,7 @@
 package com.neovisionaries.i18n;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
@@ -146,5 +147,20 @@ public class CurrencyCodeTest
         List<CountryCode> list = CurrencyCode.XXX.getCountryList();
 
         assertTrue(list.size() == 0);
+    }
+
+
+    @Test
+    public void test14()
+    {
+        List<CurrencyCode> list = CurrencyCode.findByName(".*Ruble");
+
+        assertEquals(2, list.size());
+
+        // BYR: Belarussian Ruble
+        assertTrue(list.contains(CurrencyCode.BYR));
+
+        // RUB: Russian Ruble
+        assertTrue(list.contains(CurrencyCode.RUB));
     }
 }

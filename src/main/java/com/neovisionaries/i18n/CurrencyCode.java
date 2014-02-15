@@ -23,6 +23,7 @@ import java.util.Currency;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 
 /**
@@ -2349,13 +2350,13 @@ public enum CurrencyCode
 
 
     /**
-     * Get a CurrencyCode that corresponds to the given
+     * Get a {@code CurrencyCode} that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
      * alpha-3 code.
      *
      * <p>
      * This method calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false), meaning the case of the given
+     * getByCode}{@code (code, false)}, meaning the case of the given
      * code is ignored.
      * </p>
      *
@@ -2364,7 +2365,7 @@ public enum CurrencyCode
      *         alpha-3 code.
      *
      * @return
-     *         A CurrencyCode instance, or null if not found.
+     *         A {@code CurrencyCode} instance, or {@code null} if not found.
      *
      * @see #getByCode(String, boolean)
      */
@@ -2375,7 +2376,7 @@ public enum CurrencyCode
 
 
     /**
-     * Get a CurrencyCode that corresponds to the given
+     * Get a {@code CurrencyCode} that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
      * alpha-3 code.
      *
@@ -2384,14 +2385,14 @@ public enum CurrencyCode
      *         alpha-3 code.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of upper-case letters only.
-     *         If false, this method internally canonicalizes the given code by
+     *         If {@code true}, the given code should consist of upper-case letters only.
+     *         If {@code false}, this method internally canonicalizes the given code by
      *         {@link String#toUpperCase()} and then performs search. For example,
-     *         {@code getByCode("jpy", true)} returns null, but on the other hand,
+     *         {@code getByCode("jpy", true)} returns {@code null}, but on the other hand,
      *         {@code getByCode("jpy", false)} returns {@link #JPY CurrencyCode.JPY}.
      *
      * @return
-     *         A CurrencyCode instance, or null if not found.
+     *         A {@code CurrencyCode} instance, or {@code null} if not found.
      */
     public static CurrencyCode getByCode(String code, boolean caseSensitive)
     {
@@ -2414,7 +2415,7 @@ public enum CurrencyCode
 
 
     /**
-     * Get a CurrencyCode that corresponds to the given
+     * Get a {@code CurrencyCode} that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
      * numeric code.
      *
@@ -2423,7 +2424,7 @@ public enum CurrencyCode
      *         numeric code.
      *
      * @return
-     *         A CurrencyCode instance, or null if not found.
+     *         A {@code CurrencyCode} instance, or {@code null} if not found.
      */
     public static CurrencyCode getByCode(int code)
     {
@@ -2487,8 +2488,8 @@ public enum CurrencyCode
      *         Country code. ISO 3166-1 alpha-2 or alpha-3.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of uppercase
-     *         letters only. If false, case is ignored.
+     *         If {@code true}, the given code should consist of uppercase
+     *         letters only. If {@code false}, case is ignored.
      *
      * @return
      *         List of {@code CurrencyCode} instances. If there is no
@@ -2530,6 +2531,98 @@ public enum CurrencyCode
                 {
                     list.add(currency);
                 }
+            }
+        }
+
+        return list;
+    }
+
+
+    /**
+     * Get a list of {@code CurrencyCode} by a name regular expression.
+     *
+     * <p>
+     * This method is almost equivalent to {@link #findByName(Pattern)
+     * findByName}{@code (Pattern.compile(regex))}.
+     * </p>
+     *
+     * @param regex
+     *         Regular expression for names.
+     *
+     * @return
+     *         List of {@code CurrencyCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code regex} is {@code null}.
+     *
+     * @throws java.util.regex.PatternSyntaxException
+     *         {@code regex} failed to be compiled.
+     *
+     * @since 1.11
+     */
+    public static List<CurrencyCode> findByName(String regex)
+    {
+        if (regex == null)
+        {
+            throw new IllegalArgumentException("regex is null.");
+        }
+
+        // Compile the regular expression. This may throw
+        // java.util.regex.PatternSyntaxException.
+        Pattern pattern = Pattern.compile(regex);
+
+        return findByName(pattern);
+    }
+
+
+    /**
+     * Get a list of {@code CurrencyCode} by a name pattern.
+     *
+     * <p>
+     * For example, the list obtained by the code snippet below:
+     * </p>
+     *
+     * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
+     * Pattern pattern = Pattern.compile(<span style="color: darkred;">".*Ruble"</span>);
+     * List&lt;CurrencyCode&gt; list = CurrencyCode.findByName(pattern);</pre>
+     *
+     * <p>
+     * contains 2 {@code CurrencyCode}s as listed below.
+     * </p>
+     *
+     * <ol>
+     * <li>{@link #BYR} : Belarussian Ruble
+     * <li>{@link #RUB} : Russian Ruble
+     * </ol>
+     *
+     * @param pattern
+     *         Pattern to match names.
+     *
+     * @return
+     *         List of {@code CurrencyCde}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code pattern} is {@code null}.
+     *
+     * @since 1.11
+     */
+    public static List<CurrencyCode> findByName(Pattern pattern)
+    {
+        if (pattern == null)
+        {
+            throw new IllegalArgumentException("pattern is null.");
+        }
+
+        List<CurrencyCode> list = new ArrayList<CurrencyCode>();
+
+        for (CurrencyCode entry : values())
+        {
+            // If the name matches the given pattern.
+            if (pattern.matcher(entry.getName()).matches())
+            {
+                list.add(entry);
             }
         }
 

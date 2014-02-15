@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2013 Neo Visionaries Inc.
- * 
+ * Copyright (C) 2013-2014 Neo Visionaries Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,8 +16,12 @@
 package com.neovisionaries.i18n;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import java.util.List;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 
 public class ScriptCodeTest
@@ -261,5 +265,23 @@ public class ScriptCodeTest
     public void test32()
     {
         assertSame(getByCode(413), ScriptCode.Jpan);
+    }
+
+
+    @Test
+    public void test33()
+    {
+        List<ScriptCode> list = ScriptCode.findByName("Egyptian.*");
+
+        assertEquals(3, list.size());
+
+        // Egyd : Egyptian demotic
+        assertTrue(list.contains(ScriptCode.Egyd));
+
+        // Egyh : Egyptian hieratic
+        assertTrue(list.contains(ScriptCode.Egyh));
+
+        // Egyp : Egyptian hieroglyps
+        assertTrue(list.contains(ScriptCode.Egyp));
     }
 }

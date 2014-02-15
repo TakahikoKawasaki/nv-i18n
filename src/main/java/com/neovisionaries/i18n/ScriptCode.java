@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2013 Neo Visionaries Inc.
- * 
+ * Copyright (C) 2013-2014 Neo Visionaries Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,8 +16,11 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 
 /**
@@ -1069,12 +1072,12 @@ public enum ScriptCode
 
 
     /**
-     * Get a ScriptCode instance that corresponds to the given
+     * Get a {@code ScriptCode} instance that corresponds to the given
      * ISO 15924 alpha-4 code.
      *
      * <p>
      * This method calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false), meaning the case of the given
+     * getByCode}{@code (code, false)}, meaning the case of the given
      * code is ignored.
      * </p>
      *
@@ -1082,7 +1085,7 @@ public enum ScriptCode
      *         ISO 15924 alpha-4 code.
      *
      * @return
-     *         A ScriptCode instance, or null if not found.
+     *         A {@code ScriptCode} instance, or {@code null} if not found.
      */
     public static ScriptCode getByCode(String code)
     {
@@ -1091,22 +1094,22 @@ public enum ScriptCode
 
 
     /**
-     * Get a ScriptCode instance that corresponds to the given
+     * Get a {@code ScriptCode} instance that corresponds to the given
      * ISO 15924 alpha-4 code.
      *
      * @param code
      *         ISO 15924 alpha-4 code.
      *
      * @param caseSensitive
-     *         If true, the first letter of the given code should be
-     *         capital and the other letters should be small. If false,
-     *         Whether letters are capital or small does not matter.
+     *         If {@code true}, the first letter of the given code should be
+     *         capital and the other letters should be small. If {@code false},
+     *         whether letters are capital or small does not matter.
      *         For example, {@code getByCode("JPAN", true)} returns
-     *         null but {@code getByCode("JPAN", false)} returns
+     *         {@code null} but {@code getByCode("JPAN", false)} returns
      *         {@link #Jpan}.
      *
      * @return
-     *         A ScriptCode instance, or null if not found.
+     *         A {@code ScriptCode} instance, or {@code null} if not found.
      */
     public static ScriptCode getByCode(String code, boolean caseSensitive)
     {
@@ -1129,14 +1132,14 @@ public enum ScriptCode
 
 
     /**
-     * Get a ScriptCode instance that corresponds to the given
+     * Get a {@code ScriptCode} instance that corresponds to the given
      * ISO 15924 numeric code.
      *
      * @param code
      *         ISO 15924 numeric code.
      *
      * @return
-     *         A ScriptCode instance, or null if not found.
+     *         A {@code ScriptCode} instance, or {@code null} if not found.
      */
     public static ScriptCode getByCode(int code)
     {
@@ -1206,5 +1209,98 @@ public enum ScriptCode
         {
             return sb.toString();
         }
+    }
+
+
+    /**
+     * Get a list of {@code ScriptCode} by a name regular expression.
+     *
+     * <p>
+     * This method is almost equivalent to {@link #findByName(Pattern)
+     * findByName}{@code (Pattern.compile(regex))}.
+     * </p>
+     *
+     * @param regex
+     *         Regular expression for names.
+     *
+     * @return
+     *         List of {@code ScriptCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code regex} is {@code null}.
+     *
+     * @throws java.util.regex.PatternSyntaxException
+     *         {@code regex} failed to be compiled.
+     *
+     * @since 1.11
+     */
+    public static List<ScriptCode> findByName(String regex)
+    {
+        if (regex == null)
+        {
+            throw new IllegalArgumentException("regex is null.");
+        }
+
+        // Compile the regular expression. This may throw
+        // java.util.regex.PatternSyntaxException.
+        Pattern pattern = Pattern.compile(regex);
+
+        return findByName(pattern);
+    }
+
+
+    /**
+     * Get a list of {@code ScriptCode} by a name pattern.
+     *
+     * <p>
+     * For example, the list obtained by the code snippet below:
+     * </p>
+     *
+     * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
+     * Pattern pattern = Pattern.compile(<span style="color: darkred;">"Egyptian.*"</span>);
+     * List&lt;ScriptCode&gt; list = ScriptCode.findByName(pattern);</pre>
+     *
+     * <p>
+     * contains 3 {@code ScriptCode}s as listed below.
+     * </p>
+     *
+     * <ol>
+     * <li>{@link #Egyd} : Egyptian demotic
+     * <li>{@link #Egyh} : Egyptian hieratic
+     * <li>{@link #Egyp} : Egyptian hieroglyps
+     * </ol>
+     *
+     * @param pattern
+     *         Pattern to match names.
+     *
+     * @return
+     *         List of {@code ScriptCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code pattern} is {@code null}.
+     *
+     * @since 1.11
+     */
+    public static List<ScriptCode> findByName(Pattern pattern)
+    {
+        if (pattern == null)
+        {
+            throw new IllegalArgumentException("pattern is null.");
+        }
+
+        List<ScriptCode> list = new ArrayList<ScriptCode>();
+
+        for (ScriptCode entry : values())
+        {
+            // If the name matches the given pattern.
+            if (pattern.matcher(entry.getName()).matches())
+            {
+                list.add(entry);
+            }
+        }
+
+        return list;
     }
 }

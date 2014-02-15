@@ -16,11 +16,15 @@
 package com.neovisionaries.i18n;
 
 
-import org.junit.Test;
-import static org.junit.Assert.*;
 import static com.neovisionaries.i18n.LanguageAlpha3Code.Usage.BIBLIOGRAPHY;
-import static com.neovisionaries.i18n.LanguageAlpha3Code.Usage.TERMINOLOGY;
 import static com.neovisionaries.i18n.LanguageAlpha3Code.Usage.COMMON;
+import static com.neovisionaries.i18n.LanguageAlpha3Code.Usage.TERMINOLOGY;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import java.util.List;
+import org.junit.Test;
 
 
 public class LanguageAlpha3CodeTest
@@ -1287,5 +1291,35 @@ public class LanguageAlpha3CodeTest
     public void test179()
     {
         assertEquals("new", LanguageAlpha3Code.New.toString());
+    }
+
+
+    @Test
+    public void test180()
+    {
+        List<LanguageAlpha3Code> list = LanguageAlpha3Code.findByName("Old.*");
+
+        assertEquals(7, list.size());
+
+        // ang : Old English
+        assertTrue(list.contains(LanguageAlpha3Code.ang));
+
+        // fro : Old French
+        assertTrue(list.contains(LanguageAlpha3Code.fro));
+
+        // goh : Old High German
+        assertTrue(list.contains(LanguageAlpha3Code.goh));
+
+        // non : Old Norse
+        assertTrue(list.contains(LanguageAlpha3Code.non));
+
+        // peo : Old Persian
+        assertTrue(list.contains(LanguageAlpha3Code.peo));
+
+        // pro : Old Provencal
+        assertTrue(list.contains(LanguageAlpha3Code.pro));
+
+        // sga : Old Irish
+        assertTrue(list.contains(LanguageAlpha3Code.fro));
     }
 }

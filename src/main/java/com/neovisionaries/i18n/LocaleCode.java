@@ -40,14 +40,14 @@ import java.util.Locale;
  *                     ? code.{@link #getCountry()}.{@link CountryCode#getName() getName()} : null;
  *
  *     <span style="color: darkgreen;">// For example, "[de-DE] German, Germany" is printed.</span>
- *     System.out.format("[%s] %s, %s\n", code, language, country);
+ *     System.out.format(<span style="color: darkred;">"[%s] %s, %s\n"</span>, code, language, country);
  * }
  *
  * <span style="color: darkgreen;">// Get a LocaleCode instance in various ways.</span>
  * LocaleCode code;
- * code = LocaleCode.{@link #getByCode(String) getByCode}("en-GB");
- * code = LocaleCode.{@link #getByCode(String, String) getByCode}("es", "ES");
- * code = LocaleCode.{@link #getByLocale(Locale) getByLocale}(new Locale("pt", "BR"));
+ * code = LocaleCode.{@link #getByCode(String) getByCode}(<span style="color: darkred;">"en-GB"</span>);
+ * code = LocaleCode.{@link #getByCode(String, String) getByCode}(<span style="color: darkred;">"es"</span>, <span style="color: darkred;">"ES"</span>);
+ * code = LocaleCode.{@link #getByLocale(Locale) getByLocale}(new Locale(<span style="color: darkred;">"pt"</span>, <span style="color: darkred;">"BR"</span>));
  *
  * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
  * Locale locale = LocaleCode.{@link #en}.{@link #toLocale()};
@@ -57,7 +57,7 @@ import java.util.Locale;
  * <span style="color: darkgreen;">// Locale class instead. See {@link #toLocale()} for details.</span>
  * if (locale == Locale.ENGLISH)
  * {
- *     System.out.println("Locale.en.toLocale() returned Locale.ENGLISH");
+ *     System.out.println(<span style="color: darkred;">"Locale.en.toLocale() returned Locale.ENGLISH"</span>);
  * }
  *
  * <span style="color: darkgreen;">// Get a list of LocaleCode instances whose language is Arabic.</span>
@@ -1089,18 +1089,18 @@ public enum LocaleCode
 
 
     /**
-     * Get a LocaleCode instance that corresponds to the given code.
+     * Get a {@code LocaleCode} instance that corresponds to the given code.
      *
      * <p>
      * This method just calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false).
+     * getByCode}{@code (code, false)}.
      * </p>
      *
      * @param code
      *         A locale code.
      *
      * @return
-     *         A LocaleCode instance, or null if not found.
+     *         A {@code LocaleCode} instance, or {@code null} if not found.
      *
      * @see #getByCode(String, boolean)
      */
@@ -1111,7 +1111,7 @@ public enum LocaleCode
 
 
     /**
-     * Get a LocaleCode instance that corresponds to the given code.
+     * Get a {@code LocaleCode} instance that corresponds to the given code.
      *
      * <p>
      * The format of the code should be either of the following:
@@ -1142,13 +1142,13 @@ public enum LocaleCode
      *         A locale code.
      *
      * @param caseSensitive
-     *         If true, the <i>language</i> part of the given code must be
-     *         lower-case and the <i>country</i> part, if not null, must be
+     *         If {@code true}, the <i>language</i> part of the given code must be
+     *         lower-case and the <i>country</i> part, if not {@code null}, must be
      *         upper-case. If false, this method internally canonicalizes
      *         the given code and then performs search.
      *
      * @return
-     *         A LocaleCode instance, or null if not found.
+     *         A {@code LocaleCode} instance, or {@code null} if not found.
      */
     public static LocaleCode getByCode(String code, boolean caseSensitive)
     {
@@ -1173,12 +1173,12 @@ public enum LocaleCode
 
 
     /**
-     * Get a LocaleCode instance that corresponds to the given pair of
+     * Get a {@code LocaleCode} instance that corresponds to the given pair of
      * language code and country code.
      *
      * <p>
      * This method just calls {@link #getByCode(String, String, boolean)
-     * getByCode}(language, country, false).
+     * getByCode}{@code (language, country, false)}.
      * </p>
      *
      * @param language
@@ -1193,7 +1193,7 @@ public enum LocaleCode
      *         >ISO 3166-1 alpha-2</a> country code.
      *
      * @return
-     *         A LocaleCode, or null if not found.
+     *         A {@code LocaleCode}, or {@code null} if not found.
      *
      * @see #getByCode(String, String, boolean)
      */
@@ -1204,7 +1204,7 @@ public enum LocaleCode
 
 
     /**
-     * Get a LocaleCode instance that corresponds to the given pair of
+     * Get a {@code LocaleCode} instance that corresponds to the given pair of
      * language code and country code.
      *
      * @param language
@@ -1219,13 +1219,13 @@ public enum LocaleCode
      *         >ISO 3166-1 alpha-2</a> country code.
      *
      * @param caseSensitive
-     *         If true, the given language code must be lower-case and
-     *         the given country code, if not null, must be upper-case.
-     *         If false, this method internally canonicalizes the given
+     *         If {@code true}, the given language code must be lower-case and
+     *         the given country code, if not {@code null}, must be upper-case.
+     *         If {@code false}, this method internally canonicalizes the given
      *         codes and then performs search.
      *
      * @return
-     *         A LocaleCode, or null if not found.
+     *         A {@code LocaleCode}, or {@code null} if not found.
      */
     public static LocaleCode getByCode(String language, String country, boolean caseSensitive)
     {
@@ -1254,14 +1254,14 @@ public enum LocaleCode
 
 
     /**
-     * Get a LocaleCode instance that corresponds to the given
+     * Get a {@code LocaleCode} instance that corresponds to the given
      * {@link Locale} instance.
      *
      * @param locale
-     *         A Locale instance.
+     *         A {@code Locale} instance.
      *
      * @return
-     *         A LocaleCode instance, or null if not found.
+     *         A {@code LocaleCode} instance, or {@code null} if not found.
      */
     public static LocaleCode getByLocale(Locale locale)
     {
@@ -1361,8 +1361,8 @@ public enum LocaleCode
      *         Language code. ISO 639 alpha-2 or alpha-3.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of lowercase letters only.
-     *         If false, case is ignored.
+     *         If {@code true}, the given code should consist of lowercase letters only.
+     *         If {@code false}, case is ignored.
      *
      * @return
      *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
@@ -1449,8 +1449,8 @@ public enum LocaleCode
      *         Country code. ISO 3166-1 alpha-2 or alpha-3.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of uppercase letters only.
-     *         If false, case is ignored.
+     *         If {@code true}, the given code should consist of uppercase letters only.
+     *         If {@code false}, case is ignored.
      *
      * @return
      *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}

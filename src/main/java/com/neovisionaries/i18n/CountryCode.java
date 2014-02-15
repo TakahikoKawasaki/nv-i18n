@@ -16,10 +16,13 @@
 package com.neovisionaries.i18n;
 
 
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 
 /**
@@ -34,21 +37,21 @@ import java.util.Map;
  * code ({@link #getAlpha3()}) and the
  * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1 numeric</a>
  * code ({@link #getNumeric()}).
- * In addition, there are static methods to get a CountryCode instance that
+ * In addition, there are static methods to get a {@code CountryCode} instance that
  * corresponds to a given alpha-2/alpha-3/numeric code ({@link #getByCode(String)},
  * {@link #getByCode(int)}).
  * </p>
  *
- * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black;">
+ * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
  * <span style="color: darkgreen;">// List all the country codes.</span>
  * for (CountryCode code : CountryCode.values())
  * {
  *     <span style="color: darkgreen;">// For example, "[US] United States" is printed.</span>
- *     System.out.format("[%s] %s\n", code, code.{@link #getName()});
+ *     System.out.format(<span style="color: darkred;">"[%s] %s\n"</span>, code, code.{@link #getName()});
  * }
  *
  * <span style="color: darkgreen;">// Get a CountryCode instance by ISO 3166-1 code.</span>
- * CountryCode code = CountryCode.{@link #getByCode(String) getByCode}("JP");
+ * CountryCode code = CountryCode.{@link #getByCode(String) getByCode}(<span style="color: darkred;">"JP"</span>);
  *
  * <span style="color: darkgreen;">// Print all the information. Output will be:</span>
  * <span style="color: darkgreen;">//</span>
@@ -58,11 +61,11 @@ import java.util.Map;
  * <span style="color: darkgreen;">//     ISO 3166-1 numeric code = 392</span>
  * <span style="color: darkgreen;">//     Assignment state        = OFFICIALLY_ASSIGNED</span>
  * <span style="color: darkgreen;">//</span>
- * System.out.println("Country name            = " + code.{@link #getName()});
- * System.out.println("ISO 3166-1 alpha-2 code = " + code.{@link #getAlpha2()});
- * System.out.println("ISO 3166-1 alpha-3 code = " + code.{@link #getAlpha3()});
- * System.out.println("ISO 3166-1 numeric code = " + code.{@link #getNumeric()});
- * System.out.println("Assignment state        = " + code.{@link #getAssignment()});
+ * System.out.println(<span style="color: darkred;">"Country name            = "</span> + code.{@link #getName()});
+ * System.out.println(<span style="color: darkred;">"ISO 3166-1 alpha-2 code = "</span> + code.{@link #getAlpha2()});
+ * System.out.println(<span style="color: darkred;">"ISO 3166-1 alpha-3 code = "</span> + code.{@link #getAlpha3()});
+ * System.out.println(<span style="color: darkred;">"ISO 3166-1 numeric code = "</span> + code.{@link #getNumeric()});
+ * System.out.println(<span style="color: darkred;">"Assignment state        = "</span> + code.{@link #getAssignment()});
  *
  * <span style="color: darkgreen;">// Convert to a Locale instance.</span>
  * {@link Locale} locale = code.{@link #toLocale()};
@@ -72,6 +75,19 @@ import java.util.Map;
  *
  * <span style="color: darkgreen;">// Get the currency of the country.</span>
  * {@link Currency} currency = code.{@link #getCurrency()};
+ *
+ * <span style="color: darkgreen;">// Get a list by a regular expression for names.
+ * //
+ * // The list will contain:
+ * //
+ * //     CountryCode.AE : United Arab Emirates
+ * //     CountryCode.GB : United Kingdom
+ * //     CountryCode.TZ : Tanzania, United Republic of
+ * //     CountryCode.UK : United Kingdom
+ * //     CountryCode.UM : United States Minor Outlying Islands
+ * //     CountryCode.US : United States
+ * //</span>
+ * List&lt;CountryCode&gt; list = CountryCode.{@link #findByName(String) findByName}(<span style="color: darkred;">".*United.*"</span>);
  * </pre>
  *
  * @author Takahiko Kawasaki
@@ -2213,19 +2229,19 @@ public enum CountryCode
 
 
     /**
-     * Convert this CountryCode instance to a {@link Locale} instance.
+     * Convert this {@code CountryCode} instance to a {@link Locale} instance.
      *
      * <p>
-     * In most cases, this method creates a new Locale instance
-     * every time it is called, but some CountryCode instances return
-     * their corresponding entries in Locale class. For example,
+     * In most cases, this method creates a new {@code Locale} instance
+     * every time it is called, but some {@code CountryCode} instances return
+     * their corresponding entries in {@code Locale} class. For example,
      * {@link #CA CountryCode.CA} always returns {@link Locale#CANADA}.
      * </p>
      *
      * <p>
-     * The table below lists CountryCode entries whose toLocale()
+     * The table below lists {@code CountryCode} entries whose {@code toLocale()}
      * do not create new Locale instances but return entries in
-     * Locale class.
+     * {@code Locale} class.
      * </p>
      *
      * <table border="1" style="border-collapse: collapse;" cellpadding="5">
@@ -2276,7 +2292,7 @@ public enum CountryCode
      * </table>
      *
      * @return
-     *         A Locale instance that matches this CountryCode.
+     *         A {@code Locale} instance that matches this {@code CountryCode}.
      */
     public Locale toLocale()
     {
@@ -2291,18 +2307,18 @@ public enum CountryCode
      * This method is an alias of {@link Currency}{@code .}{@link
      * Currency#getInstance(Locale) getInstance}{@code (}{@link
      * #toLocale()}{@code )}. The only difference is that this method
-     * returns null when {@code Currency.getInstance(Locale)}
+     * returns {@code null} when {@code Currency.getInstance(Locale)}
      * throws {@code IllegalArgumentException}.
      * </p>
      *
      * <p>
-     * This method returns null when the territory represented by
+     * This method returns {@code null} when the territory represented by
      * this {@code CountryCode} instance does not have a currency.
      * {@link #AQ} (Antarctica) is one example.
      * </p>
      *
      * <p>
-     * In addition, this method returns null also when the ISO 3166
+     * In addition, this method returns {@code null} also when the ISO 3166
      * code represented by this {@code CountryCode} instance is not
      * supported by the implementation of {@link
      * Currency#getInstance(Locale)}. At the time of this writing,
@@ -2333,13 +2349,13 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to the given ISO 3166-1
+     * Get a {@code CountryCode} that corresponds to the given ISO 3166-1
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
      *
      * <p>
      * This method calls {@link #getByCode(String, boolean)
-     * getByCode}(code, false), meaning the case of the given
+     * getByCode}{@code (code, false)}, meaning the case of the given
      * code is ignored.
      * </p>
      *
@@ -2349,7 +2365,7 @@ public enum CountryCode
      *         >alpha-3</a> code.
      *
      * @return
-     *         A CountryCode instance, or null if not found.
+     *         A {@code CountryCode} instance, or {@code null} if not found.
      *
      * @see #getByCode(String, boolean)
      */
@@ -2360,7 +2376,7 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to the given ISO 3166-1
+     * Get a {@code CountryCode} that corresponds to the given ISO 3166-1
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
      *
@@ -2370,14 +2386,14 @@ public enum CountryCode
      *         >alpha-3</a> code.
      *
      * @param caseSensitive
-     *         If true, the given code should consist of upper-case letters only.
-     *         If false, this method internally canonicalizes the given code by
+     *         If {@code true}, the given code should consist of upper-case letters only.
+     *         If {@code false}, this method internally canonicalizes the given code by
      *         {@link String#toUpperCase()} and then performs search. For example,
-     *         {@code getByCode("jp", true)} returns null, but on the other hand,
+     *         {@code getByCode("jp", true)} returns {@code null}, but on the other hand,
      *         {@code getByCode("jp", false)} returns {@link #JP CountryCode.JP}.
      *
      * @return
-     *         A CountryCode instance, or null if not found.
+     *         A {@code CountryCode} instance, or {@code null} if not found.
      */
     public static CountryCode getByCode(String code, boolean caseSensitive)
     {
@@ -2403,14 +2419,14 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to the country code of
+     * Get a {@code CountryCode} that corresponds to the country code of
      * the given {@link Locale} instance.
      *
      * @param locale
-     *         A Locale instance.
+     *         A {@code Locale} instance.
      *
      * @return
-     *         A CountryCode instance, or null if not found.
+     *         A {@code CountryCode} instance, or {@code null} if not found.
      *
      * @see Locale#getCountry()
      */
@@ -2434,12 +2450,14 @@ public enum CountryCode
      *         ISO 3166-1 alpha-2 or alpha-3 country code.
      *
      * @param caseSensitive
-     *         True if the code should be handled case-sensitively.
+     *         {@code true} if the code should be handled case-sensitively.
      *
      * @return
-     *         If 'code' is null or an empty string, null is returned.
-     *         Otherwise, if 'caseSensitive' is true, 'code' is returned
-     *         as is. Otherwise, code.toUpperCase() is returned.
+     *         If {@code code} is {@code null} or an empty string,
+     *         {@code null} is returned.
+     *         Otherwise, if {@code caseSensitive} is {@code true},
+     *         {@code code} is returned as is.
+     *         Otherwise, {@code code.toUpperCase()} is returned.
      */
     static String canonicalize(String code, boolean caseSensitive)
     {
@@ -2479,7 +2497,7 @@ public enum CountryCode
 
 
     /**
-     * Get a CountryCode that corresponds to the given
+     * Get a {@code CountryCode} that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1
      * numeric</a> code.
      *
@@ -2488,10 +2506,106 @@ public enum CountryCode
      *         >ISO 3166-1 numeric</a> code.
      *
      * @return
-     *         A CountryCode instance, or null if not found.
+     *         A {@code CountryCode} instance, or {@code null} if not found.
      */
     public static CountryCode getByCode(int code)
     {
         return numericMap.get(code);
+    }
+
+
+    /**
+     * Get a list of {@code CountryCode} by a name regular expression.
+     *
+     * <p>
+     * This method is almost equivalent to {@link #findByName(Pattern)
+     * findByName}{@code (Pattern.compile(regex))}.
+     * </p>
+     *
+     * @param regex
+     *         Regular expression for names.
+     *
+     * @return
+     *         List of {@code CountryCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code regex} is {@code null}.
+     *
+     * @throws java.util.regex.PatternSyntaxException
+     *         {@code regex} failed to be compiled.
+     *
+     * @since 1.11
+     */
+    public static List<CountryCode> findByName(String regex)
+    {
+        if (regex == null)
+        {
+            throw new IllegalArgumentException("regex is null.");
+        }
+
+        // Compile the regular expression. This may throw
+        // java.util.regex.PatternSyntaxException.
+        Pattern pattern = Pattern.compile(regex);
+
+        return findByName(pattern);
+    }
+
+
+    /**
+     * Get a list of {@code CountryCode} by a name pattern.
+     *
+     * <p>
+     * For example, the list obtained by the code snippet below:
+     * </p>
+     *
+     * <pre style="background-color: #EEEEEE; margin-left: 2em; margin-right: 2em; border: 1px solid black; padding: 0.5em;">
+     * Pattern pattern = Pattern.compile(<span style="color: darkred;">".*United.*"</span>);
+     * List&lt;CountryCode&gt; list = CountryCode.findByName(pattern);</pre>
+     *
+     * <p>
+     * contains 6 {@code CountryCode}s as listed below.
+     * </p>
+     *
+     * <ol>
+     * <li>{@link #AE} : United Arab Emirates
+     * <li>{@link #GB} : United Kingdom
+     * <li>{@link #TZ} : Tanzania, United Republic of
+     * <li>{@link #UK} : United Kingdom
+     * <li>{@link #UM} : United States Minor Outlying Islands
+     * <li>{@link #US} : United States
+     * </ol>
+     *
+     * @param pattern
+     *         Pattern to match names.
+     *
+     * @return
+     *         List of {@code CountryCode}. If nothing has matched,
+     *         an empty list is returned.
+     *
+     * @throws IllegalArgumentException
+     *         {@code pattern} is {@code null}.
+     *
+     * @since 1.11
+     */
+    public static List<CountryCode> findByName(Pattern pattern)
+    {
+        if (pattern == null)
+        {
+            throw new IllegalArgumentException("pattern is null.");
+        }
+
+        List<CountryCode> list = new ArrayList<CountryCode>();
+
+        for (CountryCode entry : values())
+        {
+            // If the name matches the given pattern.
+            if (pattern.matcher(entry.getName()).matches())
+            {
+                list.add(entry);
+            }
+        }
+
+        return list;
     }
 }
