@@ -2005,6 +2005,12 @@ public enum CountryCode
     WS("Samoa", "WSM", 882, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
+	 * <a href="http://en.wikipedia.org/wiki/Kosovo">Kosovo</a> [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XK">XK</a>, XXK, 780,
+	 * User assigned]
+	 */
+	XK("Kosovo", "XXK", 780, Assignment.USER_ASSIGNED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Yemen">Yemen</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#YE">YE</a>, YEM, 887,
      * Officially assigned]
