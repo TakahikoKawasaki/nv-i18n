@@ -1092,8 +1092,9 @@ public enum LocaleCode
      * Get a {@code LocaleCode} instance that corresponds to the given code.
      *
      * <p>
-     * This method just calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}.
+     * This method just calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -1105,6 +1106,29 @@ public enum LocaleCode
      * @see #getByCode(String, boolean)
      */
     public static LocaleCode getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code LocaleCode} instance that corresponds to the given code.
+     *
+     * <p>
+     * This method just calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *         A locale code.
+     *
+     * @return
+     *         A {@code LocaleCode} instance, or {@code null} if not found.
+     *
+     * @since 1.13
+     *
+     * @see #getByCode(String, boolean)
+     */
+    public static LocaleCode getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }
@@ -1178,7 +1202,10 @@ public enum LocaleCode
      *
      * <p>
      * This method just calls {@link #getByCode(String, String, boolean)
-     * getByCode}{@code (language, country, false)}.
+     * getByCode}{@code (language, country, true)}.
+     * Note that the behavior has changed since the version 1.13.
+     * In the older versions, this method was an alias of {@code
+     * getByCode(language, country, false)}.
      * </p>
      *
      * @param language
@@ -1198,6 +1225,39 @@ public enum LocaleCode
      * @see #getByCode(String, String, boolean)
      */
     public static LocaleCode getByCode(String language, String country)
+    {
+        return getByCode(language, country, true);
+    }
+
+
+    /**
+     * Get a {@code LocaleCode} instance that corresponds to the given pair of
+     * language code and country code.
+     *
+     * <p>
+     * This method just calls {@link #getByCode(String, String, boolean)
+     * getByCode}{@code (language, country, false)}.
+     * </p>
+     *
+     * @param language
+     *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
+     *         >ISO 639-1</a> language code. If the given language code
+     *         is one of legacy ones { "iw", "ji" and "in" }, it is
+     *         regarded as its newer official counterpart { "he", "yi"
+     *         and "id", respectively }.
+     *
+     * @param country
+     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+     *         >ISO 3166-1 alpha-2</a> country code.
+     *
+     * @return
+     *         A {@code LocaleCode}, or {@code null} if not found.
+     *
+     * @since 1.13
+     *
+     * @see #getByCode(String, String, boolean)
+     */
+    public static LocaleCode getByCodeIgnoreCase(String language, String country)
     {
         return getByCode(language, country, false);
     }
@@ -1329,7 +1389,9 @@ public enum LocaleCode
      *
      * <p>
      * This method is an alias of {@link #getByLanguage(String, boolean)
-     * getByLanguage}{@code (language, false)}.
+     * getByLanguage}{@code (language, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByLanguage(language, false)}.
      * </p>
      *
      * @param language
@@ -1343,6 +1405,30 @@ public enum LocaleCode
      * @since 1.3
      */
     public static List<LocaleCode> getByLanguage(String language)
+    {
+        return getByLanguage(language, true);
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose language matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByLanguage(String, boolean)
+     * getByLanguage}{@code (language, false)}.
+     * </p>
+     *
+     * @param language
+     *         Language code. ISO 639 alpha-2 or alpha-3.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose language matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.13
+     */
+    public static List<LocaleCode> getByLanguageIgnoreCase(String language)
     {
         return getByLanguage(language, false);
     }
@@ -1416,7 +1502,9 @@ public enum LocaleCode
      *
      * <p>
      * This method is an alias of {@link #getByCountry(String, boolean)
-     * getByCountry}{@code (country, false)}.
+     * getByCountry}{@code (country, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCountry(country, false)}.
      * </p>
      *
      * @param country
@@ -1430,6 +1518,30 @@ public enum LocaleCode
      * @since 1.3
      */
     public static List<LocaleCode> getByCountry(String country)
+    {
+        return getByCountry(country, true);
+    }
+
+
+    /**
+     * Get a list of {@code LocaleCode} instances whose country matches the given one.
+     *
+     * <p>
+     * This method is an alias of {@link #getByCountry(String, boolean)
+     * getByCountry}{@code (country, false)}.
+     * </p>
+     *
+     * @param country
+     *         Country code. ISO 3166-1 alpha-2 or alpha-3.
+     *
+     * @return
+     *         List of {@code LocaleCode} instances. If there is no {@code LocaleCode}
+     *         instance whose country matches the given one, the size of the returned
+     *         list is zero.
+     *
+     * @since 1.13
+     */
+    public static List<LocaleCode> getByCountryIgnoreCase(String country)
     {
         return getByCountry(country, false);
     }
