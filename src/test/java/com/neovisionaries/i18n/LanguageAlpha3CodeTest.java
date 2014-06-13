@@ -93,7 +93,7 @@ public class LanguageAlpha3CodeTest
     @Test
     public void test8()
     {
-        assertSame(getByCode("JPN"), LanguageAlpha3Code.jpn);
+        assertNull(getByCode("JPN"));
     }
 
 

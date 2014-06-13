@@ -6136,8 +6136,9 @@ public enum LanguageAlpha3Code
      * (3-letter lowercase code).
      *
      * <p>
-     * This method calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}, meaning the case of the given code is ignored.
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -6159,6 +6160,43 @@ public enum LanguageAlpha3Code
      *         codes, ISO 639/T code ("terminological" code) is returned.
      */
     public static LanguageAlpha3Code getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code LanguageAlpha3Code} that corresponds to a given
+     * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
+     * (2-letter lowercase code) or
+     * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
+     * (3-letter lowercase code).
+     *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *        An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *        code (2-letter lowercase code) or an
+     *        <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
+     *        code
+     *        (3-letter lowercase code).
+     *        Note that if the given code is one of legacy language codes
+     *        ("iw", "ji" and "in"), it is treated as its official counterpart
+     *        ("he", "yi" and "id", respectively). For example, if "in" is
+     *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
+     *
+     * @return
+     *         A {@code LanguageAlpha3Code} instance, or {@code null} if not found.
+     *         If <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         code (2-letter code) is given and the language has two
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
+     *         codes, ISO 639/T code ("terminological" code) is returned.
+     *
+     * @since 1.13
+     */
+    public static LanguageAlpha3Code getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }
