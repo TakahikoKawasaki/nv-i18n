@@ -2763,9 +2763,9 @@ public enum LanguageCode
      * (3-letter lowercase code).
      *
      * <p>
-     * This method calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}, meaning the case of the given
-     * code is ignored.
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -2782,6 +2782,38 @@ public enum LanguageCode
      *         A {@code LanguageCode} instance, or {@code null} if not found.
      */
     public static LanguageCode getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code LanguageCode} that corresponds to a given
+     * <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code
+     * (2-letter lowercase code) or
+     * <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
+     * (3-letter lowercase code).
+     *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         code (2-letter lowercase code) or an
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
+     *         (3-letter lowercase code).
+     *         Note that if the given code is one of legacy language codes
+     *         ("iw", "ji" and "in"), it is treated as its official counterpart
+     *         ("he", "yi" and "id", respectively). For example, if "in" is given,
+     *         this method returns {@link #id LanguageCode.id}.
+     *
+     * @return
+     *         A {@code LanguageCode} instance, or {@code null} if not found.
+     *
+     * @since 1.13
+     */
+    public static LanguageCode getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }

@@ -55,7 +55,7 @@ public class LanguageCodeTest
     @Test
     public void test2()
     {
-        assertSame(getByCode("JA"), LanguageCode.ja);
+        assertNull(getByCode("JA"));
     }
 
 
