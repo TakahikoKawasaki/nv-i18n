@@ -2356,9 +2356,9 @@ public enum CurrencyCode
      * alpha-3 code.
      *
      * <p>
-     * This method calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}, meaning the case of the given
-     * code is ignored.
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -2371,6 +2371,32 @@ public enum CurrencyCode
      * @see #getByCode(String, boolean)
      */
     public static CurrencyCode getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code CurrencyCode} that corresponds to the given
+     * <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
+     * alpha-3 code.
+     *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *         <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
+     *         alpha-3 code.
+     *
+     * @return
+     *         A {@code CurrencyCode} instance, or {@code null} if not found.
+     *
+     * @since 1.13
+     *
+     * @see #getByCode(String, boolean)
+     */
+    public static CurrencyCode getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }
@@ -2426,9 +2452,15 @@ public enum CurrencyCode
      *
      * @return
      *         A {@code CurrencyCode} instance, or {@code null} if not found.
+     *         If 0 or a negative value is given, {@code null} is returned.
      */
     public static CurrencyCode getByCode(int code)
     {
+        if (code <= 0)
+        {
+            return null;
+        }
+
         return numericMap.get(code);
     }
 
@@ -2457,7 +2489,10 @@ public enum CurrencyCode
      *
      * <p>
      * This method is an alias of {@link #getByCountry(String, boolean)
-     * getByCountry}{@code (country, false)}.
+     * getByCountry}{@code (country, true)}.
+     * Note that the behavior has changed since the version 1.13.
+     * In the older versions, this method was an alias of {@code
+     * getByCountry(code, false)}.
      * </p>
      *
      * @param country
@@ -2469,6 +2504,31 @@ public enum CurrencyCode
      *         the specified country, the size of the returned list is zero.
      */
     public static List<CurrencyCode> getByCountry(String country)
+    {
+        return getByCountry(country, true);
+    }
+
+
+    /**
+     * Get a list of {@code CurrencyCode} instances whose country
+     * list contains the specified country.
+     *
+     * <p>
+     * This method is an alias of {@link #getByCountry(String, boolean)
+     * getByCountry}{@code (country, false)}.
+     * </p>
+     *
+     * @param country
+     *         Country code. ISO 3166-1 alpha-2 or alpha-3.
+     *
+     * @return
+     *         List of {@code CurrencyCode} instances. If there is no
+     *         {@code CurrencyCode} instance whose country list contains
+     *         the specified country, the size of the returned list is zero.
+     *
+     * @since 1.13
+     */
+    public static List<CurrencyCode> getByCountryIgnoreCase(String country)
     {
         return getByCountry(country, false);
     }
