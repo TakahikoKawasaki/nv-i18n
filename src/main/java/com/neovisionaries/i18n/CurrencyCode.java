@@ -664,6 +664,7 @@ public enum CurrencyCode
      * <li>{@link CountryCode#SM SM}: SAN MARINO
      * <li>{@link CountryCode#TF TF}: FRENCH SOUTHERN TERRITORIES
      * <li>{@link CountryCode#VA VA}: HOLY SEE (VATICAN CITY STATE)
+     * <li>{@link CountryCode#XK XK}: KOSOVO, REPUBLIC OF
      * <li>{@link CountryCode#YT YT}: MAYOTTE
      * </ul>
      */
@@ -676,7 +677,7 @@ public enum CurrencyCode
         CountryCode.ME, CountryCode.MF, CountryCode.MQ, CountryCode.MT,
         CountryCode.NL, CountryCode.PM, CountryCode.PT, CountryCode.RE,
         CountryCode.SI, CountryCode.SK, CountryCode.SM, CountryCode.TF,
-        CountryCode.VA, CountryCode.YT),
+        CountryCode.VA, CountryCode.XK, CountryCode.YT),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Fiji_dollar">Fiji Dollar</a>.
