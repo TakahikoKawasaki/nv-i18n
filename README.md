@@ -80,7 +80,7 @@ Maven
     <dependency>
         <groupId>com.neovisionaries</groupId>
         <artifactId>nv-i18n</artifactId>
-        <version>1.12</version>
+        <version>1.13</version>
     </dependency>
 ```
 
@@ -89,7 +89,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.12.0"
+    Export-Package: com.neovisionaries.i18n;version="1.13.0"
 
 
 
