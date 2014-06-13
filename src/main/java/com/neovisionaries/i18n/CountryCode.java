@@ -2361,9 +2361,9 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
      *
      * <p>
-     * This method calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}, meaning the case of the given
-     * code is ignored.
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -2377,6 +2377,33 @@ public enum CountryCode
      * @see #getByCode(String, boolean)
      */
     public static CountryCode getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code CountryCode} that corresponds to the given ISO 3166-1
+     * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> or
+     * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
+     *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+     *         >alpha-2</a> or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
+     *         >alpha-3</a> code.
+     *
+     * @return
+     *         A {@code CountryCode} instance, or {@code null} if not found.
+     *
+     * @since 1.13
+     *
+     * @see #getByCode(String, boolean)
+     */
+    public static CountryCode getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }
@@ -2514,9 +2541,15 @@ public enum CountryCode
      *
      * @return
      *         A {@code CountryCode} instance, or {@code null} if not found.
+     *         If 0 or a negative value is given, {@code null} is returned.
      */
     public static CountryCode getByCode(int code)
     {
+        if (code <= 0)
+        {
+            return null;
+        }
+
         return numericMap.get(code);
     }
 
