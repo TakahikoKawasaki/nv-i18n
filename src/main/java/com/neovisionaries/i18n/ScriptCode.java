@@ -1076,9 +1076,9 @@ public enum ScriptCode
      * ISO 15924 alpha-4 code.
      *
      * <p>
-     * This method calls {@link #getByCode(String, boolean)
-     * getByCode}{@code (code, false)}, meaning the case of the given
-     * code is ignored.
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, true)}.
+     * Note that the behavior has changed since the version 1.13. In the older versions,
+     * this method was an alias of {@code getByCode(code, false)}.
      * </p>
      *
      * @param code
@@ -1088,6 +1088,28 @@ public enum ScriptCode
      *         A {@code ScriptCode} instance, or {@code null} if not found.
      */
     public static ScriptCode getByCode(String code)
+    {
+        return getByCode(code, true);
+    }
+
+
+    /**
+     * Get a {@code ScriptCode} instance that corresponds to the given
+     * ISO 15924 alpha-4 code.
+     *
+     * <p>
+     * This method calls {@link #getByCode(String, boolean) getByCode}{@code (code, false)}.
+     * </p>
+     *
+     * @param code
+     *         ISO 15924 alpha-4 code.
+     *
+     * @return
+     *         A {@code ScriptCode} instance, or {@code null} if not found.
+     *
+     * @since 1.13
+     */
+    public static ScriptCode getByCodeIgnoreCase(String code)
     {
         return getByCode(code, false);
     }
@@ -1140,9 +1162,15 @@ public enum ScriptCode
      *
      * @return
      *         A {@code ScriptCode} instance, or {@code null} if not found.
+     *         If 0 or a negative value is given, {@code null} is returned.
      */
     public static ScriptCode getByCode(int code)
     {
+        if (code <= 0)
+        {
+            return null;
+        }
+
         return numericMap.get(code);
     }
 
