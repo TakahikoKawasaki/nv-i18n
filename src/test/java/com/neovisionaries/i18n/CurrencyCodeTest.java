@@ -42,14 +42,14 @@ public class CurrencyCodeTest
     @Test
     public void test1()
     {
-        assertSame(getByCode("jpy"), CurrencyCode.JPY);
+        assertSame(getByCode("JPY"), CurrencyCode.JPY);
     }
 
 
     @Test
     public void test2()
     {
-        assertSame(getByCode("jpy"), CurrencyCode.JPY);
+        assertNull(getByCode("jpy"));
     }
 
 
