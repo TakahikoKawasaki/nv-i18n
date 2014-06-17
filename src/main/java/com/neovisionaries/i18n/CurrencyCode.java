@@ -1962,8 +1962,8 @@ public enum CurrencyCode
      *
      * <p>Used by:</p>
      * <ul>
-     * <li>{@link CountryCode#CD CD}: CONGO
      * <li>{@link CountryCode#CF CF}: CENTRAL AFRICAN REPUBLIC
+     * <li>{@link CountryCode#CG CG}: CONGO
      * <li>{@link CountryCode#CM CM}: CAMEROON
      * <li>{@link CountryCode#GA GA}: GABON
      * <li>{@link CountryCode#GQ GQ}: EQUATORIAL GUINEA
@@ -1971,7 +1971,7 @@ public enum CurrencyCode
      * </ul>
      */
     XAF("CFA Franc BEAC", 950, 0,
-        CountryCode.CD, CountryCode.CF, CountryCode.CM, CountryCode.GA,
+        CountryCode.CF, CountryCode.CG, CountryCode.CM, CountryCode.GA,
         CountryCode.GQ, CountryCode.TD),
 
     /**

@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+### 1.14-SNAPSHOT
+
+* Fixed CurrencyCode.XAF. It contained CD (Congo, the Democratic
+  Republic of the), but it should be CG (Cong).
+
+
 ### 1.13 (2014-06-13)
 
 * Added CountryCode.XK for "Kosovo, Republic of".
