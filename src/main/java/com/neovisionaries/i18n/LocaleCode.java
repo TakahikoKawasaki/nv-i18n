@@ -71,6 +71,18 @@ import java.util.Locale;
  */
 public enum LocaleCode
 {
+   /**
+     * undefine
+     */
+    undefined(LanguageCode.undefined, CountryCode.UNDEFINED)
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return Locale.ROOT;
+        }
+    },
+    
     /**
      * {@link LanguageCode#ar Arabic}
      */

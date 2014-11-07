@@ -31,6 +31,12 @@ import java.util.regex.Pattern;
  */
 public enum ScriptCode
 {
+
+    /**
+     * Undefined [-1]
+     */
+    Undefined(-1, "Undefined"),
+
     /**
      * Afaka [439]
      */

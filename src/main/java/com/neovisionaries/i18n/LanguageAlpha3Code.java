@@ -169,6 +169,18 @@ import java.util.regex.Pattern;
 public enum LanguageAlpha3Code
 {
     /**
+     *
+     */
+    undefined("Undefined")
+    {
+        @Override
+        public LanguageCode getAlpha2()
+        {
+            return LanguageCode.undefined;
+        }
+    },
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Afar_language">Afar</a>
      * ({@link LanguageCode#aa aa}).
      */

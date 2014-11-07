@@ -94,6 +94,14 @@ import java.util.regex.Pattern;
  */
 public enum CountryCode
 {
+
+    /**
+     * Undefine/Unspecified
+     */
+    //which one is better?
+    UNDEFINED("Undefined", "Undefined", -1, Assignment.USER_ASSIGNED),
+    //XX("Undefine", "XXX", -1, Assignment.USER_ASSIGNED)
+
     /**
      * <a href="http://en.wikipedia.org/wiki/Ascension_Island">Ascension Island</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AC">AC</a>, ASC, -1,

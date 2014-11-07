@@ -48,6 +48,11 @@ import java.util.regex.Pattern;
 public enum CurrencyCode
 {
     /**
+     * Undefine
+     */
+    UNDEFINED("Undefined", -1, -1),
+    
+    /**
      * <a href="http://en.wikipedia.org/wiki/United_Arab_Emirates_dirham">UAE Dirham</a>.
      * [numeric code = 784, minor unit = 2]
      *
