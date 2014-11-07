@@ -16,6 +16,7 @@
 package com.neovisionaries.i18n;
 
 
+import static com.neovisionaries.i18n.CurrencyCode.getByCode;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -27,22 +28,10 @@ import org.junit.Test;
 
 public class CurrencyCodeTest
 {
-    private static CurrencyCode getByCode(String code)
-    {
-        return CurrencyCode.getByCode(code);
-    }
-
-
-    private static CurrencyCode getByCode(String code, boolean caseSensitive)
-    {
-        return CurrencyCode.getByCode(code, caseSensitive);
-    }
-
-
     @Test
     public void test1()
     {
-        assertSame(getByCode("JPY"), CurrencyCode.JPY);
+        assertSame(CurrencyCode.JPY, getByCode("JPY"));
     }
 
 
@@ -56,7 +45,7 @@ public class CurrencyCodeTest
     @Test
     public void test3()
     {
-        assertSame(getByCode("JPY", true), CurrencyCode.JPY);
+        assertSame(CurrencyCode.JPY, getByCode("JPY", true));
     }
 
 
@@ -70,14 +59,14 @@ public class CurrencyCodeTest
     @Test
     public void test5()
     {
-        assertSame(getByCode("JPY", false), CurrencyCode.JPY);
+        assertSame(CurrencyCode.JPY, getByCode("JPY", false));
     }
 
 
     @Test
     public void test6()
     {
-        assertSame(getByCode("jpy", false), CurrencyCode.JPY);
+        assertSame(CurrencyCode.JPY, getByCode("jpy", false));
     }
 
 
@@ -137,7 +126,7 @@ public class CurrencyCodeTest
         List<CountryCode> list = CurrencyCode.JPY.getCountryList();
 
         assertTrue(list.size() == 1);
-        assertSame(list.get(0), CountryCode.JP);
+        assertSame(CountryCode.JP, list.get(0));
     }
 
 
@@ -162,5 +151,26 @@ public class CurrencyCodeTest
 
         // RUB: Russian Ruble
         assertTrue(list.contains(CurrencyCode.RUB));
+    }
+
+
+    @Test
+    public void test15()
+    {
+        assertSame(CurrencyCode.UNDEFINED, getByCode("UNDEFINED"));
+    }
+
+
+    @Test
+    public void test16()
+    {
+        assertNull(getByCode("undefined"));
+    }
+
+
+    @Test
+    public void test17()
+    {
+        assertSame(CurrencyCode.UNDEFINED, getByCode("undefined", false));
     }
 }
