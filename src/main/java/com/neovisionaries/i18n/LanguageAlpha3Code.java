@@ -171,12 +171,12 @@ public enum LanguageAlpha3Code
     /**
      *
      */
-    undefine("Undefine")
+    undefined("Undefined")
     {
         @Override
         public LanguageCode getAlpha2()
         {
-            return LanguageCode.undefine;
+            return LanguageCode.undefined;
         }
     },
 

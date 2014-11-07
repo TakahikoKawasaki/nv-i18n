@@ -74,7 +74,7 @@ public enum LocaleCode
    /**
      * undefine
      */
-    undefine(LanguageCode.undefine, CountryCode.Undefine)
+    undefined(LanguageCode.undefined, CountryCode.UNDEFINED)
     {
         @Override
         public Locale toLocale()

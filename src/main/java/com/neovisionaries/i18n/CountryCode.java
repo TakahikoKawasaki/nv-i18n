@@ -99,7 +99,7 @@ public enum CountryCode
      * Undefine/Unspecified
      */
     //which one is better?
-    Undefine("Undefine", "Undefine", -1, Assignment.USER_ASSIGNED),
+    UNDEFINED("Undefined", "Undefined", -1, Assignment.USER_ASSIGNED),
     //XX("Undefine", "XXX", -1, Assignment.USER_ASSIGNED)
 
     /**

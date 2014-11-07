@@ -33,9 +33,9 @@ public enum ScriptCode
 {
 
     /**
-     * Undefine [-1]
+     * Undefined [-1]
      */
-    Undefine(-1, "Undefine"),
+    Undefined(-1, "Undefined"),
 
     /**
      * Afaka [439]
