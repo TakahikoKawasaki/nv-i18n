@@ -96,11 +96,15 @@ public enum CountryCode
 {
 
     /**
-     * Undefine/Unspecified
+     * Undefined [UNDEFINED, UNDEFINED, -1, User assigned]
+     *
+     * <p>
+     * This is not an official ISO 3166-1 code.
+     * </p>
+     *
+     * @since 1.14
      */
-    //which one is better?
-    UNDEFINED("Undefined", "Undefined", -1, Assignment.USER_ASSIGNED),
-    //XX("Undefine", "XXX", -1, Assignment.USER_ASSIGNED)
+    UNDEFINED("Undefined", "UNDEFINED", -1, Assignment.USER_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Ascension_Island">Ascension Island</a>

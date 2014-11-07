@@ -34,6 +34,15 @@ public enum ScriptCode
 
     /**
      * Undefined [-1]
+     *
+     * <p>
+     * This is not an official ISO 15924 code.
+     * </p>
+     *
+     * @since 1.14
+     * @see #Zxxx Zxxx: 997 Code for unwritten languages
+     * @see #Zyyy Zyyy: 998 Code for undetermined script
+     * @see #Zzzz Zzzz: 999 Code for uncoded script
      */
     Undefined(-1, "Undefined"),
 

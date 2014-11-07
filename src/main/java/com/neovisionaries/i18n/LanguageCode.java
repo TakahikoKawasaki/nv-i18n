@@ -67,7 +67,13 @@ import java.util.regex.Pattern;
 public enum LanguageCode
 {
     /**
+     * Undefined.
      *
+     * <p>
+     * This is not an official ISO 639-1 code.
+     * </p>
+     *
+     * @since 1.14
      */
     undefined()
     {
@@ -77,7 +83,7 @@ public enum LanguageCode
             return LanguageAlpha3Code.undefined;
         }
     },
-    
+
     /**
      * <a href="http://en.wikipedia.org/wiki/Afar_language">Afar</a>
      * ({@link LanguageAlpha3Code#aar aar}).

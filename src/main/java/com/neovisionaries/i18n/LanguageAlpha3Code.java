@@ -169,7 +169,14 @@ import java.util.regex.Pattern;
 public enum LanguageAlpha3Code
 {
     /**
+     * Undefined.
      *
+     * <p>
+     * This is not an official ISO 639-2 code.
+     * </p>
+     *
+     * @since 1.14
+     * @see #zxx zxx: No linguistic content
      */
     undefined("Undefined")
     {
