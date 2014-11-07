@@ -1,10 +1,17 @@
 CHANGES
 =======
 
-### 1.14-SNAPSHOT
+### 1.14 (2014-11-07)
 
 * Fixed CurrencyCode.XAF. It contained CD (Congo, the Democratic
   Republic of the), but it should be CG (Cong).
+
+* Added `CountryCode.UNDEFINED`.
+* Added `CurrencyCode.UNDEFINED`.
+* Added `LanguageAlpha3Code.undefined`.
+* Added `LanguageCode.undefined`.
+* Added `LocaleCode.undefined`.
+* Added `ScriptCode.Undefined`.
 
 
 ### 1.13 (2014-06-13)
