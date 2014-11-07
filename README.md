@@ -24,7 +24,9 @@ Apache License, Version 2.0
 Download
 --------
 
-    git clone https://github.com/TakahikoKawasaki/nv-i18n.git
+```sh
+git clone https://github.com/TakahikoKawasaki/nv-i18n.git
+```
 
 
 Javadoc
@@ -37,39 +39,39 @@ Example
 -------
 
 ```java
-    // List all the country codes.
-    for (CountryCode code : CountryCode.values())
-    {
-        System.out.format("[%s] %s\n", code, code.getName());
-    }
+// List all the country codes.
+for (CountryCode code : CountryCode.values())
+{
+    System.out.format("[%s] %s\n", code, code.getName());
+}
 
-    // List all the language codes.
-    for (LanguageCode code : LanguageCode.values())
-    {
-        System.out.format("[%s] %s\n", code, code.getName());
-    }
+// List all the language codes.
+for (LanguageCode code : LanguageCode.values())
+{
+    System.out.format("[%s] %s\n", code, code.getName());
+}
 
-    // List all the locale codes.
-    for (LocaleCode code : LocaleCode.values())
-    {
-        String language = code.getLanguage().getName();
-        String country  = code.getCountry() != null
-                        ? code.getCountry().getName() : null;
+// List all the locale codes.
+for (LocaleCode code : LocaleCode.values())
+{
+    String language = code.getLanguage().getName();
+    String country  = code.getCountry() != null
+                    ? code.getCountry().getName() : null;
 
-        System.out.format("[%s] %s, %s\n", code, language, country);
-    }
+    System.out.format("[%s] %s, %s\n", code, language, country);
+}
 
-    // List all the script codes.
-    for (ScriptCode code : ScriptCode.values())
-    {
-        System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
-    }
+// List all the script codes.
+for (ScriptCode code : ScriptCode.values())
+{
+    System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
+}
 
-    // List all the currency codes.
-    for (CurrencyCode code : CurrencyCode.values())
-    {
-        System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
-    }
+// List all the currency codes.
+for (CurrencyCode code : CurrencyCode.values())
+{
+    System.out.format("[%s] %03d %s\n", code, code.getNumeric(), code.getName());
+}
 ```
 
 
@@ -77,11 +79,11 @@ Maven
 -----
 
 ```xml
-    <dependency>
-        <groupId>com.neovisionaries</groupId>
-        <artifactId>nv-i18n</artifactId>
-        <version>1.13</version>
-    </dependency>
+<dependency>
+    <groupId>com.neovisionaries</groupId>
+    <artifactId>nv-i18n</artifactId>
+    <version>1.14</version>
+</dependency>
 ```
 
 
@@ -89,7 +91,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.13.0"
+    Export-Package: com.neovisionaries.i18n;version="1.14.0"
 
 
 
