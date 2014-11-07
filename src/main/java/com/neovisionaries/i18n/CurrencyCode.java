@@ -2376,6 +2376,8 @@ public enum CurrencyCode
      * @param code
      *         <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
      *         alpha-3 code.
+     *         When {@code "UNDEFINED"} is given, {@link #UNDEFINED CurrencyCode.UNDEFINED}
+     *         is returned.
      *
      * @return
      *         A {@code CurrencyCode} instance, or {@code null} if not found.
@@ -2399,7 +2401,7 @@ public enum CurrencyCode
      *
      * @param code
      *         <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
-     *         alpha-3 code.
+     *         alpha-3 code. Or {@code "UNDEFINED"} (case insensitive).
      *
      * @return
      *         A {@code CurrencyCode} instance, or {@code null} if not found.
@@ -2422,6 +2424,8 @@ public enum CurrencyCode
      * @param code
      *         <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>
      *         alpha-3 code.
+     *         Or {@code "UNDEFINED"} (its case sensitivity depends on the value of
+     *         {@code caseSensitive}).
      *
      * @param caseSensitive
      *         If {@code true}, the given code should consist of upper-case letters only.

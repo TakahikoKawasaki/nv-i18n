@@ -1186,7 +1186,7 @@ public enum LocaleCode
      * <p>
      * Note that if the language part of the given code is one of legacy
      * ones { "iw", "ji" and "in" }, it is regarded as its newer official
-     * counterpart { "he", "yi" and "id", respectively }.
+     * counterpart { "he", "yi" and "id" }, respectively.
      * </p>
      *
      * @param code
@@ -1211,11 +1211,15 @@ public enum LocaleCode
         switch (code.length())
         {
             case 2:
+            case 9:
                 // The given code is regarded as a language code.
                 return getByCode(code, null, caseSensitive);
 
             case 5:
-                return getByCode5(code, caseSensitive);
+                return getByCombinedCode(code, caseSensitive, 2);
+
+            case 19:
+                return getByCombinedCode(code, caseSensitive, 9);
 
             default:
                 return null;
@@ -1237,14 +1241,15 @@ public enum LocaleCode
      *
      * @param language
      *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. If the given language code
-     *         is one of legacy ones { "iw", "ji" and "in" }, it is
-     *         regarded as its newer official counterpart { "he", "yi"
-     *         and "id", respectively }.
+     *         >ISO 639-1</a> language code. Or "undefined" (case
+     *         sensitive). If the given language code is one of legacy
+     *         ones { "iw", "ji" and "in" }, it is regarded as its newer
+     *         official counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
      *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code.
+     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED"
+     *         (case sensitive).
      *
      * @return
      *         A {@code LocaleCode}, or {@code null} if not found.
@@ -1268,14 +1273,15 @@ public enum LocaleCode
      *
      * @param language
      *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. If the given language code
-     *         is one of legacy ones { "iw", "ji" and "in" }, it is
-     *         regarded as its newer official counterpart { "he", "yi"
-     *         and "id", respectively }.
+     *         >ISO 639-1</a> language code. Or "undefined" (case
+     *         insensitive). If the given language code is one of legacy
+     *         ones { "iw", "ji" and "in" }, it is regarded as its newer
+     *         official counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
      *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code.
+     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED"
+     *         (case insensitive).
      *
      * @return
      *         A {@code LocaleCode}, or {@code null} if not found.
@@ -1294,16 +1300,21 @@ public enum LocaleCode
      * Get a {@code LocaleCode} instance that corresponds to the given pair of
      * language code and country code.
      *
+     * <p>
+     * If {@code language} is "undefined" and if {@code country} is {@code null}
+     * or "UNDEFINED", {@link #undefined LocaleCode.undefined} is returned.
+     * </p>
+     *
      * @param language
      *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. If the given language code
-     *         is one of legacy ones { "iw", "ji" and "in" }, it is
-     *         regarded as its newer official counterpart { "he", "yi"
-     *         and "id", respectively }.
+     *         >ISO 639-1</a> language code. Or "undefined".
+     *         If the given language code is one of legacy ones { "iw",
+     *         "ji" and "in" }, it is regarded as its newer official
+     *         counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
      *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code.
+     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED".
      *
      * @param caseSensitive
      *         If {@code true}, the given language code must be lower-case and
@@ -1328,6 +1339,11 @@ public enum LocaleCode
         // Canonicalize the given country code.
         country = CountryCode.canonicalize(country, caseSensitive);
 
+        if (language.equals("undefined") && (country == null || country.equals("UNDEFINED")))
+        {
+            return LocaleCode.undefined;
+        }
+
         if (country == null)
         {
             return getByEnumName(language);
@@ -1336,7 +1352,6 @@ public enum LocaleCode
         {
             return getByEnumName(language + "_" + country);
         }
-
     }
 
 
@@ -1349,6 +1364,11 @@ public enum LocaleCode
      *
      * @return
      *         A {@code LocaleCode} instance, or {@code null} if not found.
+     *         When the value returned by {@link Locale#getLanguage() getLanguage()}
+     *         method of the given instance is {@code null} or an empty string and
+     *         the value returned by {@link Locale#getCountry() getCountry()} method
+     *         of the given instance is {@code null} or an empty string,
+     *         {@link #undefined LocaleCode.undefined} is returned.
      */
     public static LocaleCode getByLocale(Locale locale)
     {
@@ -1365,20 +1385,26 @@ public enum LocaleCode
         // a upper-case ISO 3166-1 alphe-2 code.
         String country = locale.getCountry();
 
+        if ((language == null || language.length() == 0) &&
+            (country  == null || country.length()  == 0))
+        {
+            return LocaleCode.undefined;
+        }
+
         // 'language' and 'country' are already lower-case and upper-case,
         // so true can be given as the third argument.
         return getByCode(language, country, true);
     }
 
 
-    private static LocaleCode getByCode5(String code, boolean caseSensitive)
+    private static LocaleCode getByCombinedCode(String code, boolean caseSensitive, int splitPosition)
     {
         // Get the character that separates the language code from the country code.
-        char separator = code.charAt(2);
+        char separator = code.charAt(splitPosition);
 
         if (separator == '_')
         {
-            if (caseSensitive)
+            if (caseSensitive && splitPosition == 2)
             {
                 // The given code can be handled as enum name.
                 return getByEnumName(code);
@@ -1391,8 +1417,8 @@ public enum LocaleCode
         }
 
         // Extract the language part and the country part from the given code.
-        String language = code.substring(0, 2);
-        String country = code.substring(3);
+        String language = code.substring(0, splitPosition);
+        String country  = code.substring(splitPosition + 1);
 
         return getByCode(language, country, caseSensitive);
     }

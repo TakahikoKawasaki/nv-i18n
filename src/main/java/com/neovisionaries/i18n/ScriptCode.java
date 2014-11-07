@@ -1035,7 +1035,10 @@ public enum ScriptCode
     {
         for (ScriptCode sc : values())
         {
-            numericMap.put(sc.getNumeric(), sc);
+            if (sc.getNumeric() != -1)
+            {
+                numericMap.put(sc.getNumeric(), sc);
+            }
         }
     }
 
@@ -1097,7 +1100,7 @@ public enum ScriptCode
      * </p>
      *
      * @param code
-     *         ISO 15924 alpha-4 code.
+     *         ISO 15924 alpha-4 code. Or "Undefined" (case sensitive).
      *
      * @return
      *         A {@code ScriptCode} instance, or {@code null} if not found.
@@ -1117,7 +1120,7 @@ public enum ScriptCode
      * </p>
      *
      * @param code
-     *         ISO 15924 alpha-4 code.
+     *         ISO 15924 alpha-4 code. Or "Undefined" (case insensitive).
      *
      * @return
      *         A {@code ScriptCode} instance, or {@code null} if not found.
@@ -1135,7 +1138,8 @@ public enum ScriptCode
      * ISO 15924 alpha-4 code.
      *
      * @param code
-     *         ISO 15924 alpha-4 code.
+     *         ISO 15924 alpha-4 code. Or "Undefined" (its case sensitivity
+     *         depends on the value of {@code caseSensitive}).
      *
      * @param caseSensitive
      *         If {@code true}, the first letter of the given code should be
@@ -1150,9 +1154,19 @@ public enum ScriptCode
      */
     public static ScriptCode getByCode(String code, boolean caseSensitive)
     {
-        if (code == null || code.length() != 4)
+        if (code == null)
         {
             return null;
+        }
+
+        switch (code.length())
+        {
+            case 4:
+            case 9:
+                break;
+
+            default:
+                return null;
         }
 
         code = canonicalize(code, caseSensitive);

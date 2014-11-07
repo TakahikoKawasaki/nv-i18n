@@ -2403,6 +2403,8 @@ public enum CountryCode
      *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
      *         >alpha-2</a> or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
      *         >alpha-3</a> code.
+     *         When {@code "UNDEFINED"} is given, {@link #UNDEFINED CountryCode.UNDEFINED}
+     *         is returned.
      *
      * @return
      *         A {@code CountryCode} instance, or {@code null} if not found.
@@ -2427,7 +2429,7 @@ public enum CountryCode
      * @param code
      *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
      *         >alpha-2</a> or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
-     *         >alpha-3</a> code.
+     *         >alpha-3</a> code. Or {@code "UNDEFINED"} (case insensitive).
      *
      * @return
      *         A {@code CountryCode} instance, or {@code null} if not found.
@@ -2451,6 +2453,8 @@ public enum CountryCode
      *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
      *         >alpha-2</a> or <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
      *         >alpha-3</a> code.
+     *         Or {@code "UNDEFINED"} (its case sensitivity depends on the value of
+     *         {@code caseSensitive}).
      *
      * @param caseSensitive
      *         If {@code true}, the given code should consist of upper-case letters only.
@@ -2479,6 +2483,14 @@ public enum CountryCode
                 code = canonicalize(code, caseSensitive);
                 return getByAlpha3Code(code);
 
+            case 9:
+                code = canonicalize(code, caseSensitive);
+                if ("UNDEFINED".equals(code))
+                {
+                    return CountryCode.UNDEFINED;
+                }
+                // FALLTHROUGH
+
             default:
                 return null;
         }
@@ -2494,6 +2506,10 @@ public enum CountryCode
      *
      * @return
      *         A {@code CountryCode} instance, or {@code null} if not found.
+     *         When {@link Locale#getCountry() getCountry()} method of the
+     *         given {@code Locale} instance returns {@code null} or an
+     *         empty string, {@link #UNDEFINED CountryCode.UNDEFINED} is
+     *         returned.
      *
      * @see Locale#getCountry()
      */
@@ -2504,9 +2520,15 @@ public enum CountryCode
             return null;
         }
 
-        // Locale.getCountry() returns either an empty string or
-        // an uppercase ISO 3166 2-letter code.
-        return getByCode(locale.getCountry(), true);
+        // Locale.getCountry() returns an uppercase ISO 3166 2-letter code.
+        String country = locale.getCountry();
+
+        if (country == null || country.length() == 0)
+        {
+            return CountryCode.UNDEFINED;
+        }
+
+        return getByCode(country, true);
     }
 
 

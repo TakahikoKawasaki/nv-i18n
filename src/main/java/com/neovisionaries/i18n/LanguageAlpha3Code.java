@@ -176,6 +176,7 @@ public enum LanguageAlpha3Code
      * </p>
      *
      * @since 1.14
+     * @see #und und: Undetermined
      * @see #zxx zxx: No linguistic content
      */
     undefined("Undefined")
@@ -6164,11 +6165,10 @@ public enum LanguageAlpha3Code
      *        An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *        code (2-letter lowercase code) or an
      *        <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
-     *        code
-     *        (3-letter lowercase code).
+     *        code (3-letter lowercase code). Or "undefined".
      *        Note that if the given code is one of legacy language codes
      *        ("iw", "ji" and "in"), it is treated as its official counterpart
-     *        ("he", "yi" and "id", respectively). For example, if "in" is
+     *        ("he", "yi" and "id"), respectively. For example, if "in" is
      *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      *
      * @return
@@ -6199,11 +6199,10 @@ public enum LanguageAlpha3Code
      *        An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *        code (2-letter lowercase code) or an
      *        <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
-     *        code
-     *        (3-letter lowercase code).
+     *        code (3-letter lowercase code). Or "undefined" (case insensitive).
      *        Note that if the given code is one of legacy language codes
      *        ("iw", "ji" and "in"), it is treated as its official counterpart
-     *        ("he", "yi" and "id", respectively). For example, if "in" is
+     *        ("he", "yi" and "id"), respectively. For example, if "in" is
      *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      *
      * @return
@@ -6229,26 +6228,26 @@ public enum LanguageAlpha3Code
      * (3-letter lowercase code).
      *
      * @param code
-     *        An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
-     *        code (2-letter lowercase code) or an
-     *        <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
-     *        code
-     *        (3-letter lowercase code).
-     *        Note that if the given code is one of legacy language codes
-     *        ("iw", "ji" and "in"), it is treated as its official counterpart
-     *        ("he", "yi" and "id", respectively). For example, if "in" is
-     *        given, this method returns {@link #ind LanguageAlpha3Code.ind}.
+     *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         code (2-letter lowercase code) or an
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a>
+     *         code (3-letter lowercase code). Or "undefined" (its case
+     *         sensitivity depends on the value of {@code caseSensitive}).
+     *         Note that if the given code is one of legacy language codes
+     *         ("iw", "ji" and "in"), it is treated as its official counterpart
+     *         ("he", "yi" and "id"), respectively. For example, if "in" is
+     *         given, this method returns {@link #ind LanguageAlpha3Code.ind}.
      *
      * @param caseSensitive
-     *        If {@code true}, the given code should consist of lowercase letters only.
-     *        If {@code false}, this method internally canonicalizes the given code by
-     *        {@link String#toLowerCase()} and then performs search. For
-     *        example, {@code getByCode("JPN", true)} returns {@code null}, but on the
-     *        other hand, {@code getByCode("JPN", false)} returns {@link #jpn
-     *        LanguageAlpha3Code.jpn}.
+     *         If {@code true}, the given code should consist of lowercase letters only.
+     *         If {@code false}, this method internally canonicalizes the given code by
+     *         {@link String#toLowerCase()} and then performs search. For
+     *         example, {@code getByCode("JPN", true)} returns {@code null}, but on the
+     *         other hand, {@code getByCode("JPN", false)} returns {@link #jpn
+     *         LanguageAlpha3Code.jpn}.
      *
-     *        As an exceptional case, both {@code getByCode("New", true)} and
-     *        {@code getByCode("new", true)} return {@link #New} (Newari).
+     *         As an exceptional case, both {@code getByCode("New", true)} and
+     *         {@code getByCode("new", true)} return {@link #New} (Newari).
      *
      * @return
      *         A {@code LanguageAlpha3Code} instance, or {@code null} if not found.
@@ -6266,14 +6265,17 @@ public enum LanguageAlpha3Code
             return null;
         }
 
-        if (code.length() == 3)
+        switch (code.length())
         {
-            return getByEnumName(code);
-        }
+            case 2:
+                break;
 
-        if (code.length() != 2)
-        {
-            return null;
+            case 3:
+            case 9:
+                return getByEnumName(code);
+
+            default:
+                return null;
         }
 
         code = LanguageCode.canonicalize(code, caseSensitive);

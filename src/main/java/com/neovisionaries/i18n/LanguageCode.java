@@ -2790,7 +2790,7 @@ public enum LanguageCode
      *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *         code (2-letter lowercase code) or an
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
-     *         (3-letter lowercase code).
+     *         (3-letter lowercase code). Or "undefined" (case sensitive).
      *         Note that if the given code is one of legacy language codes
      *         ("iw", "ji" and "in"), it is treated as its official counterpart
      *         ("he", "yi" and "id", respectively). For example, if "in" is given,
@@ -2820,7 +2820,7 @@ public enum LanguageCode
      *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *         code (2-letter lowercase code) or an
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
-     *         (3-letter lowercase code).
+     *         (3-letter lowercase code). Or "undefined" (case insensitive).
      *         Note that if the given code is one of legacy language codes
      *         ("iw", "ji" and "in"), it is treated as its official counterpart
      *         ("he", "yi" and "id", respectively). For example, if "in" is given,
@@ -2848,7 +2848,8 @@ public enum LanguageCode
      *         An <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
      *         code (2-letter lowercase code) or an
      *         <a href="http://en.wikipedia.org/wiki/ISO_639-2">ISO 639-2</a> code
-     *         (3-letter lowercase code).
+     *         (3-letter lowercase code). Or "undefined" (its case sensitivity
+     *         depends on the value of {@code caseSensitive}).
      *         Note that if the given code is one of legacy language codes
      *         ("iw", "ji" and "in"), it is treated as its official counterpart
      *         ("he", "yi" and "id", respectively). For example, if "in" is given,
@@ -2873,14 +2874,17 @@ public enum LanguageCode
             return null;
         }
 
-        if (code.length() == 2)
+        switch (code.length())
         {
-            return getByEnumName(code);
-        }
+            case 2:
+            case 9:
+                return getByEnumName(code);
 
-        if (code.length() != 3)
-        {
-            return null;
+            case 3:
+                break;
+
+            default:
+                return null;
         }
 
         LanguageAlpha3Code alpha3 = LanguageAlpha3Code.getByEnumName(code);
@@ -2917,6 +2921,10 @@ public enum LanguageCode
      *
      * @return
      *         A {@code LanguageCode} instance, or {@code null} if not found.
+     *         When {@link Locale#getLanguage() getLanguage()} method of the
+     *         given {@code Locale} instance returns {@code null} or an
+     *         empty string, {@link #undefined LanguageCode.undefined} is
+     *         returned.
      *
      * @see Locale#getLanguage()
      */
@@ -2927,9 +2935,15 @@ public enum LanguageCode
             return null;
         }
 
-        // Locale.getLanguage() returns either an empty string or
-        // a lowercase ISO 639 code.
-        return getByCode(locale.getLanguage(), true);
+        // Locale.getLanguage() returns a lowercase ISO 639 code.
+        String language = locale.getLanguage();
+
+        if (language == null || language.length() == 0)
+        {
+            return LanguageCode.undefined;
+        }
+
+        return getByCode(language, true);
     }
 
 
