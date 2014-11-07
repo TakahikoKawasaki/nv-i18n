@@ -16,6 +16,7 @@
 package com.neovisionaries.i18n;
 
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -72,17 +73,19 @@ import java.util.Locale;
 public enum LocaleCode
 {
    /**
-     * undefine
+     * {@link LanguageCode#undefined Undefined}, {@link CountryCode#UNDEFINED Undefined}
+     *
+     * @since 1.14
      */
     undefined(LanguageCode.undefined, CountryCode.UNDEFINED)
     {
         @Override
         public Locale toLocale()
         {
-            return Locale.ROOT;
+            return undefinedLocale;
         }
     },
-    
+
     /**
      * {@link LanguageCode#ar Arabic}
      */
@@ -947,6 +950,8 @@ public enum LocaleCode
     ;
 
 
+    private static final Locale undefinedLocale = getUndefinedLocale();
+
     private final LanguageCode language;
     private final CountryCode country;
     private final String string;
@@ -1021,20 +1026,20 @@ public enum LocaleCode
 
 
     /**
-     * Convert this LocaleCode instance to a {@link Locale} instance.
+     * Convert this {@code LocaleCode} instance to a {@link Locale} instance.
      *
      * <p>
-     * In most cases, this method creates a new Locale instance
-     * every time it is called, but some LocaleCode instancess
-     * return their corresponding entries in Locale class.
+     * In most cases, this method creates a new {@code Locale} instance
+     * every time it is called, but some {@code LocaleCode} instances
+     * return their corresponding entries in {@code Locale} class.
      * For example, {@link #it LocaleCode.it} always returns
      * {@link Locale#ITALIAN}.
      * </p>
      *
      * <p>
-     * The table below lists LocaleCode entries whose toLocale()
-     * do not create new Locale instances but return entries in
-     * Locale class.
+     * The table below lists {@code LocaleCode} entries whose {@code toLocale()}
+     * does not create a new {@code Locale} instance but returns an entry in
+     * {@code Locale} class.
      * </p>
      *
      * <table border="1" style="border-collapse: collapse;" cellpadding="5">
@@ -1084,8 +1089,18 @@ public enum LocaleCode
      * </tr>
      * </table>
      *
+     * <p>
+     * In addition, {@code toLocale()} of {@link LocaleCode#undefined
+     * LocaleCode.undefined} behaves a bit differently. It returns
+     * {@link Locale#ROOT Locale.ROOT} when it is avaiable (i.e. when
+     * the version of Java SE is 1.6 or higher). Otherwise, it returns
+     * a {@code Locale} instance whose language and country are empty
+     * strings. Even in the latter case, the same instance is returned
+     * on every call.
+     * </p>
+     *
      * @return
-     *         A Locale instance that matches this LocaleCode.
+     *         A {@code Locale} instance that matches this {@code LocaleCode}.
      */
     public Locale toLocale()
     {
@@ -1620,5 +1635,23 @@ public enum LocaleCode
         }
 
         return list;
+    }
+
+
+    private static Locale getUndefinedLocale()
+    {
+        try
+        {
+            // Try to get Locale.ROOT which is available since Java SE 1.6.
+            Field root = Locale.class.getDeclaredField("ROOT");
+
+            // Return Locale.ROOT.
+            return (Locale)root.get(null);
+        }
+        catch (Exception e)
+        {
+            // Simulate Locale.ROOT.
+            return new Locale("", "");
+        }
     }
 }
