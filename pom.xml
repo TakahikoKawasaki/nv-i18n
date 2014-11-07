@@ -124,7 +124,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>${pom.groupId}.i18n</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>${project.groupId}.i18n</Bundle-SymbolicName>
                     </instructions>
                 </configuration>
             </plugin>
