@@ -229,8 +229,13 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/%C3%85land_Islands">&Aring;land Islands</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#AX">AX</a>, ALA, 248,
      * Officially assigned]
+     *
+     * <p>
+     * The country name was changed from "\u212Bland Islands" (up to 1.14)
+     * to "\u00C5land Islands" (since 1.15).
+     * </p>
      */
-    AX("\u212Bland Islands", "ALA", 248, Assignment.OFFICIALLY_ASSIGNED),
+    AX("\u00C5land Islands", "ALA", 248, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Azerbaijan">Azerbaijan</a>
