@@ -20,7 +20,7 @@
  * &lt;/dependency&gt;</span><!--
  * --></pre>
  *
- * @version 1.14
+ * @version 1.15
  * @author Takahiko Kawasaki
  */
 package com.neovisionaries.i18n;

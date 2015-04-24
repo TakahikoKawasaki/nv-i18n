@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+### 1.15 (2015-04-25)
+
+* Changed the country name of CountryCode.AX from "\u212Bland Islands"
+  to "\u00C5land Islands".
+  ([Issue 24](https://github.com/TakahikoKawasaki/nv-i18n/issues/24))
+
+
 ### 1.14 (2014-11-07)
 
 * Fixed CurrencyCode.XAF. It contained CD (Congo, the Democratic
