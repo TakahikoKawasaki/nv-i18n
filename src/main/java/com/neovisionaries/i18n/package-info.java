@@ -16,7 +16,7 @@
  * <span class="tag">&lt;dependency&gt;
  *     &lt;groupId&gt;</span>com.neovisionaries<span class="tag">&lt;/groupId&gt;
  *     &lt;artifactId&gt;</span>nv-i18n<span class="tag">&lt;/artifactId&gt;
- *     &lt;version&gt;</span>1.14<span class="tag">&lt;/version&gt;
+ *     &lt;version&gt;</span>1.15<span class="tag">&lt;/version&gt;
  * &lt;/dependency&gt;</span><!--
  * --></pre>
  *
