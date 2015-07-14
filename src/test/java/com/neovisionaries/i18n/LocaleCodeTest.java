@@ -129,7 +129,7 @@ public class LocaleCodeTest
     public void test4()
     {
         List<LocaleCode> expected = new ArrayList<LocaleCode>();
-        List<LocaleCode> actual = getByCountry((CountryCode)null);
+        List<LocaleCode> actual = getByCountry((CountryCodeInterface)null);
 
         assertListEquals(expected, actual);
     }

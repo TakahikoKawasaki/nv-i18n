@@ -2591,7 +2591,7 @@ public enum CurrencyCode
      *         {@code CurrencyCode} instance whose country list contains
      *         the specified country, the size of the returned list is zero.
      */
-    public static List<CurrencyCode> getByCountry(CountryCode country)
+    public static List<CurrencyCode> getByCountry(CountryCodeInterface country)
     {
         List<CurrencyCode> list = new ArrayList<CurrencyCode>();
 
@@ -2602,7 +2602,7 @@ public enum CurrencyCode
 
         for (CurrencyCode currency : values())
         {
-            for (CountryCode cc : currency.countryList)
+            for (CountryCodeInterface cc : currency.countryList)
             {
                 if (cc == country)
                 {
