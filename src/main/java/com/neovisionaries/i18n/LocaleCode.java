@@ -992,7 +992,7 @@ public enum LocaleCode
      *         The country code. This method may return null.
      *         For example, {@link #en LocaleCode.en}.getCountry() returns null.
      */
-    public CountryCode getCountry()
+    public CountryCodeInterface getCountry()
     {
         return country;
     }
@@ -1643,7 +1643,7 @@ public enum LocaleCode
      *
      * @since 1.3
      */
-    public static List<LocaleCode> getByCountry(CountryCode country)
+    public static List<LocaleCode> getByCountry(CountryCodeInterface country)
     {
         List<LocaleCode> list = new ArrayList<LocaleCode>();
 
