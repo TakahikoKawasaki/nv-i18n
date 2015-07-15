@@ -16,9 +16,11 @@
 package com.neovisionaries.i18n;
 
 
+import com.neovisionaries.i18n.CountryCode.Assignment;
 import static com.neovisionaries.i18n.CountryCode.getByCode;
 import static com.neovisionaries.i18n.CountryCode.getByCodeIgnoreCase;
 import static com.neovisionaries.i18n.CountryCode.getByLocale;
+import java.util.Currency;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
@@ -30,7 +32,39 @@ import org.junit.Test;
 
 public class CountryCodeTest
 {
-    @Test
+	private static CustomCountryCode createUserAssignedCountryCode() {
+		return new CustomCountryCode() {
+			public String getName() {
+				return "USER_COUNTRY_CODE_1";
+			}
+
+			public String getAlpha2() {
+				return "ZZ";
+			}
+
+			public String getAlpha3() {
+				return "ZZZ";
+			}
+
+			public int getNumeric() {
+				return 999;
+			}
+
+			public Assignment getAssignment() {
+				return Assignment.USER_ASSIGNED;
+			}
+
+			public Locale toLocale() {
+				return null;
+			}
+
+			public Currency getCurrency() {
+				return null;
+			}
+		};
+	}
+
+	@Test
     public void test1()
     {
         List<CountryCode> list = CountryCode.findByName(".*United.*");
@@ -378,4 +412,37 @@ public class CountryCodeTest
         assertEquals(826, CountryCode.UK.getNumeric());
         assertEquals(180, CountryCode.ZR.getNumeric());
     }
+	
+	@Test
+	public void testUserAssignedCountryCodeGetByCodeAlpha2() {
+		final CustomCountryCode expected = createUserAssignedCountryCode();
+		StandardOrUserAssignedCountryCode.addCode(expected);
+		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode("ZZ");
+		assertEquals("ZZ", actual.getAlpha2());
+		assertEquals("ZZZ", actual.getAlpha3());
+		assertEquals(999, actual.getNumeric());
+		assertEquals(Assignment.USER_ASSIGNED, actual.getAssignment());
+	}
+
+	@Test
+	public void testUserAssignedCountryCodeGetByCodeAlpha3() {
+		final CustomCountryCode expected = createUserAssignedCountryCode();
+		StandardOrUserAssignedCountryCode.addCode(expected);
+		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode("ZZZ");
+		assertEquals("ZZ", actual.getAlpha2());
+		assertEquals("ZZZ", actual.getAlpha3());
+		assertEquals(999, actual.getNumeric());
+		assertEquals(Assignment.USER_ASSIGNED, actual.getAssignment());
+	}
+
+	@Test
+	public void testUserAssignedCountryCodeGetByCodeNumeric() {
+		final CustomCountryCode expected = createUserAssignedCountryCode();
+		StandardOrUserAssignedCountryCode.addCode(expected);
+		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode(999);
+		assertEquals("ZZ", actual.getAlpha2());
+		assertEquals("ZZZ", actual.getAlpha3());
+		assertEquals(999, actual.getNumeric());
+		assertEquals(Assignment.USER_ASSIGNED, actual.getAssignment());
+	}
 }
