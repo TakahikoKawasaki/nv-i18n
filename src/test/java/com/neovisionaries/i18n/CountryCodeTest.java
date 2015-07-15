@@ -414,7 +414,8 @@ public class CountryCodeTest
     }
 	
 	@Test
-	public void testUserAssignedCountryCodeGetByCodeAlpha2() {
+	public void testUserAssignedCountryCodeGetByCodeAlpha2()
+	{
 		final CustomCountryCode expected = createUserAssignedCountryCode();
 		StandardOrUserAssignedCountryCode.addCode(expected);
 		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode("ZZ");
@@ -425,7 +426,8 @@ public class CountryCodeTest
 	}
 
 	@Test
-	public void testUserAssignedCountryCodeGetByCodeAlpha3() {
+	public void testUserAssignedCountryCodeGetByCodeAlpha3()
+	{
 		final CustomCountryCode expected = createUserAssignedCountryCode();
 		StandardOrUserAssignedCountryCode.addCode(expected);
 		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode("ZZZ");
@@ -436,7 +438,8 @@ public class CountryCodeTest
 	}
 
 	@Test
-	public void testUserAssignedCountryCodeGetByCodeNumeric() {
+	public void testUserAssignedCountryCodeGetByCodeNumeric()
+	{
 		final CustomCountryCode expected = createUserAssignedCountryCode();
 		StandardOrUserAssignedCountryCode.addCode(expected);
 		final CustomCountryCode actual = StandardOrUserAssignedCountryCode.getByCode(999);

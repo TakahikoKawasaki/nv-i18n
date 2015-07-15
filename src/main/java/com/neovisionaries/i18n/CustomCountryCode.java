@@ -23,12 +23,19 @@ import java.util.Locale;
  *
  * @author Derek Mahar <dmahar@opessoftware.com>
  */
-public interface CustomCountryCode {
+public interface CustomCountryCode
+{
 	String getAlpha2();
+
 	String getAlpha3();
+
 	Assignment getAssignment();
+
 	Currency getCurrency();
+
 	String getName();
+
 	int getNumeric();
+
 	Locale toLocale();
 }

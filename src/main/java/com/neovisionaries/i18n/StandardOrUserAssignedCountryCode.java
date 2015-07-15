@@ -25,94 +25,112 @@ import java.util.Map;
  *
  * @author Derek Mahar <dmahar@opessoftware.com>
  */
-public class StandardOrUserAssignedCountryCode implements CustomCountryCode {
+public class StandardOrUserAssignedCountryCode implements CustomCountryCode
+{
 
 	public static Map<String, CustomCountryCode> alphaCountryCodes = new HashMap<String, CustomCountryCode>();
 	public static Map<Integer, CustomCountryCode> numericCountryCodes = new HashMap<Integer, CustomCountryCode>();
 
-	public static void addCode(CustomCountryCode code) {
-		if (code.getNumeric() != -1) {
+	public static void addCode(CustomCountryCode code)
+	{
+		if (code.getNumeric() != -1)
+		{
 			numericCountryCodes.put(code.getNumeric(), code);
 		}
 
-		if (code.getAlpha2() != null) {
+		if (code.getAlpha2() != null)
+		{
 			alphaCountryCodes.put(code.getAlpha2(), code);
 		}
 
-		if (code.getAlpha3() != null) {
+		if (code.getAlpha3() != null)
+		{
 			alphaCountryCodes.put(code.getAlpha3(), code);
 		}
 	}
 
-	public static CustomCountryCode getByCode(int code) {
+	public static CustomCountryCode getByCode(int code)
+	{
 		return new StandardOrUserAssignedCountryCode(CountryCode.getByCode(code),
 				numericCountryCodes.get(code));
 	}
 
-	public static CustomCountryCode getByCode(String code) {
+	public static CustomCountryCode getByCode(String code)
+	{
 		return new StandardOrUserAssignedCountryCode(CountryCode.getByCode(code),
 				alphaCountryCodes.get(code));
 	}
 
-	public static CustomCountryCode getByCodeIgnoreCase(String code) {
+	public static CustomCountryCode getByCodeIgnoreCase(String code)
+	{
 		return getByCode(code.toUpperCase());
 	}
 
 	private final CountryCode standardCountryCode;
 	private final CustomCountryCode userAssignedCountryCode;
 
-	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode) {
+	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode)
+	{
 		assert (standardCountryCode != null);
 
 		this.standardCountryCode = standardCountryCode;
 		this.userAssignedCountryCode = null;
 	}
 
-	public StandardOrUserAssignedCountryCode(CustomCountryCode userAssignedCountryCode) {
+	public StandardOrUserAssignedCountryCode(CustomCountryCode userAssignedCountryCode)
+	{
 		assert (userAssignedCountryCode != null);
 
 		this.standardCountryCode = null;
 		this.userAssignedCountryCode = userAssignedCountryCode;
 	}
 
-	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode, CustomCountryCode userAssignedCountryCode) {
+	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode, CustomCountryCode userAssignedCountryCode)
+	{
 		assert (standardCountryCode == null | userAssignedCountryCode == null);
 
 		this.standardCountryCode = standardCountryCode;
 		this.userAssignedCountryCode = userAssignedCountryCode;
 	}
 
-	public String getAlpha2() {
+	public String getAlpha2()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getAlpha2()
 				: this.userAssignedCountryCode.getAlpha2();
 	}
 
-	public String getAlpha3() {
+	public String getAlpha3()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getAlpha3()
 				: this.userAssignedCountryCode.getAlpha3();
 	}
 
-	public Assignment getAssignment() {
+	public Assignment getAssignment()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getAssignment()
 				: this.userAssignedCountryCode.getAssignment();
 	}
 
-	public Currency getCurrency() {
+	public Currency getCurrency()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getCurrency()
 				: this.userAssignedCountryCode.getCurrency();
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getName()
 				: this.userAssignedCountryCode.getName();
 	}
 
-	public int getNumeric() {
+	public int getNumeric()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.getNumeric()
 				: this.userAssignedCountryCode.getNumeric();
 	}
 
-	public Locale toLocale() {
+	public Locale toLocale()
+	{
 		return this.standardCountryCode != null ? this.standardCountryCode.toLocale()
 				: this.userAssignedCountryCode.toLocale();
 	}
