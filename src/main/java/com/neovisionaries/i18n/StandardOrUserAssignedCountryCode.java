@@ -133,6 +133,26 @@ public class StandardOrUserAssignedCountryCode implements CustomCountryCode
 				: this.userAssignedCountryCode.getNumeric();
 	}
 
+	public CountryCode getStandardCountryCode()
+	{
+		return this.standardCountryCode;
+	}
+	
+	public CustomCountryCode getUserAssignedCountryCode()
+	{
+		return this.userAssignedCountryCode;
+	}
+	
+	public boolean isStandard()
+	{
+		return this.standardCountryCode != null && this.userAssignedCountryCode == null;
+	}
+	
+	public boolean isUserAssigned()
+	{
+		return this.standardCountryCode == null && this.userAssignedCountryCode != null;
+	}
+
 	public Locale toLocale()
 	{
 		return this.standardCountryCode != null ? this.standardCountryCode.toLocale()

@@ -428,8 +428,14 @@ public class CountryCodeTest
 	@Test
 	public void testStandardOrUserAssignedCountryCodeWithOneCode()
 	{
-		assertNotNull(new StandardOrUserAssignedCountryCode(CountryCode.CA, null));
-		assertNotNull(new StandardOrUserAssignedCountryCode(null, createUserAssignedCountryCode()));
+		final StandardOrUserAssignedCountryCode code1 = new StandardOrUserAssignedCountryCode(CountryCode.CA, null);
+		assertTrue(code1.isStandard());
+		assertSame(CountryCode.CA, code1.getStandardCountryCode());
+		
+		final CustomCountryCode userAssignedCode = createUserAssignedCountryCode();
+		final StandardOrUserAssignedCountryCode code2 = new StandardOrUserAssignedCountryCode(null, userAssignedCode);
+		assertTrue(code2.isUserAssigned());
+		assertEquals("USER_COUNTRY_CODE_1", code2.getUserAssignedCountryCode().getName());
 	}
 
 	@Test
