@@ -27,6 +27,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Locale;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 
@@ -212,7 +213,6 @@ public class CountryCodeTest
     {
         assertNull(getByCode(null));
     }
-
 
     @Test
     public void test18()
@@ -413,6 +413,25 @@ public class CountryCodeTest
         assertEquals(180, CountryCode.ZR.getNumeric());
     }
 	
+	@Test(expected = AssertionError.class)
+	public void testStandardOrUserAssignedCountryCodeWithBothCodes()
+	{
+		assertNotNull(new StandardOrUserAssignedCountryCode(CountryCode.CA, createUserAssignedCountryCode()));
+	}
+
+	@Test(expected = AssertionError.class)
+	public void testStandardOrUserAssignedCountryCodeWithNoCodes()
+	{
+		assertNotNull(new StandardOrUserAssignedCountryCode(null, null));
+	}
+
+	@Test
+	public void testStandardOrUserAssignedCountryCodeWithOneCode()
+	{
+		assertNotNull(new StandardOrUserAssignedCountryCode(CountryCode.CA, null));
+		assertNotNull(new StandardOrUserAssignedCountryCode(null, createUserAssignedCountryCode()));
+	}
+
 	@Test
 	public void testUserAssignedCountryCodeGetByCodeAlpha2()
 	{

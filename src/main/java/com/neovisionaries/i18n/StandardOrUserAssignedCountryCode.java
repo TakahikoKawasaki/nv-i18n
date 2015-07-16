@@ -71,7 +71,7 @@ public class StandardOrUserAssignedCountryCode implements CustomCountryCode
 
 	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode)
 	{
-		assert (standardCountryCode != null);
+		assert standardCountryCode != null : "Requires standard country code.";
 
 		this.standardCountryCode = standardCountryCode;
 		this.userAssignedCountryCode = null;
@@ -79,7 +79,7 @@ public class StandardOrUserAssignedCountryCode implements CustomCountryCode
 
 	public StandardOrUserAssignedCountryCode(CustomCountryCode userAssignedCountryCode)
 	{
-		assert (userAssignedCountryCode != null);
+		assert userAssignedCountryCode != null : "Requires user-assigned country code.";
 
 		this.standardCountryCode = null;
 		this.userAssignedCountryCode = userAssignedCountryCode;
@@ -87,7 +87,11 @@ public class StandardOrUserAssignedCountryCode implements CustomCountryCode
 
 	public StandardOrUserAssignedCountryCode(CountryCode standardCountryCode, CustomCountryCode userAssignedCountryCode)
 	{
-		assert (standardCountryCode == null | userAssignedCountryCode == null);
+		assert standardCountryCode != null ^ userAssignedCountryCode != null :
+				"Requires standard country code or user-assigned country code, but not both.";
+
+		assert ! (standardCountryCode == null && userAssignedCountryCode == null) :
+				"Requires either standard country code or user-assigned country code.";
 
 		this.standardCountryCode = standardCountryCode;
 		this.userAssignedCountryCode = userAssignedCountryCode;
