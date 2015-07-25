@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Neo Visionaries Inc.
+ * Copyright (C) 2014-2015 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -184,5 +184,129 @@ public class CountryCodeTest
     public void test18()
     {
         assertNull(getByCode(""));
+    }
+
+
+    @Test
+    public void test19()
+    {
+        assertSame(CountryCode.AN, CountryCode.getByCode("ANT"));
+    }
+
+
+    @Test
+    public void test20()
+    {
+        assertSame(CountryCode.AN, CountryCode.getByCode("ANHH"));
+    }
+
+
+    @Test
+    public void test21()
+    {
+        assertSame(CountryCode.BU, CountryCode.getByCode("BUR"));
+    }
+
+
+    @Test
+    public void test22()
+    {
+        assertSame(CountryCode.BU, CountryCode.getByCode("BUMM"));
+    }
+
+
+    @Test
+    public void test23()
+    {
+        assertSame(CountryCode.CS, CountryCode.getByCode("SCG"));
+    }
+
+
+    @Test
+    public void test24()
+    {
+        assertSame(CountryCode.CS, CountryCode.getByCode("CSXX"));
+    }
+
+
+    @Test
+    public void test25()
+    {
+        assertSame(CountryCode.NT, CountryCode.getByCode("NTZ"));
+    }
+
+
+    @Test
+    public void test26()
+    {
+        assertSame(CountryCode.NT, CountryCode.getByCode("NTHH"));
+    }
+
+
+    @Test
+    public void test27()
+    {
+        assertSame(CountryCode.TP, CountryCode.getByCode("TMP"));
+    }
+
+
+    @Test
+    public void test28()
+    {
+        assertSame(CountryCode.TP, CountryCode.getByCode("TPTL"));
+    }
+
+
+    @Test
+    public void test29()
+    {
+        assertSame(CountryCode.YU, CountryCode.getByCode("YUG"));
+    }
+
+
+    @Test
+    public void test30()
+    {
+        assertSame(CountryCode.YU, CountryCode.getByCode("YUCS"));
+    }
+
+
+    @Test
+    public void test31()
+    {
+        assertSame(CountryCode.ZR, CountryCode.getByCode("ZAR"));
+    }
+
+
+    @Test
+    public void test32()
+    {
+        assertSame(CountryCode.ZR, CountryCode.getByCode("ZRCD"));
+    }
+
+
+    @Test
+    public void test33()
+    {
+        for (CountryCode cc : CountryCode.values())
+        {
+            String alpha3 = cc.getAlpha3();
+
+            if (alpha3 == null)
+            {
+                continue;
+            }
+
+            assertEquals(3, alpha3.length());
+        }
+    }
+
+
+    @Test
+    public void test34()
+    {
+        // FI and SF have the same alpha-3 code "FIN".
+        // FI should be returned for "FIN".
+        assertSame(CountryCode.FI, CountryCode.getByCode("FIN"));
     }
 }
