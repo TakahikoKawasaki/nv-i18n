@@ -450,6 +450,8 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo">Congo, the Democratic Republic of the</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CD">CD</a>, COD, 180,
      * Officially assigned]
+     *
+     * @see #ZR
      */
     CD("Congo, the Democratic Republic of the", "COD", 180, Assignment.OFFICIALLY_ASSIGNED),
 
@@ -764,10 +766,14 @@ public enum CountryCode
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Metropolitan_France">France, Metropolitan</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FX">FX</a>, FXX, -1,
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FX">FX</a>, FXX, 249,
      * Exceptionally reserved]
+     *
+     * <p>
+     * Since version 1.17, the numeric code of this entry is 249.
+     * </p>
      */
-    FX("France, Metropolitan", "FXX", -1, Assignment.EXCEPTIONALLY_RESERVED),
+    FX("France, Metropolitan", "FXX", 249, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Gabon">Gabon </a>
@@ -780,6 +786,8 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/United_Kingdom">United Kingdom</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#GB">GB</a>, GBR, 826,
      * Officially assigned]
+     *
+     * @see #UK
      */
     GB("United Kingdom", "GBR", 826, Assignment.OFFICIALLY_ASSIGNED)
     {
@@ -1767,10 +1775,14 @@ public enum CountryCode
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Soviet_Union">USSR</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SU">SU</a>, SUN, -1,
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SU">SU</a>, SUN, 810,
      * Exceptionally reserved]
+     *
+     * <p>
+     * Since version 1.17, the numeric code of this entry is 810.
+     * </p>
      */
-    SU("USSR", "SUN", -1, Assignment.EXCEPTIONALLY_RESERVED),
+    SU("USSR", "SUN", 810, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/El_Salvador">El Salvador</a>
@@ -1860,6 +1872,8 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/East_Timor">Timor-Leste</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TL">TL</a>, TLS, 626,
      * Officially assigned]
+     *
+     * @see #TM
      */
     TL("Timor-Leste", "TLS", 626, Assignment.OFFICIALLY_ASSIGNED),
 
@@ -1886,19 +1900,21 @@ public enum CountryCode
 
     /**
      * <a href="http://en.wikipedia.org/wiki/East_Timor">East Timor</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TP">TP</a>, TPTL, 0,
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TP">TP</a>, TMP, 626,
      * Traditionally reserved]
-     *
-     * <p>
-     * ISO 3166-1 numeric code is unknown.
-     * </p>
      *
      * <p>
      * Since version 1.16, the value of alpha-3 code of this entry is {@code TMP}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#TPTL">TPTL</a></code>).
      * </p>
+     *
+     * <p>
+     * Since version 1.17, the numeric code of this entry is 626.
+     * </p>
+     *
+     * @see #TL
      */
-    TP("East Timor", "TMP", 0, Assignment.TRANSITIONALLY_RESERVED),
+    TP("East Timor", "TMP", 626, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Turkey">Turkey</a>
@@ -1958,10 +1974,16 @@ public enum CountryCode
 
     /**
      * <a href="http://en.wikipedia.org/wiki/United_Kingdom">United Kingdom</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#UK">UK</a>, null, -1,
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#UK">UK</a>, null, 826,
      * Exceptionally reserved]
+     *
+     * <p>
+     * Since version 1.17, the numeric code of this entry is 826.
+     * </p>
+     *
+     * @see #GB
      */
-    UK("United Kingdom", null, -1, Assignment.EXCEPTIONALLY_RESERVED)
+    UK("United Kingdom", null, 826, Assignment.EXCEPTIONALLY_RESERVED)
     {
         @Override
         public Locale toLocale()
@@ -2117,19 +2139,21 @@ public enum CountryCode
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Zaire">Zaire</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#ZR">ZR</a>, ZAR, 0,
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#ZR">ZR</a>, ZAR, 180,
      * Traditionally reserved]
-     *
-     * <p>
-     * ISO 3166-1 numeric code is unknown.
-     * </p>
      *
      * <p>
      * Since version 1.16, the value of alpha-3 code of this entry is {@code ZAR}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#ZRCD">ZRCD</a></code>).
      * </p>
+     *
+     * <p>
+     * Since version 1.17, the numeric code of this entry is 180.
+     * </p>
+     *
+     * @see #CD
      */
-    ZR("Zaire", "ZAR", 0, Assignment.TRANSITIONALLY_RESERVED),
+    ZR("Zaire", "ZAR", 180, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Zimbabwe">Zimbabwe</a>
@@ -2216,7 +2240,7 @@ public enum CountryCode
 
             if (cc.getNumeric() != -1)
             {
-                numericMap.put(cc.getNumeric(), cc);
+                numericMap.put(Integer.valueOf(cc.getNumeric()), cc);
             }
         }
 
@@ -2231,6 +2255,21 @@ public enum CountryCode
         alpha4Map.put("TPTL", TP);
         alpha4Map.put("YUCS", YU);
         alpha4Map.put("ZRCD", ZR);
+
+        // BU and MM have the same numeric code 104. MM should be used.
+        numericMap.put(Integer.valueOf(104), MM);
+
+        // CD and ZR have the same numeric code 180. CD should be used.
+        numericMap.put(Integer.valueOf(180), CD);
+
+        // FI and SF have the same numeric code 246. FI should be used.
+        numericMap.put(Integer.valueOf(246), FI);
+
+        // GB and UK have the same numeric code 826. GB should be used.
+        numericMap.put(Integer.valueOf(826), GB);
+
+        // TL and TP have the same numeric code 626. TL should be used.
+        numericMap.put(Integer.valueOf(626), TL);
     }
 
 
@@ -2676,6 +2715,54 @@ public enum CountryCode
      * Get a {@code CountryCode} that corresponds to the given
      * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1
      * numeric</a> code.
+     *
+     * <p>
+     * Note that there are some pairs each of which shares the same numeric code.
+     * The following table shows such pairs and which {@code CountryCode} instance
+     * is returned from this method.
+     * </p>
+     *
+     * <br>
+     * <blockquote>
+     * <table border="1" style="border-collapse: collapse" cellpadding="5">
+     * <tr bgcolor="orange">
+     *   <th>Shared Numeric Code</th>
+     *   <th colspan="2">Alpha-3 Codes</th>
+     *   <th>Returned Alpha-3 Code</th>
+     * </tr>
+     * <tr>
+     *   <td align="center">104</td>
+     *   <td align="center">{@link #BU}</td>
+     *   <td align="center">{@link #MM}</td>
+     *   <td align="center">{@link #MM}</td>
+     * </tr>
+     * <tr>
+     *   <td align="center">180</td>
+     *   <td align="center">{@link #CD}</td>
+     *   <td align="center">{@link #ZR}</td>
+     *   <td align="center">{@link #CD}</td>
+     * </tr>
+     * <tr>
+     *   <td align="center">246</td>
+     *   <td align="center">{@link #FI}</td>
+     *   <td align="center">{@link #SF}</td>
+     *   <td align="center">{@link #FI}</td>
+     * </tr>
+     * <tr>
+     *   <td align="center">826</td>
+     *   <td align="center">{@link #GB}</td>
+     *   <td align="center">{@link #UK}</td>
+     *   <td align="center">{@link #GB}</td>
+     * </tr>
+     * <tr>
+     *   <td align="center">626</td>
+     *   <td align="center">{@link #TL}</td>
+     *   <td align="center">{@link #TP}</td>
+     *   <td align="center">{@link #TL}</td>
+     * </tr>
+     * </table>
+     * </blockquote>
+     * <br>
      *
      * @param code
      *         An <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric"

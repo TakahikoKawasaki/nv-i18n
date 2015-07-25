@@ -309,4 +309,73 @@ public class CountryCodeTest
         // FI should be returned for "FIN".
         assertSame(CountryCode.FI, CountryCode.getByCode("FIN"));
     }
+
+
+    @Test
+    public void test35()
+    {
+        // BU and MM have the same numeric code 104. MM should be used.
+        assertSame(CountryCode.MM, CountryCode.getByCode(104));
+        assertSame(CountryCode.MM, CountryCode.getByCode(CountryCode.BU.getNumeric()));
+        assertSame(CountryCode.MM, CountryCode.getByCode(CountryCode.MM.getNumeric()));
+    }
+
+
+    @Test
+    public void test36()
+    {
+        // CD and ZR have the same numeric code 180. CD should be used.
+        assertSame(CountryCode.CD, CountryCode.getByCode(180));
+        assertSame(CountryCode.CD, CountryCode.getByCode(CountryCode.CD.getNumeric()));
+        assertSame(CountryCode.CD, CountryCode.getByCode(CountryCode.ZR.getNumeric()));
+    }
+
+
+    @Test
+    public void test37()
+    {
+        // FI and SF have the same numeric code 246. FI should be used.
+        assertSame(CountryCode.FI, CountryCode.getByCode(246));
+        assertSame(CountryCode.FI, CountryCode.getByCode(CountryCode.FI.getNumeric()));
+        assertSame(CountryCode.FI, CountryCode.getByCode(CountryCode.SF.getNumeric()));
+    }
+
+
+    @Test
+    public void test38()
+    {
+        // GB and UK have the same numeric code 826. GB should be used.
+        assertSame(CountryCode.GB, CountryCode.getByCode(826));
+        assertSame(CountryCode.GB, CountryCode.getByCode(CountryCode.GB.getNumeric()));
+        assertSame(CountryCode.GB, CountryCode.getByCode(CountryCode.UK.getNumeric()));
+    }
+
+
+    @Test
+    public void test39()
+    {
+        // TL and TP have the same numeric code 626. GB should be used.
+        assertSame(CountryCode.TL, CountryCode.getByCode(626));
+        assertSame(CountryCode.TL, CountryCode.getByCode(CountryCode.TL.getNumeric()));
+        assertSame(CountryCode.TL, CountryCode.getByCode(CountryCode.TP.getNumeric()));
+    }
+
+
+    @Test
+    public void test40()
+    {
+        assertSame(CountryCode.JP, CountryCode.getByCode(392));
+    }
+
+
+    @Test
+    public void test41()
+    {
+        // Checks changed made in version 1.17.
+        assertEquals(249, CountryCode.FX.getNumeric());
+        assertEquals(810, CountryCode.SU.getNumeric());
+        assertEquals(626, CountryCode.TP.getNumeric());
+        assertEquals(826, CountryCode.UK.getNumeric());
+        assertEquals(180, CountryCode.ZR.getNumeric());
+    }
 }
