@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+### 1.17 (2015-07-25)
+
+* Changed the numeric code of `CountryCode.FX` from -1 to 249.
+* Changed the numeric code of `CountryCode.SU` from -1 to 810.
+* Changed the numeric code of `CountryCode.TP` from  0 to 626.
+* Changed the numeric code of `CountryCode.UK` from -1 to 826.
+* Changed the numeric code of `CountryCode.ZR` from  0 to 180.
+* Changed the behavior of `CountryCode.getByCode(int)` for shared
+  numeric codes. See its JavaDoc for details.
+
+
 ### 1.16 (2015-07-25)
 
 * Changed the value returned from `CountryCode.getByAlpha3()` of some

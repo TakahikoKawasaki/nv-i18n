@@ -7,12 +7,12 @@ Overview
 Package to support internationalization, containing ISO 3166-1 country code enum,
 ISO 639-1 language code enum, ISO 15924 script code enum, etc.
 
-* CountryCode  : ISO 3166-1 country code.
-* LanguageCode : ISO 639-1 language code.
-* LanguageAlpha3Code : ISO 639-2 language code.
-* LocaleCode   : Available locales whose format match either 'xx' or 'xx-XX'.
-* ScriptCode   : ISO 15924 script code.
-* CurrencyCode : ISO 4217 currency code.
+* `CountryCode`  : ISO 3166-1 country code.
+* `LanguageCode` : ISO 639-1 language code.
+* `LanguageAlpha3Code` : ISO 639-2 language code.
+* `LocaleCode`   : Available locales whose format match either 'xx' or 'xx-XX'.
+* `ScriptCode`   : ISO 15924 script code.
+* `CurrencyCode` : ISO 4217 currency code.
 
 
 License
@@ -82,7 +82,7 @@ Maven
 <dependency>
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.16</version>
+    <version>1.17</version>
 </dependency>
 ```
 
@@ -92,7 +92,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.16'
+    compile 'com.neovisionaries:nv-i18n:1.17'
 }
 ```
 
@@ -101,7 +101,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.16.0"
+    Export-Package: com.neovisionaries.i18n;version="1.17.0"
 
 
 
