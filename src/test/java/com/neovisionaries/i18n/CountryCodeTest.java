@@ -413,13 +413,13 @@ public class CountryCodeTest
         assertEquals(180, CountryCode.ZR.getNumeric());
     }
 	
-	@Test(expected = AssertionError.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testStandardOrUserAssignedCountryCodeWithBothCodes()
 	{
 		assertNotNull(new StandardOrUserAssignedCountryCode(CountryCode.CA, createUserAssignedCountryCode()));
 	}
 
-	@Test(expected = AssertionError.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testStandardOrUserAssignedCountryCodeWithNoCodes()
 	{
 		assertNotNull(new StandardOrUserAssignedCountryCode(null, null));
