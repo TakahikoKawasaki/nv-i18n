@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+### 1.18 (2015-12-15)
+
+* Corrected the language name of `LanguageAlpha3Code.ron` from
+  `"Romansh"` to `"Romanian"`.
+  ([Issue 29](https://github.com/TakahikoKawasaki/nv-i18n/issues/29))
+
+
 ### 1.17 (2015-07-25)
 
 * Changed the numeric code of `CountryCode.FX` from -1 to 249.
@@ -88,10 +95,10 @@ CHANGES
 
   - Changed the behavior of `getByCode(String, String)`. In older
     versions, it was an alias of `getByCode(String, String, false)`,
-	but now it is an alias of `getByCode(String, String, true)`.
+    but now it is an alias of `getByCode(String, String, true)`.
 
   - Added `getByLanguageIgnoreCase(String)`.
 
   - Changed the behavior of `getByLanguage(String)`. In older versions,
     it was an alias of `getByLanguage(String, false)`, but now it is
-	an alias of `getByLanguage(String, true)`.
+    an alias of `getByLanguage(String, true)`.

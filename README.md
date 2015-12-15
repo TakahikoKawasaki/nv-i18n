@@ -82,7 +82,7 @@ Maven
 <dependency>
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.17</version>
+    <version>1.18</version>
 </dependency>
 ```
 
@@ -92,7 +92,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.17'
+    compile 'com.neovisionaries:nv-i18n:1.18'
 }
 ```
 
@@ -101,7 +101,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.17.0"
+    Export-Package: com.neovisionaries.i18n;version="1.18.0"
 
 
 
