@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 Neo Visionaries Inc.
+ * Copyright (C) 2012-2015 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package com.neovisionaries.i18n;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -4533,7 +4534,7 @@ public enum LanguageAlpha3Code
      *
      * @see #rum
      */
-    ron("Romansh")
+    ron("Romanian")
     {
         @Override
         public LanguageCode getAlpha2()
