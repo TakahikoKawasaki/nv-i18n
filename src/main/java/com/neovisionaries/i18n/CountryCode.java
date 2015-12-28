@@ -17,6 +17,7 @@ package com.neovisionaries.i18n;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Currency;
 import java.util.HashMap;
 import java.util.List;
@@ -2277,14 +2278,16 @@ public enum CountryCode
     private final String alpha3;
     private final int numeric;
     private final Assignment assignment;
+    private final List<CountrySubDivisionCode> countrySubDivisionCodes;
 
 
-    private CountryCode(String name, String alpha3, int numeric, Assignment assignment)
+    CountryCode(String name, String alpha3, int numeric, Assignment assignment, CountrySubDivisionCode... countrySubDivisionCodes)
     {
         this.name = name;
         this.alpha3 = alpha3;
         this.numeric = numeric;
         this.assignment = assignment;
+        this.countrySubDivisionCodes = Arrays.asList(countrySubDivisionCodes);
     }
 
 
@@ -2876,5 +2879,9 @@ public enum CountryCode
         }
 
         return list;
+    }
+
+    public List<CountrySubDivisionCode> getCountrySubDivisionCodes() {
+        return countrySubDivisionCodes;
     }
 }
