@@ -144,9 +144,12 @@ public class CurrencyCodeTest
     {
         List<CurrencyCode> list = CurrencyCode.findByName(".*Ruble");
 
-        assertEquals(2, list.size());
+        assertEquals(3, list.size());
 
-        // BYR: Belarussian Ruble
+        // BYN: Belarusian Ruble
+        assertTrue(list.contains(CurrencyCode.BYN));
+
+        // BYR: Belarusian Ruble
         assertTrue(list.contains(CurrencyCode.BYR));
 
         // RUB: Russian Ruble
