@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+### 1.19 (2016-06-04)
+
+* Added a new currency code, BYN (Belarusian Ruble)
+  ([Issue 31](https://github.com/TakahikoKawasaki/nv-i18n/issues/31)).
+  See [ISO 4217 AMENDMENT NUMBER 161](http://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_161.pdf).
+* Corrected the currency name of `CurrencyCode.BYR` from
+  `"Belarussian Ruble"` to `"Belarusian Ruble"`.
+
+
 ### 1.18 (2015-12-15)
 
 * Corrected the language name of `LanguageAlpha3Code.ron` from

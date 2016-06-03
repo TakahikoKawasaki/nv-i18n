@@ -7,32 +7,61 @@ Overview
 Package to support internationalization, containing ISO 3166-1 country code enum,
 ISO 639-1 language code enum, ISO 15924 script code enum, etc.
 
-* `CountryCode`  : ISO 3166-1 country code.
-* `LanguageCode` : ISO 639-1 language code.
-* `LanguageAlpha3Code` : ISO 639-2 language code.
-* `LocaleCode`   : Available locales whose format match either 'xx' or 'xx-XX'.
-* `ScriptCode`   : ISO 15924 script code.
-* `CurrencyCode` : ISO 4217 currency code.
+| Class                | Description                                                  |
+|:---------------------|:-------------------------------------------------------------|
+| `CountryCode`        | ISO 3166-1 country code.                                     |
+| `LanguageCode`       | ISO 639-1 language code.                                     |
+| `LanguageAlpha3Code` | ISO 639-2 language code.                                     |
+| `LocaleCode`         | Available locales whose format match either 'xx' or 'xx-XX'. |
+| `ScriptCode`         | ISO 15924 script code.                                       |
+| `CurrencyCode`       | ISO 4217 currency code.                                      |
 
 
 License
 -------
 
-Apache License, Version 2.0
+  Apache License, Version 2.0
 
 
-Download
---------
+Maven
+-----
 
-```sh
-git clone https://github.com/TakahikoKawasaki/nv-i18n.git
+```xml
+<dependency>
+    <groupId>com.neovisionaries</groupId>
+    <artifactId>nv-i18n</artifactId>
+    <version>1.19</version>
+</dependency>
 ```
 
 
-Javadoc
+Gradle
+------
+
+```gradle
+dependencies {
+    compile 'com.neovisionaries:nv-i18n:1.19'
+}
+```
+
+
+OSGi
+----
+
+    Bundle-SymbolicName: com.neovisionaries.i18n
+    Export-Package: com.neovisionaries.i18n;version="1.19.0"
+
+
+Source Code
+-----------
+
+  <code>https://github.com/TakahikoKawasaki/nv-i18n.git</code>
+
+
+JavaDoc
 -------
 
-[nv-i18n javadoc](http://TakahikoKawasaki.github.com/nv-i18n/)
+  <code>http://TakahikoKawasaki.github.io/nv-i18n/</code>
 
 
 Example
@@ -75,36 +104,6 @@ for (CurrencyCode code : CurrencyCode.values())
 ```
 
 
-Maven
------
-
-```xml
-<dependency>
-    <groupId>com.neovisionaries</groupId>
-    <artifactId>nv-i18n</artifactId>
-    <version>1.18</version>
-</dependency>
-```
-
-
-Gradle
-------
-
-```gradle
-dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.18'
-}
-```
-
-
-OSGi
-----
-
-    Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.18.0"
-
-
-
 See Also
 --------
 
@@ -135,4 +134,4 @@ This nv-i18n supersedes https://github.com/TakahikoKawasaki/CountryCode
 Author
 ------
 
-Takahiko Kawasaki, Neo Visionaries Inc.
+Takahiko Kawasaki, Neo Visionaries Inc. & [Authlete, Inc.](https://www.authlete.com/)
