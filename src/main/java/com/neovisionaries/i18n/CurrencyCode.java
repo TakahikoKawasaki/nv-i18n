@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Neo Visionaries Inc.
+ * Copyright (C) 2014,2016 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -343,15 +343,41 @@ public enum CurrencyCode
     BWP("Pula", 72, 2, CountryCode.BW),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Belarusian_ruble">Belarussian Ruble</a>
+     * <a href="http://en.wikipedia.org/wiki/Belarusian_ruble">Belarusian Ruble</a>
+     * [numeric code = 933, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#BY BY}: BELARUS
+     * </ul>
+     *
+     * <p>
+     * This currency code was added by <a href=
+     * "http://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_161.pdf"
+     * >ISO 4217 AMENDMENT NUMBER 161</a> (18 December 2015). Effective from 1 July 2016.
+     * </p>
+     *
+     * @see <a href="http://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_161.pdf"
+     *      >ISO 4217 AMENDMENT NUMBER 161</a>
+     *
+     * @see #BYR
+     *
+     * @since 1.19
+     */
+    BYN("Belarusian Ruble", 933, 2, CountryCode.BY),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Belarusian_ruble">Belarusian Ruble</a>
      * [numeric code = 974, minor unit = 0]
      *
      * <p>Used by:</p>
      * <ul>
      * <li>{@link CountryCode#BY BY}: BELARUS
      * </ul>
+     *
+     * @see #BYN
      */
-    BYR("Belarussian Ruble", 974, 0, CountryCode.BY),
+    BYR("Belarusian Ruble", 974, 0, CountryCode.BY),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Belize_dollar">Belize Dollar</a>
