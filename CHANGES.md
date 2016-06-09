@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+### 1.20 (2016-06-09)
+
+* Added a new currency code, RUR (Russian Ruble before the 1998 denomination).
+  ([Issue 32](https://github.com/TakahikoKawasaki/nv-i18n/issues/32)).
+
+
 ### 1.19 (2016-06-04)
 
 * Added a new currency code, BYN (Belarusian Ruble)

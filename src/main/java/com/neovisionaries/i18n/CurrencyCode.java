@@ -1539,6 +1539,8 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#RU RU}: RUSSIAN FEDERATION
      * </ul>
+     *
+     * @see #RUR
      */
     RUB("Russian Ruble", 643, 2, CountryCode.RU),
 
@@ -1551,6 +1553,10 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#RU RU}: RUSSIAN FEDERATION
      * </ul>
+     *
+     * @see #RUB
+     *
+     * @since 1.20
      */
     RUR("Russian Ruble", 810, 2, CountryCode.RU),
 
