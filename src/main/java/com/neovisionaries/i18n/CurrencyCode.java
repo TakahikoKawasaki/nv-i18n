@@ -1543,6 +1543,18 @@ public enum CurrencyCode
     RUB("Russian Ruble", 643, 2, CountryCode.RU),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Russian_ruble">Russian Ruble</a>
+     * before the 1998 redenomination (1 {@link #RUB} = 1,000 {@link #RUR}).
+     * [numeric code = 810, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#RU RU}: RUSSIAN FEDERATION
+     * </ul>
+     */
+    RUR("Russian Ruble", 810, 2, CountryCode.RU),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Rwandan_franc">Rwanda Franc</a>
      * [numeric code = 646, minor unit = 0]
      *
