@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+### 1.21 (2016-07-12)
+
+* Added `fa` (Farsi) and `fa_IR` (Farsi, Iran) to `LocaleCode`.
+  ([PR 33](https://github.com/TakahikoKawasaki/nv-i18n/pull/33)).
+
+
 ### 1.20 (2016-06-09)
 
 * Added a new currency code, RUR (Russian Ruble before the 1998 denomination).

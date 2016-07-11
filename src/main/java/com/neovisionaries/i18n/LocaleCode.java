@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2014 Neo Visionaries Inc.
+ * Copyright (C) 2012-2016 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -457,11 +457,15 @@ public enum LocaleCode
 
     /**
      * {@link LanguageCode#fa Farsi}
+     *
+     * @since 1.21
      */
     fa(LanguageCode.fa, null),
 
     /**
      * {@link LanguageCode#fa Farsi}, {@link CountryCode#IR Iran}
+     *
+     * @since 1.21
      */
     fa_IR(LanguageCode.fa, CountryCode.IR),
 
