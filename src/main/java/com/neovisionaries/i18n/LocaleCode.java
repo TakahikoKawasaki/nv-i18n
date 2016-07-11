@@ -456,6 +456,16 @@ public enum LocaleCode
     et_EE(LanguageCode.et, CountryCode.EE),
 
     /**
+     * {@link LanguageCode#fa Farsi}
+     */
+    fa(LanguageCode.fa, null),
+
+    /**
+     * {@link LanguageCode#fa Farsi}, {@link CountryCode#IR Iran}
+     */
+    fa_IR(LanguageCode.fa, CountryCode.IR),
+
+    /**
      * {@link LanguageCode#fi Finnish}
      */
     fi(LanguageCode.fi, null),
