@@ -635,6 +635,13 @@ public enum LocaleCode
     ja_JP(LanguageCode.ja, CountryCode.JP),
 
     /**
+     * {@link LanguageCode#kk Kazakh}, {@link CountryCode#KZ Kazakhstan}
+     *
+     * @since 1.22
+     */
+    kk_KZ(LanguageCode.kk, CountryCode.KZ),
+
+    /**
      * {@link LanguageCode#ko Korean}
      */
     ko(LanguageCode.ko, null)
@@ -798,6 +805,13 @@ public enum LocaleCode
      * {@link LanguageCode#ru Russian}
      */
     ru(LanguageCode.ru, null),
+
+    /**
+     * {@link LanguageCode#ru Russian}, {@link CountryCode#KZ Kazakhstan}
+     *
+     * @since 1.22
+     */
+    ru_KZ(LanguageCode.ru, CountryCode.KZ),
 
     /**
      * {@link LanguageCode#ru Russian}, {@link CountryCode#RU Russian Federation}
