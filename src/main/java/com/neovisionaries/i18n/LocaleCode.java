@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2016 Neo Visionaries Inc.
+ * Copyright (C) 2012-2017 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -299,6 +299,13 @@ public enum LocaleCode
      * {@link LanguageCode#en English}, {@link CountryCode#GB United Kingdom}
      */
     en_GB(LanguageCode.en, CountryCode.GB),
+
+    /**
+     * {@link LanguageCode#en English}, {@link CountryCode#HK Hong Kong}
+     *
+     * @since 1.22
+     */
+    en_HK(LanguageCode.en, CountryCode.HK),
 
     /**
      * {@link LanguageCode#en English}, {@link CountryCode#IE Ireland}
