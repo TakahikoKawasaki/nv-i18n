@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+### 1.22 (2017-03-12)
+
+* Added `en_HK` (English, Hong Kong) to `LocaleCode`
+  ([Issue 36](https://github.com/TakahikoKawasaki/nv-i18n/issues/36)).
+
+* Added `kk_KZ` (Kazakh, Kazakhstan) and `ru_KZ` (Russian, Kazakhstan) to `LocaleCode`
+  ([Issue 37](https://github.com/TakahikoKawasaki/nv-i18n/issues/37)).
+
+
 ### 1.21 (2016-07-12)
 
 * Added `fa` (Farsi) and `fa_IR` (Farsi, Iran) to `LocaleCode`.

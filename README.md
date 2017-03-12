@@ -30,7 +30,7 @@ Maven
 <dependency>
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.21</version>
+    <version>1.22</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.21'
+    compile 'com.neovisionaries:nv-i18n:1.22'
 }
 ```
 
@@ -49,7 +49,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.21.0"
+    Export-Package: com.neovisionaries.i18n;version="1.22.0"
 
 
 Source Code
@@ -134,4 +134,4 @@ This nv-i18n supersedes https://github.com/TakahikoKawasaki/CountryCode
 Author
 ------
 
-Takahiko Kawasaki, Neo Visionaries Inc. & [Authlete, Inc.](https://www.authlete.com/)
+Takahiko Kawasaki, [Authlete, Inc.](https://www.authlete.com/)
