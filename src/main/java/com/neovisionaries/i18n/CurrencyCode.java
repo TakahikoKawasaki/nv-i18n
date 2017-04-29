@@ -691,11 +691,11 @@ public enum CurrencyCode
         CountryCode.BL, CountryCode.CY, CountryCode.DE, CountryCode.EE,
         CountryCode.ES, CountryCode.EU, CountryCode.FI, CountryCode.FR,
         CountryCode.GF, CountryCode.GP, CountryCode.GR, CountryCode.IE,
-        CountryCode.IT, CountryCode.LU, CountryCode.LV, CountryCode.MC,
-        CountryCode.ME, CountryCode.MF, CountryCode.MQ, CountryCode.MT,
-        CountryCode.NL, CountryCode.PM, CountryCode.PT, CountryCode.RE,
-        CountryCode.SI, CountryCode.SK, CountryCode.SM, CountryCode.TF,
-        CountryCode.VA, CountryCode.XK, CountryCode.YT),
+        CountryCode.IT, CountryCode.LT, CountryCode.LU, CountryCode.LV,
+        CountryCode.MC, CountryCode.ME, CountryCode.MF, CountryCode.MQ,
+        CountryCode.MT, CountryCode.NL, CountryCode.PM, CountryCode.PT,
+        CountryCode.RE, CountryCode.SI, CountryCode.SK, CountryCode.SM,
+        CountryCode.TF, CountryCode.VA, CountryCode.XK, CountryCode.YT),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Fiji_dollar">Fiji Dollar</a>
