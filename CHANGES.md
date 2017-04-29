@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+### 1.2x (2017-xx-xx)
+
+* Removed obsolete currency codes for Lithuanian Litas (LTL) and Belarusian Rubles (BYR)
+* Lithuania is added to array of countries which use Euro
+  ([Issue 38](https://github.com/TakahikoKawasaki/nv-i18n/issues/38)).
+
+
 ### 1.22 (2017-03-12)
 
 * Added `en_HK` (English, Hong Kong) to `LocaleCode`
