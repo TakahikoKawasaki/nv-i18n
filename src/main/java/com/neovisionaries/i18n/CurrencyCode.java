@@ -351,12 +351,33 @@ public enum CurrencyCode
      * <li>{@link CountryCode#BY BY}: BELARUS
      * </ul>
      *
+     * <p>
+     * This currency code was added by <a href=
+     * "http://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_161.pdf"
+     * >ISO 4217 AMENDMENT NUMBER 161</a> (18 December 2015). Effective from 1 July 2016.
+     * </p>
+     *
      * @see <a href="http://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_161.pdf"
      *      >ISO 4217 AMENDMENT NUMBER 161</a>
+     *
+     * @see #BYR
      *
      * @since 1.19
      */
     BYN("Belarusian Ruble", 933, 2, CountryCode.BY),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Belarusian_ruble">Belarusian Ruble</a>
+     * [numeric code = 974, minor unit = 0]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#BY BY}: BELARUS
+     * </ul>
+     *
+     * @see #BYN
+     */
+    BYR("Belarusian Ruble", 974, 0, CountryCode.BY),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Belize_dollar">Belize Dollar</a>
@@ -665,7 +686,6 @@ public enum CurrencyCode
      * <li>{@link CountryCode#GR GR}: GREECE
      * <li>{@link CountryCode#IE IE}: IRELAND
      * <li>{@link CountryCode#IT IT}: ITALY
-     * <li>{@link CountryCode#LT LT}: LITHUANIA
      * <li>{@link CountryCode#LU LU}: LUXEMBOURG
      * <li>{@link CountryCode#LV LV}: LATVIA
      * <li>{@link CountryCode#MC MC}: MONACO
@@ -1119,6 +1139,17 @@ public enum CurrencyCode
      * </ul>
      */
     LSL("Loti", 426, 2, CountryCode.LS),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Lithuanian_litas">Lithuanian Litas</a>
+     * [numeric code = 440, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#LT LT}: LITHUANIA
+     * </ul>
+     */
+    LTL("Lithuanian Litas", 440, 2, CountryCode.LT),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Libyan_dinar">Libyan Dinar</a>
@@ -2682,7 +2713,7 @@ public enum CurrencyCode
      * </p>
      *
      * <ol>
-     * <li>{@link #BYN} : Belarusian Ruble
+     * <li>{@link #BYR} : Belarussian Ruble
      * <li>{@link #RUB} : Russian Ruble
      * </ol>
      *
