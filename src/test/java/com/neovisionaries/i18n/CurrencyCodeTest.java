@@ -23,6 +23,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import java.util.List;
+import java.util.regex.Pattern;
+
 import org.junit.Test;
 
 
@@ -90,9 +92,20 @@ public class CurrencyCodeTest
         assertNull(getByCode("???"));
     }
 
-
     @Test
     public void test10()
+    {
+        assertNull(getByCode(123));
+    }
+
+    @Test
+    public void test11()
+    {
+        assertEquals(getByCode(969), CurrencyCode.MGA);
+    }
+
+    @Test
+    public void test12()
     {
         assertFalse(CurrencyCode.JPY.isFund());
 
@@ -109,7 +122,7 @@ public class CurrencyCodeTest
 
 
     @Test
-    public void test11()
+    public void test13()
     {
         assertFalse(CurrencyCode.JPY.isPreciousMetal());
 
@@ -121,7 +134,7 @@ public class CurrencyCodeTest
 
 
     @Test
-    public void test12()
+    public void test14()
     {
         List<CountryCode> list = CurrencyCode.JPY.getCountryList();
 
@@ -131,7 +144,7 @@ public class CurrencyCodeTest
 
 
     @Test
-    public void test13()
+    public void test15()
     {
         List<CountryCode> list = CurrencyCode.XXX.getCountryList();
 
@@ -140,7 +153,7 @@ public class CurrencyCodeTest
 
 
     @Test
-    public void test14()
+    public void test16()
     {
         List<CurrencyCode> list = CurrencyCode.findByName(".*Ruble");
 
@@ -161,22 +174,79 @@ public class CurrencyCodeTest
 
 
     @Test
-    public void test15()
+    public void test17()
     {
         assertSame(CurrencyCode.UNDEFINED, getByCode("UNDEFINED"));
     }
 
 
     @Test
-    public void test16()
+    public void test18()
     {
         assertNull(getByCode("undefined"));
     }
 
 
     @Test
-    public void test17()
+    public void test19()
     {
         assertSame(CurrencyCode.UNDEFINED, getByCode("undefined", false));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void test20()
+    {
+        CurrencyCode.findByName((String) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void test21()
+    {
+        CurrencyCode.findByName((Pattern) null);
+    }
+
+    @Test
+    public void test22()
+    {
+        List<CurrencyCode> list = CurrencyCode.getByCountry(CountryCode.EE);
+
+        assertEquals(1, list.size());
+
+        // EUR: Euro
+        assertTrue(list.contains(CurrencyCode.EUR));
+    }
+
+    @Test
+    public void test23()
+    {
+        List<CurrencyCode> listRetrievedCaseSensitiveSearch = CurrencyCode.getByCountry("EE");
+
+        assertEquals(1, listRetrievedCaseSensitiveSearch.size());
+
+        // EUR: Euro
+        assertTrue(listRetrievedCaseSensitiveSearch.contains(CurrencyCode.EUR));
+    }
+
+    @Test
+    public void test24()
+    {      
+        List<CurrencyCode> listRetrievedCaseInsensitiveSearch1 = CurrencyCode.getByCountry("eE", false);
+        List<CurrencyCode> listRetrievedCaseInsensitiveSearch2 = CurrencyCode.getByCountryIgnoreCase("By");
+
+        assertEquals(1, listRetrievedCaseInsensitiveSearch1.size());
+        assertEquals(2, listRetrievedCaseInsensitiveSearch2.size());
+
+        // EUR: Euro
+        assertTrue(listRetrievedCaseInsensitiveSearch1.contains(CurrencyCode.EUR));
+        // BYN: Belarusian ruble
+        assertTrue(listRetrievedCaseInsensitiveSearch2.contains(CurrencyCode.BYN));
+    }
+
+    @Test
+    public void test25()
+    {
+        List<CurrencyCode> list = CurrencyCode.getByCountry((CountryCode) null);
+
+        assertTrue(list.isEmpty());
     }
 }

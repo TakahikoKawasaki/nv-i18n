@@ -375,6 +375,7 @@ public enum CurrencyCode
      * <li>{@link CountryCode#BY BY}: BELARUS
      * </ul>
      *
+     * @deprecated it is not in use anymore; left for compatibility
      * @see #BYN
      */
     BYR("Belarusian Ruble", 974, 0, CountryCode.BY),
@@ -686,6 +687,7 @@ public enum CurrencyCode
      * <li>{@link CountryCode#GR GR}: GREECE
      * <li>{@link CountryCode#IE IE}: IRELAND
      * <li>{@link CountryCode#IT IT}: ITALY
+     * <li>{@link CountryCode#LT LT}: LITHUANIA
      * <li>{@link CountryCode#LU LU}: LUXEMBOURG
      * <li>{@link CountryCode#LV LV}: LATVIA
      * <li>{@link CountryCode#MC MC}: MONACO
@@ -1148,6 +1150,8 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#LT LT}: LITHUANIA
      * </ul>
+     * 
+     * @deprecated it is not in use anymore; left for compatibility
      */
     LTL("Lithuanian Litas", 440, 2, CountryCode.LT),
 
@@ -1554,6 +1558,7 @@ public enum CurrencyCode
      * <li>{@link CountryCode#RU RU}: RUSSIAN FEDERATION
      * </ul>
      *
+     * @deprecated it is not in use anymore; left for compatibility
      * @see #RUB
      *
      * @since 1.20
@@ -2298,11 +2303,12 @@ public enum CurrencyCode
 
 
     /**
-     * Get the minor unit.
-     *
-     * @return
-     *         The minor unit. {@code -1} means N.A.
-     */
+	 * Get the minor unit. Minor unit represents a number of digits for subunits
+	 * of given currency as powers of 10. E.g. {@link #USD} has minor unit set
+	 * to 2 it means that US dollar is divided by 100 cents.
+	 *
+	 * @return The minor unit. {@code -1} means N.A.
+	 */
     public int getMinorUnit()
     {
         return minorUnit;
@@ -2713,7 +2719,7 @@ public enum CurrencyCode
      * </p>
      *
      * <ol>
-     * <li>{@link #BYR} : Belarussian Ruble
+     * <li>{@link #BYN} : Belarusian Ruble
      * <li>{@link #RUB} : Russian Ruble
      * </ol>
      *

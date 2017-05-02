@@ -3,8 +3,9 @@ CHANGES
 
 ### 1.2x (2017-xx-xx)
 
-* Removed obsolete currency codes for Lithuanian Litas (LTL) and Belarusian Rubles (BYR)
+* Obsolete currency codes for Lithuanian Litas (LTL) and Belarusian Rubles (BYR) marked as deprecated
 * Lithuania is added to array of countries which use Euro
+* Test CurrencyCodeTest updated
   ([Issue 38](https://github.com/TakahikoKawasaki/nv-i18n/issues/38)).
 
 
