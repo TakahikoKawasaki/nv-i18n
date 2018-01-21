@@ -711,7 +711,7 @@ public enum CurrencyCode
         CountryCode.BL, CountryCode.CY, CountryCode.DE, CountryCode.EE,
         CountryCode.ES, CountryCode.EU, CountryCode.FI, CountryCode.FR,
         CountryCode.GF, CountryCode.GP, CountryCode.GR, CountryCode.IE,
-        CountryCode.IT, CountryCode.LU, CountryCode.LV, CountryCode.MC,
+        CountryCode.IT, CountryCode.LU, CountryCode.LV, CountryCode.LT, CountryCode.MC,
         CountryCode.ME, CountryCode.MF, CountryCode.MQ, CountryCode.MT,
         CountryCode.NL, CountryCode.PM, CountryCode.PT, CountryCode.RE,
         CountryCode.SI, CountryCode.SK, CountryCode.SM, CountryCode.TF,
@@ -1140,16 +1140,7 @@ public enum CurrencyCode
      */
     LSL("Loti", 426, 2, CountryCode.LS),
 
-    /**
-     * <a href="http://en.wikipedia.org/wiki/Lithuanian_litas">Lithuanian Litas</a>
-     * [numeric code = 440, minor unit = 2]
-     *
-     * <p>Used by:</p>
-     * <ul>
-     * <li>{@link CountryCode#LT LT}: LITHUANIA
-     * </ul>
-     */
-    LTL("Lithuanian Litas", 440, 2, CountryCode.LT),
+    
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Libyan_dinar">Libyan Dinar</a>

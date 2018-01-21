@@ -179,4 +179,9 @@ public class CurrencyCodeTest
     {
         assertSame(CurrencyCode.UNDEFINED, getByCode("undefined", false));
     }
+    
+    public void testLithuania(){
+        System.out.println("test Lithuania");
+        assertSame(CurrencyCode.EUR, CurrencyCode.getByCountryIgnoreCase("LT"));
+    }
 }
