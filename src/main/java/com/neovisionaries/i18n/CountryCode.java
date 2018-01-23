@@ -2161,6 +2161,22 @@ public enum CountryCode
      * Officially assigned]
      */
     ZW("Zimbabwe", "ZWE", 716, Assignment.OFFICIALLY_ASSIGNED),
+
+
+    /**
+     * <a href="https://en.wikipedia.org/wiki/Fictional_country">Unknown or Invalid Territory</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#ZZ">ZZ</a>,
+     * User-assigned]
+     *
+     * <p>This is not an official ISO 3166-1 code.</p>
+     * It is set aside by ISO and won't be used in an update of the standard.
+     */
+    ZZ("Unknown or Invalid Territory", "ZZZ", 999, Assignment.USER_ASSIGNED) {
+        @Override
+        public Locale toLocale() {
+            return LocaleCode.undefined.toLocale();
+        }
+    },
     ;
 
 
