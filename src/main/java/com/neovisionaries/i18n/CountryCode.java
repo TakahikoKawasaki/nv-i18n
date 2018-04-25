@@ -714,6 +714,15 @@ public enum CountryCode
     EU("European Union", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Eurozone">Eurozone</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#EZ">EZ</a>, null, -1,
+     * Exceptionally reserved]
+     *
+     * @since 1.23
+     */
+    EZ("Eurozone", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Finland">Finland</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FI">FI</a>, FIN, 246,
      * Officially assigned]
