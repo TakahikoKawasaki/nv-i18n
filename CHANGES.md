@@ -1,6 +1,19 @@
 CHANGES
 =======
 
+### 1.23 (2018-04-25)
+
+* Added `EZ` (Eurozone) to `CountryCode`
+  ([Issue 45](https://github.com/TakahikoKawasaki/nv-i18n/issues/45)).
+
+* Added `MRU` (Ouguiya) and `STN` (Dobra) to `CurrencyCode`, and
+  marked `MRO` and `STD` as deprecated
+  ([Issue 48](https://github.com/TakahikoKawasaki/nv-i18n/issues/48)).
+
+* Made `getByAlpha?Code(String)` methods in `CountryCode` class public
+  ([Issue 49](https://github.com/TakahikoKawasaki/nv-i18n/issues/49)).
+
+
 ### 1.22 (2017-03-12)
 
 * Added `en_HK` (English, Hong Kong) to `LocaleCode`

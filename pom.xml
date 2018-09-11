@@ -4,7 +4,7 @@
 
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.23-SNAPSHOT</version>
+    <version>1.24-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>

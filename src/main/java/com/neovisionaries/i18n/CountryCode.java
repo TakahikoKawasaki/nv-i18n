@@ -714,6 +714,15 @@ public enum CountryCode
     EU("European Union", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Eurozone">Eurozone</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#EZ">EZ</a>, null, -1,
+     * Exceptionally reserved]
+     *
+     * @since 1.23
+     */
+    EZ("Eurozone", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Finland">Finland</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#FI">FI</a>, FIN, 246,
      * Officially assigned]
@@ -2686,7 +2695,20 @@ public enum CountryCode
     }
 
 
-    private static CountryCode getByAlpha2Code(String code)
+    /**
+     * Get a {@code CountryCode} that corresponds to the given ISO 3166-1
+     * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">alpha-2</a> code.
+     *
+     * @param code
+     *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
+     *         >alpha-2</a> code.
+     *
+     * @return
+     *         A {@code CountryCode} instance, or {@code null} if not found.
+     *
+     * @since 1.23
+     */
+    public static CountryCode getByAlpha2Code(String code)
     {
         try
         {
@@ -2699,13 +2721,79 @@ public enum CountryCode
     }
 
 
-    private static CountryCode getByAlpha3Code(String code)
+    /**
+     * Get a {@code CountryCode} that corresponds to the given ISO 3166-1
+     * <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">alpha-3</a> code.
+     *
+     * @param code
+     *         An ISO 3166-1 <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3"
+     *         >alpha-3</a> code.
+     *
+     * @return
+     *         A {@code CountryCode} instance, or {@code null} if not found.
+     *
+     * @since 1.23
+     */
+    public static CountryCode getByAlpha3Code(String code)
     {
         return alpha3Map.get(code);
     }
 
 
-    private static CountryCode getByAlpha4Code(String code)
+    /**
+     * Get a {@code CountryCode} that corresponds to the given alpha-4 code.
+     *
+     * <p>
+     * Recognized alpha-4 codes are listed in the table below.
+     * </p>
+     *
+     * <br>
+     * <blockquote>
+     * <table border="1" style="border-collapse: collapse" cellpadding="5">
+     * <tr bgcolor="orange">
+     *   <th>Alpha-4 Code</th>
+     *   <th><code>CountryCode</code></th>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>ANHH</code></td>
+     *   <td>{@link #AN}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>BUMM</code></td>
+     *   <td>{@link #BU}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>CSXX</code></td>
+     *   <td>{@link #CS}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>NTHH</code></td>
+     *   <td>{@link #NT}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>TPTL</code></td>
+     *   <td>{@link #TP}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>YUCS</code></td>
+     *   <td>{@link #YU}</td>
+     * </tr>
+     * <tr align="center">
+     *   <td><code>ZRCD</code></td>
+     *   <td>{@link #ZR}</td>
+     * </tr>
+     * </table>
+     * </blockquote>
+     *
+     * @param code
+     *         Alpha-4 code.
+     *
+     * @return
+     *         A {@code CountryCode} instance, or {@code null} if not found.
+     *
+     * @since 1.23
+     */
+    public static CountryCode getByAlpha4Code(String code)
     {
         return alpha4Map.get(code);
     }

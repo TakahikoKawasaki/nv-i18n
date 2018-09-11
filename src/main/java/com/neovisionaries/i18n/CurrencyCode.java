@@ -1248,8 +1248,48 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#MR MR}: MAURITANIA
      * </ul>
+     *
+     * @see #MRU
+     *
+     * @deprecated
      */
     MRO("Ouguiya", 478, 2, CountryCode.MR),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/Mauritanian_ouguiya">Ouguiya</a>
+     * [numeric code = 929, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#MR MR}: MAURITANIA
+     * </ul>
+     *
+     * <p>
+     * Excerpted from <a href=
+     * "https://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_165.pdf"
+     * >ISO 4217 AMENDMENT NUMBER 165</a>:
+     * </p>
+     *
+     * <blockquote>
+     * <p><i>
+     * The Central Bank of Mauritania is carrying out a re-denomination of
+     * their local currency, with the entry into circulation of the OUGUIYA.
+     * The conversion rate is 10 (old) Ouguiya to 1 (new) Ouguiya (10:1).
+     * </i></p>
+     *
+     * <p><i>
+     * From 1 January 2018 to 30 June 2018, the old and new denominations run concurrently.
+     * </i></p>
+     * </blockquote>
+     *
+     * @since 1.23
+     *
+     * @see #MRO
+     *
+     * @see <a href="https://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_165.pdf"
+     *      >ISO 4217 AMENDMENT NUMBER 165</a>
+     */
+    MRU("Ouguiya", 929, 2, CountryCode.MR),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Mauritian_rupee">Mauritius Rupee</a>
@@ -1700,8 +1740,49 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#ST ST}: SAO TOME AND PRINCIPE
      * </ul>
+     *
+     * @see #STN
+     *
+     * @deprecated
      */
     STD("Dobra", 678, 2, CountryCode.ST),
+
+    /**
+     * <a href="http://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe_dobra">Dobra</a>
+     * [numeric code = 930, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#ST ST}: SAO TOME AND PRINCIPE
+     * </ul>
+     *
+     * <p>
+     * Excerpted from <a href=
+     * "https://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_164.pdf"
+     * >ISO 4217 AMENDMENT NUMBER 164</a>:
+     * </p>
+     *
+     * <blockquote>
+     * <p><i>
+     * The Central Bank of S. Tom&eacute; and Pr&iacute;ncipe is carrying out
+     * an important Monetary Reform Project, with the entry into circulation
+     * of a new family of DOBRAS. The conversion rate is 1000 (old) Dobras to
+     * 1 (new) Dobra (1000:1).
+     * </i></p>
+     *
+     * <p><i>
+     * From 1 January 2018 to 30 June 2018, the old and new denominations run concurrently.
+     * </i></p>
+     * </blockquote>
+     *
+     * @since 1.23
+     *
+     * @see #STD
+     *
+     * @see <a href="https://www.currency-iso.org/dam/isocy/downloads/dl_currency_iso_amendment_164.pdf"
+     *      >ISO 4217 AMENDMENT NUMBER 164</a>
+     */
+    STN("Dobra", 930, 2, CountryCode.ST),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Salvadoran_col%C3%B3n">El Salvador Colon</a>
