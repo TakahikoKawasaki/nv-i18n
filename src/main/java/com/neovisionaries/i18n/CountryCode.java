@@ -2279,6 +2279,9 @@ public enum CountryCode
 
         // TL and TP have the same numeric code 626. TL should be used.
         numericMap.put(Integer.valueOf(626), TL);
+        
+        // County code 280 is also used for DE by the German banking industry.
+        numericMap.put(Integer.valueOf(280), DE);
     }
 
 

@@ -378,4 +378,10 @@ public class CountryCodeTest
         assertEquals(826, CountryCode.UK.getNumeric());
         assertEquals(180, CountryCode.ZR.getNumeric());
     }
+
+    @Test
+    public void test42() {
+        // Country code 280 should map to 278, due to legacy applications in payment industry.
+        assertEquals(CountryCode.DE, CountryCode.getByCode(280));
+    }
 }
