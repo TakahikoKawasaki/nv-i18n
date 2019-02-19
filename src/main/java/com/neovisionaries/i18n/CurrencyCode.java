@@ -2061,6 +2061,17 @@ public enum CurrencyCode
     VEF("Bolivar", 937, 2, CountryCode.VE),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Venezuelan_bol%C3%ADvar">Bolivar</a>
+     * [numeric code = 928, minor unit = 2]
+     *
+     * <p>Used by:</p>
+     * <ul>
+     * <li>{@link CountryCode#VE VE}: VENEZUELA, BOLIVARIAN REPUBLIC OF
+     * </ul>
+     */
+    VES("Bolivar Soberano", 928, 2, CountryCode.VE),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Vietnamese_dong">Dong</a>
      * [numeric code = 704, minor unit = 0]
      *
