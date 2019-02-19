@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014,2016 Neo Visionaries Inc.
+ * Copyright (C) 2014-2019 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -376,6 +376,8 @@ public enum CurrencyCode
      * </ul>
      *
      * @see #BYN
+     *
+     * @deprecated
      */
     BYR("Belarusian Ruble", 974, 0, CountryCode.BY),
 
@@ -686,6 +688,7 @@ public enum CurrencyCode
      * <li>{@link CountryCode#GR GR}: GREECE
      * <li>{@link CountryCode#IE IE}: IRELAND
      * <li>{@link CountryCode#IT IT}: ITALY
+     * <li>{@link CountryCode#LT LT}: LITHUANIA
      * <li>{@link CountryCode#LU LU}: LUXEMBOURG
      * <li>{@link CountryCode#LV LV}: LATVIA
      * <li>{@link CountryCode#MC MC}: MONACO
@@ -711,11 +714,11 @@ public enum CurrencyCode
         CountryCode.BL, CountryCode.CY, CountryCode.DE, CountryCode.EE,
         CountryCode.ES, CountryCode.EU, CountryCode.FI, CountryCode.FR,
         CountryCode.GF, CountryCode.GP, CountryCode.GR, CountryCode.IE,
-        CountryCode.IT, CountryCode.LU, CountryCode.LV, CountryCode.MC,
-        CountryCode.ME, CountryCode.MF, CountryCode.MQ, CountryCode.MT,
-        CountryCode.NL, CountryCode.PM, CountryCode.PT, CountryCode.RE,
-        CountryCode.SI, CountryCode.SK, CountryCode.SM, CountryCode.TF,
-        CountryCode.VA, CountryCode.XK, CountryCode.YT),
+        CountryCode.IT, CountryCode.LT, CountryCode.LU, CountryCode.LV,
+        CountryCode.MC, CountryCode.ME, CountryCode.MF, CountryCode.MQ,
+        CountryCode.MT, CountryCode.NL, CountryCode.PM, CountryCode.PT,
+        CountryCode.RE, CountryCode.SI, CountryCode.SK, CountryCode.SM,
+        CountryCode.TF, CountryCode.VA, CountryCode.XK, CountryCode.YT),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Fiji_dollar">Fiji Dollar</a>
@@ -1148,6 +1151,8 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#LT LT}: LITHUANIA
      * </ul>
+     *
+     * @deprecated
      */
     LTL("Lithuanian Litas", 440, 2, CountryCode.LT),
 
@@ -1597,6 +1602,8 @@ public enum CurrencyCode
      * @see #RUB
      *
      * @since 1.20
+     *
+     * @deprecated
      */
     RUR("Russian Ruble", 810, 2, CountryCode.RU),
 
@@ -2801,12 +2808,14 @@ public enum CurrencyCode
      * List&lt;CurrencyCode&gt; list = CurrencyCode.findByName(pattern);</pre>
      *
      * <p>
-     * contains 2 {@code CurrencyCode}s as listed below.
+     * contains 4 {@code CurrencyCode}s as listed below.
      * </p>
      *
      * <ol>
-     * <li>{@link #BYR} : Belarussian Ruble
+     * <li>{@link #BYN} : Belarusian Ruble
+     * <li>{@link #BYR} : Belarusian Ruble
      * <li>{@link #RUB} : Russian Ruble
+     * <li>{@link #RUR} : Russian Ruble
      * </ol>
      *
      * @param pattern
