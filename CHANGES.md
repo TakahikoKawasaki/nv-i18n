@@ -1,6 +1,21 @@
 CHANGES
 =======
 
+### 1.24 (2019-02-20)
+
+* Added `VES` ("Bolivar Soberano") to `CurrencyCode`
+  ([Pull Request 55](https://github.com/TakahikoKawasaki/nv-i18n/pull/55)).
+
+* Corrected the alpha-3 code of `XK` (Kosovo) from `XXK` to `XKX`
+  ([Pull Request 51](https://github.com/TakahikoKawasaki/nv-i18n/pull/51)).
+
+* Marked `BYR`, `LTL` and `RUR` in `CurrencyCode` as deprecated
+  ([Issue 38](https://github.com/TakahikoKawasaki/nv-i18n/issues/38)).
+
+* Added `LT` (Lithuania) to the country list of `EUR` ("Euro")
+  ([Issue 38](https://github.com/TakahikoKawasaki/nv-i18n/issues/38)).
+
+
 ### 1.23 (2018-04-25)
 
 * Added `EZ` (Eurozone) to `CountryCode`
