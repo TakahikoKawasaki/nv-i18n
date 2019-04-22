@@ -16,11 +16,11 @@
  * <span class="tag">&lt;dependency&gt;
  *     &lt;groupId&gt;</span>com.neovisionaries<span class="tag">&lt;/groupId&gt;
  *     &lt;artifactId&gt;</span>nv-i18n<span class="tag">&lt;/artifactId&gt;
- *     &lt;version&gt;</span>1.24<span class="tag">&lt;/version&gt;
+ *     &lt;version&gt;</span>1.25<span class="tag">&lt;/version&gt;
  * &lt;/dependency&gt;</span><!--
  * --></pre>
  *
- * @version 1.24
+ * @version 1.25
  * @author Takahiko Kawasaki
  */
 package com.neovisionaries.i18n;

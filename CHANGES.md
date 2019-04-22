@@ -1,6 +1,13 @@
 CHANGES
 =======
 
+### 1.25 (2019-04-23)
+
+* Renamed "Macedonia, the former Yugoslav Republic of" to
+  "North Macedonia, Republic of"
+  ([Pull Request 56](https://github.com/TakahikoKawasaki/nv-i18n/pull/56)).
+
+
 ### 1.24 (2019-02-20)
 
 * Added `VES` ("Bolivar Soberano") to `CurrencyCode`
