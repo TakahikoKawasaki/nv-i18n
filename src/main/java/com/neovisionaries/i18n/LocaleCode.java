@@ -797,6 +797,11 @@ public enum LocaleCode
     ro(LanguageCode.ro, null),
 
     /**
+     * {@link LanguageCode#ro Romanian}, {@link CountryCode#MD Moldova, Republic of}
+     */
+    ro_MD(LanguageCode.ro, CountryCode.MD),
+
+    /**
      * {@link LanguageCode#ro Romanian}, {@link CountryCode#RO Romania}
      */
     ro_RO(LanguageCode.ro, CountryCode.RO),

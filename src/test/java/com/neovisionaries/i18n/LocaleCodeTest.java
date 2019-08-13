@@ -431,4 +431,11 @@ public class LocaleCodeTest
     {
         assertNull(getByCode(""));
     }
+
+
+    @Test
+    public void test46()
+    {
+        assertSame(LocaleCode.ro_MD, getByCode("ro_MD", false));
+    }
 }
