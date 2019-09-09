@@ -1800,7 +1800,9 @@ public enum CountryCode
      * <p>
      * Since version 1.17, the numeric code of this entry is 810.
      * </p>
+     * @deprecated 
      */
+    @Deprecated
     SU("USSR", "SUN", 810, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
