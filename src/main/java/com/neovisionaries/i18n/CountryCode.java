@@ -193,7 +193,9 @@ public enum CountryCode
      * Since version 1.16, the value of alpha-3 code of this entry is {@code ANT}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#ANHH">ANHH</a></code>).
      * </p>
+     * @deprecated
      */
+    @Deprecated
     AN("Netherlands Antilles", "ANT", 530, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -394,7 +396,9 @@ public enum CountryCode
      * </p>
      *
      * @see #MM
+     * @deprecated
      */
+    @Deprecated
     BU("Burma", "BUR", 104, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -548,7 +552,9 @@ public enum CountryCode
      * Since version 1.16, the value of alpha-3 code of this entry is {@code SCG}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#CSXX">CSXX</a></code>).
      * </p>
+     * @deprecated
      */
+    @Deprecated
     CS("Serbia and Montenegro", "SCG", 891, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -1490,7 +1496,9 @@ public enum CountryCode
      * Since version 1.16, the value of alpha-3 code of this entry is {@code NTZ}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#NTHH">NTHH</a></code>).
      * </p>
+     * @deprecated
      */
+    @Deprecated
     NT("Neutral Zone", "NTZ", 536, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -1695,7 +1703,9 @@ public enum CountryCode
      * Traditionally reserved]
      *
      * @see #FI
+     * @deprecated
      */
+    @Deprecated
     SF("Finland", "FIN", 246, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -1922,7 +1932,9 @@ public enum CountryCode
      * </p>
      *
      * @see #TL
+     * @deprecated
      */
+    @Deprecated
     TP("East Timor", "TMP", 626, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -2129,7 +2141,9 @@ public enum CountryCode
      * Since version 1.16, the value of alpha-3 code of this entry is {@code YUG}
      * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#YUCS">YUCS</a></code>).
      * </p>
+     * @deprecated
      */
+    @Deprecated
     YU("Yugoslavia", "YUG", 890, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
@@ -2161,7 +2175,9 @@ public enum CountryCode
      * </p>
      *
      * @see #CD
+     * @deprecated
      */
+    @Deprecated
     ZR("Zaire", "ZAR", 180, Assignment.TRANSITIONALLY_RESERVED),
 
     /**
