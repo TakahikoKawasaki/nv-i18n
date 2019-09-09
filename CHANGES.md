@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+### 1.26 (2019-08-14)
+
+* Added `ro_MD` (Romanian in Republic of Moldova) to `LocaleCode`
+  ([Pull Request 59](https://github.com/TakahikoKawasaki/nv-i18n/pull/59)).
+
+
 ### 1.25 (2019-04-23)
 
 * Renamed "Macedonia, the former Yugoslav Republic of" to
