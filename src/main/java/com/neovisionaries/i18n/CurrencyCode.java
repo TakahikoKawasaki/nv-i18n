@@ -1207,7 +1207,7 @@ public enum CurrencyCode
      *
      * <p>Used by:</p>
      * <ul>
-     * <li>{@link CountryCode#MK MK}: MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF
+     * <li>{@link CountryCode#MK MK}: NORTH MACEDONIA, REPUBLIC OF
      * </ul>
      */
     MKD("Denar", 807, 2, CountryCode.MK),
@@ -1819,7 +1819,7 @@ public enum CurrencyCode
      *
      * <p>Used by:</p>
      * <ul>
-     * <li>{@link CountryCode#SZ SZ}: SWAZILAND
+     * <li>{@link CountryCode#SZ SZ}: ESWATINI
      * </ul>
      */
     SZL("Lilangeni", 748, 2, CountryCode.SZ),

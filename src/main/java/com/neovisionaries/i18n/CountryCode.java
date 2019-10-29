@@ -1815,11 +1815,11 @@ public enum CountryCode
     SY("Syrian Arab Republic", "SYR", 760, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Swaziland">Swaziland</a>
+     * <a href="http://en.wikipedia.org/wiki/Eswatini">Eswatini</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#SZ">SZ</a>, SWZ, 748,
      * Officially assigned]
      */
-    SZ("Swaziland", "SWZ", 748, Assignment.OFFICIALLY_ASSIGNED),
+    SZ("Eswatini", "SWZ", 748, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Tristan_da_Cunha">Tristan da Cunha</a>
