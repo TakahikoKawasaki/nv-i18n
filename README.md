@@ -30,7 +30,7 @@ Maven
 <dependency>
     <groupId>com.neovisionaries</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.26</version>
+    <version>1.27</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.26'
+    compile 'com.neovisionaries:nv-i18n:1.27'
 }
 ```
 
@@ -49,7 +49,7 @@ OSGi
 ----
 
     Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.26.0"
+    Export-Package: com.neovisionaries.i18n;version="1.27.0"
 
 
 Source Code

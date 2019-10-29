@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+### 1.27 (2019-10-30)
+
+* Renamed "Swaziland" to "Eswatini"
+  ([Pull Request 62](https://github.com/TakahikoKawasaki/nv-i18n/pull/62)).
+
+
 ### 1.26 (2019-08-14)
 
 * Added `ro_MD` (Romanian in Republic of Moldova) to `LocaleCode`
