@@ -2595,6 +2595,7 @@ public enum LanguageCode
      *   <td>{@link LanguageCode#zh LanguageCode.zh}</td>
      *   <td>{@link Locale#CHINESE}</td>
      * </tr>
+     * <caption></caption>
      * </table>
      *
      * @return
@@ -2758,6 +2759,7 @@ public enum LanguageCode
      *   <td>{@link LanguageAlpha3Code#alb alb}</td>
      *   <td><a href="http://en.wikipedia.org/wiki/Albanian_language">Albanian</a></td>
      * </tr>
+     * <caption></caption>
      * </table>
      *
      *

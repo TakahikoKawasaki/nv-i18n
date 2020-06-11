@@ -1508,7 +1508,7 @@ public enum CountryCode
     NZ("New Zealand", "NZL", 554, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href=http://en.wikipedia.org/wiki/Oman"">Oman</a>
+     * <a href="http://en.wikipedia.org/wiki/Oman">Oman</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#OM">OM</a>, OMN, 512,
      * Officially assigned]
      */
@@ -2343,8 +2343,7 @@ public enum CountryCode
 
 
     /**
-     * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric"
-     * >ISO 3166-1 numeric</a> code.
+     * Get the <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO 3166-1 numeric</a> code.
      *
      * @return
      *         The <a href="http://en.wikipedia.org/wiki/ISO_3166-1_numeric"
@@ -2365,8 +2364,7 @@ public enum CountryCode
      * @return
      *         The assignment state.
      *
-     * @see <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Decoding_table"
-     *       >Decoding table of ISO 3166-1 alpha-2 codes</a>
+     * @see <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Decoding_table">Decoding table of ISO 3166-1 alpha-2 codes</a>
      */
     public Assignment getAssignment()
     {
@@ -2435,6 +2433,7 @@ public enum CountryCode
      *   <td>{@link CountryCode#US CountryCode.US}</td>
      *   <td>{@link Locale#US}</td>
      * </tr>
+     * <caption></caption>
      * </table>
      *
      * <p>
@@ -2782,6 +2781,7 @@ public enum CountryCode
      *   <td><code>ZRCD</code></td>
      *   <td>{@link #ZR}</td>
      * </tr>
+     * <caption></caption>
      * </table>
      * </blockquote>
      *
@@ -2848,6 +2848,7 @@ public enum CountryCode
      *   <td align="center">{@link #TP}</td>
      *   <td align="center">{@link #TL}</td>
      * </tr>
+     * <caption></caption>
      * </table>
      * </blockquote>
      * <br>
