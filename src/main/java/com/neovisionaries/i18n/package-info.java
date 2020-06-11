@@ -9,9 +9,10 @@
  * <p>
  * For Maven:
  * </p>
- * <style type="text/css">
+ * <!-- commenting this out because javadoc compiler reports "error: unknown tag: style" -->
+ * <!-- <style type="text/css"> -->
  * span.tag { color: #45818e; }
- * </style>
+ * <!-- </style> -->
  * <pre style="margin: 1em; padding: 0.5em; border: solid 1px black;">
  * <span class="tag">&lt;dependency&gt;
  *     &lt;groupId&gt;</span>com.neovisionaries<span class="tag">&lt;/groupId&gt;

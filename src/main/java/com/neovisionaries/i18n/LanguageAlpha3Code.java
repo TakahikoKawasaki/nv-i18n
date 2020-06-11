@@ -155,6 +155,7 @@ import java.util.regex.Pattern;
  * <td>{@link LanguageAlpha3Code#alb alb}</td>
  * <td><a href="http://en.wikipedia.org/wiki/Albanian_language">Albanian</a></td>
  * </tr>
+ * <caption></caption>
  * </table>
  *
  * <p>
@@ -355,7 +356,7 @@ public enum LanguageAlpha3Code
     alt("Southern Altai"),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Atlantic-Congo_languages">Atlantic-Congo languages<a/>
+     * <a href="http://en.wikipedia.org/wiki/Atlantic-Congo_languages">Atlantic-Congo languages</a>
      *
      * @since 1.10
      */
@@ -2259,8 +2260,7 @@ public enum LanguageAlpha3Code
 
     /**
      * <a
-     * href="http://en.wikipedia.org/wiki/Guaran%C3%AD_language">Guaran&iacute
-     * ;</a>
+     * href="http://en.wikipedia.org/wiki/Guaran%C3%AD_language">Guaran&iacute;</a>
      * ({@link LanguageCode#gn gn}).
      */
     grn("Guaran\u00ED")
@@ -4441,7 +4441,7 @@ public enum LanguageAlpha3Code
     pra("Prakrit languages"),
 
     /**
-     * <a href="">Old Proven&ccedil;al</a> (to 1500)
+     * <a href="http://www.example.com">Old Proven&ccedil;al</a> (to 1500)
      *
      * @since 1.10
      */

@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * <a href="http://en.wikipedia.org/wiki/ISO_15924">ISO 15924<a> script code.
+ * <a href="http://en.wikipedia.org/wiki/ISO_15924">ISO 15924</a> script code.
  *
  * @since 1.2
  * @author Takahiko Kawasaki

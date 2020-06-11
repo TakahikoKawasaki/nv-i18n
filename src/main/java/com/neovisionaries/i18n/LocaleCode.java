@@ -1127,6 +1127,7 @@ public enum LocaleCode
      *   <td>{@link LocaleCode#zh_TW LocaleCode.zh_TW}</td>
      *   <td>{@link Locale#TRADITIONAL_CHINESE}</td>
      * </tr>
+     * <caption></caption>
      * </table>
      *
      * <p>
@@ -1280,15 +1281,15 @@ public enum LocaleCode
      * </p>
      *
      * @param language
-     *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. Or "undefined" (case
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         language code. Or "undefined" (case
      *         sensitive). If the given language code is one of legacy
      *         ones { "iw", "ji" and "in" }, it is regarded as its newer
      *         official counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
-     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED"
+     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+     *         country code. Or "UNDEFINED"
      *         (case sensitive).
      *
      * @return
@@ -1312,15 +1313,15 @@ public enum LocaleCode
      * </p>
      *
      * @param language
-     *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. Or "undefined" (case
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         language code. Or "undefined" (case
      *         insensitive). If the given language code is one of legacy
      *         ones { "iw", "ji" and "in" }, it is regarded as its newer
      *         official counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
-     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED"
+     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+     *         country code. Or "UNDEFINED"
      *         (case insensitive).
      *
      * @return
@@ -1346,15 +1347,15 @@ public enum LocaleCode
      * </p>
      *
      * @param language
-     *         <a href="href="http://en.wikipedia.org/wiki/ISO_639-1"
-     *         >ISO 639-1</a> language code. Or "undefined".
+     *         <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>
+     *         language code. Or "undefined".
      *         If the given language code is one of legacy ones { "iw",
      *         "ji" and "in" }, it is regarded as its newer official
      *         counterpart { "he", "yi" and "id" }, respectively.
      *
      * @param country
-     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2"
-     *         >ISO 3166-1 alpha-2</a> country code. Or "UNDEFINED".
+     *         <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+     *         country code. Or "UNDEFINED".
      *
      * @param caseSensitive
      *         If {@code true}, the given language code must be lower-case and
