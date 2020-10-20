@@ -73,7 +73,7 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test1()
+    public void testArabic()
     {
         List<LocaleCode> expected = new ArrayList<LocaleCode>();
         expected.add(LocaleCode.ar);
@@ -102,7 +102,7 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test2()
+    public void testGetLanguageWithLanguageCodeNull()
     {
         List<LocaleCode> expected = new ArrayList<LocaleCode>();
         List<LocaleCode> actual = getByLanguage((LanguageCode)null);
@@ -112,7 +112,7 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test3()
+    public void testSwitzerland()
     {
         List<LocaleCode> expected = new ArrayList<LocaleCode>();
         expected.add(LocaleCode.de_CH);
@@ -126,7 +126,7 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test4()
+    public void testGetCountryWithCountryCodeNull()
     {
         List<LocaleCode> expected = new ArrayList<LocaleCode>();
         List<LocaleCode> actual = getByCountry((CountryCode)null);
@@ -136,77 +136,77 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test5()
+    public void testGerman()
     {
         assertSame(Locale.GERMAN, LocaleCode.de.toLocale());
     }
 
 
     @Test
-    public void test6()
+    public void testEnglish()
     {
         assertSame(Locale.ENGLISH, LocaleCode.en.toLocale());
     }
 
 
     @Test
-    public void test7()
+    public void testFrench()
     {
         assertSame(Locale.FRENCH, LocaleCode.fr.toLocale());
     }
 
 
     @Test
-    public void test8()
+    public void testCandianFrench()
     {
         assertSame(Locale.CANADA_FRENCH, LocaleCode.fr_CA.toLocale());
     }
 
 
     @Test
-    public void test9()
+    public void testItalian()
     {
         assertSame(Locale.ITALIAN, LocaleCode.it.toLocale());
     }
 
 
     @Test
-    public void test10()
+    public void testJapanese()
     {
         assertSame(Locale.JAPANESE, LocaleCode.ja.toLocale());
     }
 
 
     @Test
-    public void test11()
+    public void testKorean()
     {
         assertSame(Locale.KOREAN, LocaleCode.ko.toLocale());
     }
 
 
     @Test
-    public void test12()
+    public void testChinese()
     {
         assertSame(Locale.CHINESE, LocaleCode.zh.toLocale());
     }
 
 
     @Test
-    public void test13()
+    public void testSimplifiedChinese()
     {
         assertSame(Locale.SIMPLIFIED_CHINESE, LocaleCode.zh_CN.toLocale());
     }
 
 
     @Test
-    public void test14()
+    public void testTraditionalChinese()
     {
         assertSame(Locale.TRADITIONAL_CHINESE, LocaleCode.zh_TW.toLocale());
     }
 
 
     @Test
-    public void test15()
+    public void testUndefined()
     {
         Locale undefinedLocale = LocaleCode.undefined.toLocale();
 
@@ -224,218 +224,256 @@ public class LocaleCodeTest
 
 
     @Test
-    public void test16()
+    public void testGetByLocaleJapanese()
     {
         assertSame(LocaleCode.ja, getByLocale(Locale.JAPANESE));
     }
 
 
     @Test
-    public void test17()
+    public void testGetByLocaleJapan()
     {
         assertSame(LocaleCode.ja_JP, getByLocale(Locale.JAPAN));
     }
 
 
     @Test
-    public void test18()
+    public void testGetByLocaleEmptyLanguageAndCountry()
     {
         assertSame(LocaleCode.undefined, getByLocale(new Locale("", "")));
     }
 
 
     @Test
-    public void test19()
+    public void testGetByCodeLanguageUndefinedCountryNull()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined", (String)null));
     }
 
 
     @Test
-    public void test20()
+    public void testGetByCodeLanguageUndefinedUpperCaseCountryNull()
     {
         assertNull(LocaleCode.getByCode("UNDEFINED", (String)null));
     }
 
 
     @Test
-    public void test21()
+    public void testGetByCodeLanguageUndefinedCaseInsensitiveCountryNull()
     {
         assertSame(LocaleCode.undefined, getByCode("UNDEFINED", (String)null, false));
     }
 
 
     @Test
-    public void test22()
+    public void testGetByCodeLanguageAndCountryUpperCaseUndefined()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined", "UNDEFINED"));
     }
 
 
     @Test
-    public void test23()
+    public void testGetByCodeLanguageAndCountryLowerCaseUndefined()
     {
         assertNull(getByCode("undefined", "undefined"));
     }
 
 
     @Test
-    public void test24()
+    public void testGetByCodeLanguageAndCountryLowerCaseUndefinedCaseInsensitive()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined", "undefined", false));
     }
 
 
     @Test
-    public void test25()
+    public void testGetByCodeLowerCaseUndefined()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined"));
     }
 
 
     @Test
-    public void test26()
+    public void testGetByCodeUpperCaseUndefined()
     {
         assertNull(getByCode("UNDEFINED"));
     }
 
 
     @Test
-    public void test27()
+    public void testGetByCodeUpperCaseUndefinedCaseInsensitive()
     {
         assertSame(LocaleCode.undefined, getByCode("UNDEFINED", false));
     }
 
 
     @Test
-    public void test28()
+    public void testGetByCodeLanguageAndCountryUpperCaseUndefinedCombinedString()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined-UNDEFINED"));
     }
 
 
     @Test
-    public void test29()
+    public void testGetByCodeLanguageAndCountryLowerCaseUndefinedCombinedString()
     {
         assertNull(getByCode("undefined-undefined"));
     }
 
 
     @Test
-    public void test30()
+    public void testGetByCodeUpperCaseUndefinedCaseInsensitiveCombinedString()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined-undefined", false));
     }
 
 
     @Test
-    public void test31()
+    public void testGetByCodeLanguageAndCountryUpperCaseUndefinedCombinedWithLowDashString()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined_UNDEFINED"));
     }
 
 
     @Test
-    public void test32()
+    public void testGetByCodeLanguageAndCountryLowerCaseUndefinedCombinedWithLowDashString()
     {
         assertNull(getByCode("undefined_undefined"));
     }
 
 
     @Test
-    public void test33()
+    public void testGetByCodeUpperCaseUndefinedCaseInsensitiveCombinedWithLowDashString()
     {
         assertSame(LocaleCode.undefined, getByCode("undefined_undefined", false));
     }
 
 
     @Test
-    public void test34()
+    public void testGetByCodeJapaneseLowerCase()
     {
         assertSame(LocaleCode.ja, getByCode("ja"));
     }
 
 
     @Test
-    public void test35()
+    public void testGetByCodeJapaneseUpperCase()
     {
         assertNull(getByCode("JA"));
     }
 
 
     @Test
-    public void test36()
+    public void testGetByCodeJapaneseUpperCaseCaseInsensitive()
     {
         assertSame(LocaleCode.ja, getByCode("JA", false));
     }
 
 
     @Test
-    public void test37()
+    public void testGetByCodeJapaneseCombinedWithDashString()
     {
         assertSame(LocaleCode.ja_JP, getByCode("ja-JP"));
     }
 
 
     @Test
-    public void test38()
+    public void testGetByCodeJapaneseCountryLowerCaseCombinedWithDashString()
     {
         assertNull(getByCode("ja-jp"));
     }
 
 
     @Test
-    public void test39()
+    public void testGetByCodeJapaneseCountryLowerCaseCombinedWithDashStringCaseInsensitive()
     {
         assertSame(LocaleCode.ja_JP, getByCode("ja-jp", false));
     }
 
 
     @Test
-    public void test40()
+    public void testGetByCodeJapaneseCombinedWithLowDashString()
     {
         assertSame(LocaleCode.ja_JP, getByCode("ja_JP"));
     }
 
 
     @Test
-    public void test41()
+    public void testGetByCodeJapaneseCountryLowerCaseCombinedWithLowDashString()
     {
         assertNull(getByCode("ja_jp"));
     }
 
 
     @Test
-    public void test42()
+    public void testGetByCodeJapaneseCountryLowerCaseCombinedWithLowDashStringCaseInsensitive()
     {
         assertSame(LocaleCode.ja_JP, getByCode("ja_jp", false));
     }
 
 
     @Test
-    public void test43()
+    public void testGetByCodeJapaneseCombinedWithUnsupportedSeparatorString()
     {
         assertNull(getByCode("ja+JP"));
     }
 
 
     @Test
-    public void test44()
+    public void testGetByCodeNull()
     {
         assertNull(getByCode(null));
     }
 
 
     @Test
-    public void test45()
+    public void testGetByCodeEmptyString()
     {
         assertNull(getByCode(""));
     }
 
 
     @Test
-    public void test46()
+    public void testGetByCodeRomanianRomaniaCombinedWithLowDashCaseInsenstive()
     {
         assertSame(LocaleCode.ro_MD, getByCode("ro_MD", false));
+    }
+
+    @Test
+    public void testGetByCodeUrduPakistan()
+    {
+        assertSame(LocaleCode.ur_PK, getByCode("ur_PK", false));
+    }
+
+    @Test
+    public void testGetByLanguageWithLanguageStringLowerCaseUrduPakistan()
+    {
+        final List<LocaleCode> expected = new ArrayList<LocaleCode>();
+        expected.add(LocaleCode.ur_PK);
+        assertEquals(expected, getByLanguage("ur"));
+    }
+
+    @Test
+    public void testGetByLanguageWithLanguageCodeUrduPakistan()
+    {
+        final List<LocaleCode> expected = new ArrayList<LocaleCode>();
+        expected.add(LocaleCode.ur_PK);
+        assertEquals(expected, getByLanguage(LanguageCode.ur));
+    }
+
+    @Test
+    public void testGetByLanguageWithLanguageStringUpperCaseCaseInsensitiveUrduPakistan()
+    {
+        final List<LocaleCode> expected = new ArrayList<LocaleCode>();
+        expected.add(LocaleCode.ur_PK);
+        assertEquals(expected, getByLanguage("UR", false));
+    }
+
+    @Test
+    public void testGetByCountryUrduPakistan()
+    {
+        final List<LocaleCode> expected = new ArrayList<LocaleCode>();
+        expected.add(LocaleCode.ur_PK);
+        assertEquals(expected, getByCountry(CountryCode.PK));
     }
 }
