@@ -2,13 +2,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.neovisionaries</groupId>
+    <groupId>com.metronom</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.27.2</version>
+    <version>1.27.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>
-    <url>https://github.com/TakahikoKawasaki/nv-i18n</url>
+    <url>https://github.com/steffenPMetronom/nv-i18n</url>
 
     <licenses>
         <license>
@@ -19,14 +19,14 @@
 
     <developers>
         <developer>
-            <name>Takahiko Kawasaki</name>
+            <name>Steffen Paul</name>
         </developer>
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</connection>
-        <developerConnection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</developerConnection>
-        <url>git@github.com:TakahikoKawasaki/nv-i18n.git</url>
+        <connection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</connection>
+        <developerConnection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</developerConnection>
+        <url>git@github.com:steffenPMetronom/nv-i18n.git</url>
         <tag>nv-i18n-1.27.2</tag>
     </scm>
 
@@ -36,12 +36,11 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>darutk</id>
+            <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
-
         <repository>
-            <id>darutk</id>
+            <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
@@ -153,7 +152,7 @@
                 <version>1.6.4</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <serverId>darutk</serverId>
+                    <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
@@ -182,9 +181,6 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
-                            <keyname>E3F58E5C</keyname>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
