@@ -30,7 +30,7 @@
         <connection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</connection>
         <developerConnection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</developerConnection>
         <url>git@github.com:steffenPMetronom/nv-i18n.git</url>
-        <tag>mn-nv-i18n-1.27.2-SNAPSHOT</tag>
+        <tag>mn-nv-i18n-1.27.2</tag>
     </scm>
 
     <properties>
