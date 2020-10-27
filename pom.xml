@@ -4,7 +4,7 @@
 
     <groupId>com.metronom</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.27.2-SNAPSHOT</version>
+    <version>1.27.2</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>
