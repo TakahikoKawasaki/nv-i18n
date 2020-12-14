@@ -2100,6 +2100,13 @@ public enum CountryCode
     WS("Samoa", "WSM", 882, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/Northern_Ireland">Northern Ireland</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XI">XI</a>, XXI, -1,
+     * User assigned]
+     */
+    XI("Northern Ireland", "XXI", -1, Assignment.USER_ASSIGNED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Kosovo">Kosovo, Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XK">XK</a>, XXK, -1,
      * User assigned]
