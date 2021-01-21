@@ -207,6 +207,11 @@ public enum LocaleCode
     ca_ES(LanguageCode.ca, CountryCode.ES),
 
     /**
+     * {@link LanguageCode#ca Catalan}, {@link CountryCode#AD Andorra}
+     */
+    ca_AD(LanguageCode.ca, CountryCode.AD),
+
+    /**
      * {@link LanguageCode#cs Czech}
      */
     cs(LanguageCode.cs, null),
@@ -264,6 +269,11 @@ public enum LocaleCode
     el(LanguageCode.el, null),
 
     /**
+     * {@link LanguageCode#el Greek}, {@link CountryCode#AL Albania}
+     */
+    el_AL(LanguageCode.el, CountryCode.AL),
+
+    /**
      * {@link LanguageCode#el Greek}, {@link CountryCode#CY Cyprus}
      */
     el_CY(LanguageCode.el, CountryCode.CY),
@@ -284,6 +294,21 @@ public enum LocaleCode
             return Locale.ENGLISH;
         }
     },
+
+    /**
+     * {@link LanguageCode#en English}, {@link CountryCode#AE United Arab Emirates}
+     */
+    en_AE(LanguageCode.en, CountryCode.AE),
+
+    /**
+     * {@link LanguageCode#en English}, {@link CountryCode#AG Antigua and Barbuda}
+     */
+    en_AG(LanguageCode.en, CountryCode.AG),
+
+    /**
+     * {@link LanguageCode#en English}, {@link CountryCode#AI Anguilla}
+     */
+    en_AI(LanguageCode.en, CountryCode.AI),
 
     /**
      * {@link LanguageCode#en English}, {@link CountryCode#AU Australia}
@@ -470,11 +495,25 @@ public enum LocaleCode
     fa(LanguageCode.fa, null),
 
     /**
+     * {@link LanguageCode#fa Farsi}, {@link CountryCode#AF Afghanistan}
+     *
+     * @since 1.21
+     */
+    fa_AF(LanguageCode.fa, CountryCode.AF),
+
+    /**
      * {@link LanguageCode#fa Farsi}, {@link CountryCode#IR Iran}
      *
      * @since 1.21
      */
     fa_IR(LanguageCode.fa, CountryCode.IR),
+
+    /**
+     * {@link LanguageCode#fa Farsi}, {@link CountryCode#AE United Arab Emirates}
+     *
+     * @since 1.21
+     */
+    fa_AE(LanguageCode.fa, CountryCode.AE),
 
     /**
      * {@link LanguageCode#fi Finnish}
@@ -551,6 +590,11 @@ public enum LocaleCode
     he_IL(LanguageCode.he, CountryCode.IL),
 
     /**
+     * {@link LanguageCode#hi Hindi}, {@link CountryCode#AE United Arab Emirates}
+     */
+    hi_AE(LanguageCode.hi, CountryCode.AE),
+
+    /**
      * {@link LanguageCode#hi Hindi}, {@link CountryCode#IN India}
      */
     hi_IN(LanguageCode.hi, CountryCode.IN),
@@ -574,6 +618,16 @@ public enum LocaleCode
      * {@link LanguageCode#hu Hungarian}, {@link CountryCode#HU Hungary}
      */
     hu_HU(LanguageCode.hu, CountryCode.HU),
+
+    /**
+     * {@link LanguageCode#hy Armenian}
+     */
+    hy(LanguageCode.hy, null),
+
+    /**
+     * {@link LanguageCode#hy Armenian}, {@link CountryCode#AM Armenia}
+     */
+    hy_AM(LanguageCode.hy, CountryCode.AM),
 
     /**
      * {@link LanguageCode#id Indonesian}
@@ -782,6 +836,11 @@ public enum LocaleCode
     pt(LanguageCode.pt, null),
 
     /**
+     * {@link LanguageCode#pt Portuguese}, {@link CountryCode#AO Angola}
+     */
+    pt_AO(LanguageCode.pt, CountryCode.AO),
+
+    /**
      * {@link LanguageCode#pt Portuguese}, {@link CountryCode#BR Brazil}
      */
     pt_BR(LanguageCode.pt, CountryCode.BR),
@@ -790,6 +849,16 @@ public enum LocaleCode
      * {@link LanguageCode#pt Portuguese}, {@link CountryCode#PT Portugal}
      */
     pt_PT(LanguageCode.pt, CountryCode.PT),
+
+    /**
+     * {@link LanguageCode#ps Pashto}
+     */
+    ps(LanguageCode.ps, null),
+
+    /**
+     * {@link LanguageCode#ps Pashto}, {@link CountryCode#AF Afghanistan}
+     */
+    ps_AF(LanguageCode.ps, CountryCode.AF),
 
     /**
      * {@link LanguageCode#ro Romanian}
@@ -913,6 +982,16 @@ public enum LocaleCode
     th_TH(LanguageCode.th, CountryCode.TH),
 
     /**
+     * {@link LanguageCode#tk Turkmen}
+     */
+    tk(LanguageCode.tk, null),
+
+    /**
+     * {@link LanguageCode#tk Turkmen}, {@link CountryCode#AF Afghanistan}
+     */
+    tk_AF(LanguageCode.tk, CountryCode.AF),
+
+    /**
      * {@link LanguageCode#tr Turkish}
      */
     tr(LanguageCode.tr, null),
@@ -933,9 +1012,24 @@ public enum LocaleCode
     uk_UA(LanguageCode.uk, CountryCode.UA),
 
     /**
+     * {@link LanguageCode#ur Urdu}, {@link CountryCode#AE United Arab Emirates}
+     */
+    ur_AE(LanguageCode.ur, CountryCode.AE),
+
+    /**
     * {@link LanguageCode#ur Urdu}, {@link CountryCode#PK Pakistan}
     */
     ur_PK(LanguageCode.ur, CountryCode.PK),
+
+    /**
+     * {@link LanguageCode#uz Uzbek}
+     */
+    uz(LanguageCode.uz, null),
+
+    /**
+     * {@link LanguageCode#uz Uzbek}, {@link CountryCode#AF Afghanistan}
+     */
+    uz_AF(LanguageCode.uz, CountryCode.AF),
 
     /**
      * {@link LanguageCode#vi Vietnamese}
