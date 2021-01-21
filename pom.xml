@@ -4,7 +4,7 @@
 
     <groupId>com.metronom</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.27.2</version>
+    <version>1.28</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>
@@ -30,7 +30,7 @@
         <connection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</connection>
         <developerConnection>scm:git:git@github.com:steffenPMetronom/nv-i18n.git</developerConnection>
         <url>git@github.com:steffenPMetronom/nv-i18n.git</url>
-        <tag>mn-nv-i18n-1.27.2</tag>
+        <tag>mn-nv-i18n-1.28</tag>
     </scm>
 
     <properties>
