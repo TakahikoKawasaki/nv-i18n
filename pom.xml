@@ -2,9 +2,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.metronom</groupId>
+    <groupId>digital.metro</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.28</version>
+    <version>1.29-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package</name>
     <description>Package to support internationalization</description>

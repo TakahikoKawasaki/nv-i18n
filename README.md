@@ -28,9 +28,9 @@ Maven
 
 ```xml
 <dependency>
-    <groupId>com.neovisionaries</groupId>
+    <groupId>com.metronom</groupId>
     <artifactId>nv-i18n</artifactId>
-    <version>1.27</version>
+    <version>1.28</version>
 </dependency>
 ```
 
@@ -40,7 +40,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.27'
+    compile 'com.metronom:nv-i18n:1.28'
 }
 ```
 
@@ -48,20 +48,20 @@ dependencies {
 OSGi
 ----
 
-    Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.27.0"
+    Bundle-SymbolicName: com.metronom.i18n
+    Export-Package: com.metronom.i18n;version="1.28"
 
 
 Source Code
 -----------
 
-  <code>https://github.com/TakahikoKawasaki/nv-i18n.git</code>
+  <code>https://github.com/MetroSteffenPaul/nv-i18n.git</code>
 
 
 JavaDoc
 -------
 
-  <code>http://TakahikoKawasaki.github.io/nv-i18n/</code>
+  <code>http://MetroSteffenPaul.github.io/nv-i18n/</code>
 
 
 Example
@@ -128,10 +128,10 @@ TODO
 Note
 ----
 
-This nv-i18n supersedes https://github.com/TakahikoKawasaki/CountryCode
+This nv-i18n was forked from https://github.com/TakahikoKawasaki/nv-i18n due to inactivity of the former maintainer.
 
 
 Author
 ------
 
-Takahiko Kawasaki, [Authlete, Inc.](https://www.authlete.com/)
+Steffen Paul, [Metro Digital](https://www.metro.digital/)
