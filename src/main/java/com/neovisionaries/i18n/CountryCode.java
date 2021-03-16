@@ -2103,6 +2103,8 @@ public enum CountryCode
      * <a href="http://en.wikipedia.org/wiki/Northern_Ireland">Northern Ireland</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XI">XI</a>, XXI, -1,
      * User assigned]
+     *
+     * @since 1.28
      */
     XI("Northern Ireland", "XXI", -1, Assignment.USER_ASSIGNED),
 
@@ -2286,7 +2288,7 @@ public enum CountryCode
 
         // TL and TP have the same numeric code 626. TL should be used.
         numericMap.put(Integer.valueOf(626), TL);
-        
+
         // County code 280 is also used for DE by the German banking industry.
         numericMap.put(Integer.valueOf(280), DE);
     }

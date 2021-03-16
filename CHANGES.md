@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+### 1.28 (2021-03-16)
+
+* Added mapping of country code 280 to DE
+  ([Pull Request 54](https://github.com/TakahikoKawasaki/nv-i18n/pull/54)).
+
+* Added `XI` (Northern Ireland) to `CountryCode`
+  ([Pull Request 73](https://github.com/TakahikoKawasaki/nv-i18n/pull/73)).
+
+* Marked `VEF` ("Bolivar") as deprecated
+  ([Pull Request 74](https://github.com/TakahikoKawasaki/nv-i18n/pull/74)).
+
+
 ### 1.27 (2019-10-30)
 
 * Renamed "Swaziland" to "Eswatini"
