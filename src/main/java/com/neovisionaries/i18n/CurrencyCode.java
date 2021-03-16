@@ -2064,6 +2064,10 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#VE VE}: VENEZUELA, BOLIVARIAN REPUBLIC OF
      * </ul>
+     *
+     * @see #VES
+     *
+     * @deprecated
      */
     VEF("Bolivar", 937, 2, CountryCode.VE),
 
@@ -2075,6 +2079,8 @@ public enum CurrencyCode
      * <ul>
      * <li>{@link CountryCode#VE VE}: VENEZUELA, BOLIVARIAN REPUBLIC OF
      * </ul>
+     *
+     * @see #VEF
      */
     VES("Bolivar Soberano", 928, 2, CountryCode.VE),
 
