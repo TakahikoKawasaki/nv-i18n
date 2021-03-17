@@ -540,18 +540,6 @@ public enum CountryCode
     CR("Costa Rica", "CRI", 188, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
-     * <a href="http://en.wikipedia.org/wiki/Serbia_and_Montenegro">Serbia and Montenegro</a>
-     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CS">CS</a>, SCG, 891,
-     * Traditionally reserved]
-     *
-     * <p>
-     * Since version 1.16, the value of alpha-3 code of this entry is {@code SCG}
-     * (not <code><a href="http://en.wikipedia.org/wiki/ISO_3166-3#CSXX">CSXX</a></code>).
-     * </p>
-     */
-    CS("Serbia and Montenegro", "SCG", 891, Assignment.TRANSITIONALLY_RESERVED),
-
-    /**
      * <a href="http://en.wikipedia.org/wiki/Cuba">Cuba</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CU">CU</a>, CUB, 192,
      * Officially assigned]
@@ -1638,7 +1626,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#RS">RS</a>, SRB, 688,
      * Officially assigned]
      */
-    RS("Serbia", "SRB", 688, Assignment.OFFICIALLY_ASSIGNED),
+    RS("Republic of Serbia", "SRB", 688, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Russia">Russian Federation</a>
