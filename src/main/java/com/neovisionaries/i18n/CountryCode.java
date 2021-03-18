@@ -2109,6 +2109,14 @@ public enum CountryCode
     XI("Northern Ireland", "XXI", -1, Assignment.USER_ASSIGNED),
 
     /**
+     * <a href="http://en.wikipedia.org/wiki/United_Kingdom">United Kingdom (excluding Northern Ireland)</a>
+     * [<a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/use_of_gb_and_xi_codes_guidance.pdf">XU</a>, XXU, -1,
+     * User assigned]
+     *
+     */
+    XU("United Kingdom (excluding Northern Ireland)", null, -1, Assignment.USER_ASSIGNED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Kosovo">Kosovo, Republic of</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XK">XK</a>, XXK, -1,
      * User assigned]
