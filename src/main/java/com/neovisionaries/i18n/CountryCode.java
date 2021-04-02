@@ -2114,7 +2114,7 @@ public enum CountryCode
      * User assigned]
      *
      */
-    XU("United Kingdom (excluding Northern Ireland)", null, -1, Assignment.USER_ASSIGNED),
+    XU("United Kingdom (excluding Northern Ireland)", "XXU", -1, Assignment.USER_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Kosovo">Kosovo, Republic of</a>
