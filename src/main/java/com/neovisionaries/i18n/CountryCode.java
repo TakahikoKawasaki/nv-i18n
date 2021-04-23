@@ -2008,6 +2008,13 @@ public enum CountryCode
      */
     UM("United States Minor Outlying Islands", "UMI", 581, Assignment.OFFICIALLY_ASSIGNED),
 
+    /** <a href="https://en.wikipedia.org/wiki/United_Nations">United Nations</a>
+     * [<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#UN">UN</a>, null, -1,
+     * Exceptionally reserved]
+     * */
+    UN("United Nations", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
+
+
     /**
      * <a href="http://en.wikipedia.org/wiki/United_States">United States</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#US">US</a>, USA, 840,
