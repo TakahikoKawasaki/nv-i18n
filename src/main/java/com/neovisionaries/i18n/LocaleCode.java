@@ -933,6 +933,11 @@ public enum LocaleCode
     uk_UA(LanguageCode.uk, CountryCode.UA),
 
     /**
+     * {@link LanguageCode#ur Urdu}, {@link CountryCode#PK Pakistan}
+     */
+    ur_PK(LanguageCode.ur, CountryCode.PK),
+
+    /**
      * {@link LanguageCode#vi Vietnamese}
      */
     vi(LanguageCode.vi, null),
