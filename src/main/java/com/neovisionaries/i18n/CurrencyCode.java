@@ -379,6 +379,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     BYR("Belarusian Ruble", 974, 0, CountryCode.BY),
 
     /**
@@ -1154,6 +1155,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     LTL("Lithuanian Litas", 440, 2, CountryCode.LT),
 
     /**
@@ -1258,6 +1260,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     MRO("Ouguiya", 478, 2, CountryCode.MR),
 
     /**
@@ -1605,6 +1608,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     RUR("Russian Ruble", 810, 2, CountryCode.RU),
 
     /**
@@ -1752,6 +1756,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     STD("Dobra", 678, 2, CountryCode.ST),
 
     /**
@@ -2069,6 +2074,7 @@ public enum CurrencyCode
      *
      * @deprecated
      */
+    @Deprecated
     VEF("Bolivar", 937, 2, CountryCode.VE),
 
     /**
