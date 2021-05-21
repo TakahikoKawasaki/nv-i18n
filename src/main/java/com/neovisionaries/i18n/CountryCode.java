@@ -533,6 +533,13 @@ public enum CountryCode
     CP("Clipperton Island", "CPT", -1, Assignment.EXCEPTIONALLY_RESERVED),
 
     /**
+     * <a href="https://en.wikipedia.org/wiki/Sark">Island of Sark</a>
+     * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CQ">CQ</a>, CRQ, 680,
+     * Exceptionally reserved]
+     */
+    CQ("Island of Sark", "CRQ", 680, Assignment.EXCEPTIONALLY_RESERVED),
+
+    /**
      * <a href="http://en.wikipedia.org/wiki/Costa_Rica">Costa Rica</a>
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#CR">CR</a>, CRI, 188,
      * Officially assigned]
@@ -2007,6 +2014,13 @@ public enum CountryCode
      * Officially assigned]
      */
     UM("United States Minor Outlying Islands", "UMI", 581, Assignment.OFFICIALLY_ASSIGNED),
+
+    /** <a href="https://en.wikipedia.org/wiki/United_Nations">United Nations</a>
+     * [<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#UN">UN</a>, null, -1,
+     * Exceptionally reserved]
+     * */
+    UN("United Nations", null, -1, Assignment.EXCEPTIONALLY_RESERVED),
+
 
     /**
      * <a href="http://en.wikipedia.org/wiki/United_States">United States</a>
