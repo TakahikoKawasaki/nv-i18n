@@ -22,7 +22,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.junit.Test;
 
 
@@ -178,5 +183,21 @@ public class CurrencyCodeTest
     public void test17()
     {
         assertSame(CurrencyCode.UNDEFINED, getByCode("undefined", false));
+    }
+
+
+    @Test
+    public void test18()
+    {
+        List<CurrencyCode> deprecated = Arrays.stream(CurrencyCode.values()).filter(value -> {
+            try {
+                Field field = CurrencyCode.class.getField(value.name());
+                return field.isAnnotationPresent(Deprecated.class);
+            } catch (NoSuchFieldException | SecurityException e) {
+                return false;
+            }
+        }).collect(Collectors.toList());
+
+        assertTrue(deprecated.containsAll(List.of(CurrencyCode.BYR, CurrencyCode.MRO, CurrencyCode.STD, CurrencyCode.RUR, CurrencyCode.LTL, CurrencyCode.VEF)));
     }
 }
