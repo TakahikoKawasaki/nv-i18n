@@ -1951,7 +1951,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#TW">TW</a>, TWN, 158,
      * Officially assigned]
      */
-    TW("Taiwan, Province of China", "TWN", 158, Assignment.OFFICIALLY_ASSIGNED)
+    TW("Taiwan", "TWN", 158, Assignment.OFFICIALLY_ASSIGNED)
     {
         @Override
         public Locale toLocale()
