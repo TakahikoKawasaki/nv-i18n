@@ -2113,7 +2113,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#XK">XK</a>, XXK, -1,
      * User assigned]
      */
-    XK("Kosovo, Republic of", "XKX", -1, Assignment.USER_ASSIGNED),
+    XK("Kosovo, Republic of", "XXK", -1, Assignment.USER_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Yemen">Yemen</a>
