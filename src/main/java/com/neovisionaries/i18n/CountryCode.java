@@ -2113,6 +2113,7 @@ public enum CountryCode
      * [<a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/use_of_gb_and_xi_codes_guidance.pdf">XU</a>, XXU, -1,
      * User assigned]
      *
+     * @since 1.29
      */
     XU("United Kingdom (excluding Northern Ireland)", "XXU", -1, Assignment.USER_ASSIGNED),
 
