@@ -4,7 +4,7 @@
 
     <groupId>com.voodoodyne</groupId>
     <artifactId>nv-i18n-safe</artifactId>
-    <version>1.29</version>
+    <version>1.30-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package (safe)</name>
     <description>Package to support internationalization</description>
