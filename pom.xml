@@ -2,13 +2,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.neovisionaries</groupId>
-    <artifactId>nv-i18n</artifactId>
-    <version>1.30-SNAPSHOT</version>
+    <groupId>com.voodoodyne</groupId>
+    <artifactId>nv-i18n-safe</artifactId>
+    <version>1.29-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>Neo Visionaries Internationalization Package</name>
+    <name>Neo Visionaries Internationalization Package (safe)</name>
     <description>Package to support internationalization</description>
-    <url>https://github.com/TakahikoKawasaki/nv-i18n</url>
+    <url>https://github.com/stickfigure/nv-i18n-safe</url>
 
     <licenses>
         <license>
@@ -24,9 +24,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</connection>
-        <developerConnection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</developerConnection>
-        <url>git@github.com:TakahikoKawasaki/nv-i18n.git</url>
+        <connection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</connection>
+        <developerConnection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</developerConnection>
+        <url>git@github.com:stickfigure/nv-i18n-safe.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -141,7 +141,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Built-By>Neo Visionaries Inc.</Built-By>
+<!--                            <Built-By>Neo Visionaries Inc.</Built-By>-->
                         </manifestEntries>
                     </archive>
                 </configuration>
