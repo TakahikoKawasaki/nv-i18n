@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+### 1.29 (2021-08-26)
+
+* Added `XU` (United Kingdom (excluding Northern Ireland)) to CountryCode
+  ([Pull Request 78](https://github.com/TakahikoKawasaki/nv-i18n/pull/78)).
+
 ### 1.28 (2021-03-16)
 
 * Added mapping of country code 280 to DE
