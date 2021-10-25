@@ -27,6 +27,8 @@ but renames several countries to common names used by english-language Wikipedia
 | Venezuela, Bolivarian Republic of | Venezuela |
 | Kosovo, Republic of | Kosovo |
 
+There is one difference in the build: nv-i18n-safe requires Java 7+ (as opposed to 1.5+) 
+
 The fork is maintained at https://github.com/stickfigure/nv-i18n-safe
 
 Overview
