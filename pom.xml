@@ -183,9 +183,9 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
-                            <keyname>E3F58E5C</keyname>
-                        </configuration>
+<!--                        <configuration>-->
+<!--                            <keyname>E3F58E5C</keyname>-->
+<!--                        </configuration>-->
                     </execution>
                 </executions>
             </plugin>
