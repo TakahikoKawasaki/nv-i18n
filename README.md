@@ -1,5 +1,35 @@
-nv-i18n
+nv-i18n-safe
 =======
+
+# Fork
+
+nv-i18n-safe is a fork of the [neovisionaries internationalization library](https://github.com/TakahikoKawasaki/nv-i18n).
+The original library uses country names which are unsuitable for display in user interfaces because they are
+politically inflammatory, confusing, or excessively wordy. This fork is a drop-in replacement which tracks the origin,
+but renames several countries to common names used by english-language Wikipedia. There are no other code changes.
+
+| Old Name | New Name |
+|:---------------------|:-------------------------------------------------------------|
+| Taiwan, Province of China | Taiwan |
+| Bolivia, Plurinational State of | Bolivia |
+| Korea, Democratic People's Republic of | North Korea |
+| Korea, Republic of | South Korea |
+| Iran, Islamic Republic of | Iran |
+| Moldova, Republic of | Moldova |
+| Saint Martin (French part) | Saint Martin |
+| Sint Maarten (Dutch part) | Sint Maarten |
+| North Macedonia, Republic of | North Macedonia |
+| Palestine, State of | Palestine |
+| Russian Federation | Russia |
+| Syrian Arab Republic | Syria |
+| Tanzania, United Republic of | Tanzania |
+| Holy See (Vatican City State) | Vatican City |
+| Venezuela, Bolivarian Republic of | Venezuela |
+| Kosovo, Republic of | Kosovo |
+
+There is one difference in the build: nv-i18n-safe requires Java 7+ (as opposed to 1.5+) 
+
+The fork is maintained at https://github.com/stickfigure/nv-i18n-safe
 
 Overview
 --------
@@ -28,8 +58,8 @@ Maven
 
 ```xml
 <dependency>
-    <groupId>com.neovisionaries</groupId>
-    <artifactId>nv-i18n</artifactId>
+    <groupId>com.voodoodyne</groupId>
+    <artifactId>nv-i18n-safe</artifactId>
     <version>1.29</version>
 </dependency>
 ```
@@ -40,7 +70,7 @@ Gradle
 
 ```gradle
 dependencies {
-    compile 'com.neovisionaries:nv-i18n:1.28'
+    compile 'com.voodoodyne:nv-i18n-safe:1.29'
 }
 ```
 
@@ -48,14 +78,14 @@ dependencies {
 OSGi
 ----
 
-    Bundle-SymbolicName: com.neovisionaries.i18n
-    Export-Package: com.neovisionaries.i18n;version="1.28.0"
+    Bundle-SymbolicName: com.voodoodyne.i18n
+    Export-Package: com.voodoodyne.i18n;version="1.29.0"
 
 
 Source Code
 -----------
 
-  <code>https://github.com/TakahikoKawasaki/nv-i18n.git</code>
+  <code>https://github.com/stickfigure/nv-i18n-safe.git</code>
 
 
 JavaDoc

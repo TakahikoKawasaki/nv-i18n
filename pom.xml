@@ -2,13 +2,13 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.neovisionaries</groupId>
-    <artifactId>nv-i18n</artifactId>
+    <groupId>com.voodoodyne</groupId>
+    <artifactId>nv-i18n-safe</artifactId>
     <version>1.30-SNAPSHOT</version>
     <packaging>bundle</packaging>
-    <name>Neo Visionaries Internationalization Package</name>
+    <name>Neo Visionaries Internationalization Package (safe)</name>
     <description>Package to support internationalization</description>
-    <url>https://github.com/TakahikoKawasaki/nv-i18n</url>
+    <url>https://github.com/stickfigure/nv-i18n-safe</url>
 
     <licenses>
         <license>
@@ -24,9 +24,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</connection>
-        <developerConnection>scm:git:git@github.com:TakahikoKawasaki/nv-i18n.git</developerConnection>
-        <url>git@github.com:TakahikoKawasaki/nv-i18n.git</url>
+        <connection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</connection>
+        <developerConnection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</developerConnection>
+        <url>git@github.com:stickfigure/nv-i18n-safe.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -66,8 +66,9 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.2.0</version>
                         <configuration>
-                            <additionalparam>-Xdoclint:-html</additionalparam>
+                            <doclint>none</doclint>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -79,7 +80,7 @@
                                     <groupId>org.apache.maven.plugins</groupId>
                                     <artifactId>maven-javadoc-plugin</artifactId>
                                     <configuration>
-                                        <additionalparam>-Xdoclint:-html</additionalparam>
+                                        <doclint>none</doclint>
                                     </configuration>
                                 </plugin>
                             </reportPlugins>
@@ -95,10 +96,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>7</source>
+                    <target>7</target>
                     <fork>true</fork>
                 </configuration>
             </plugin>
@@ -106,7 +107,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -120,7 +121,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.1</version>
+                <version>3.2.0</version>
                 <configuration>
                     <additionalJOption>-J-Duser.language=en</additionalJOption>
                 </configuration>
@@ -137,20 +138,25 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Built-By>Neo Visionaries Inc.</Built-By>
+<!--                            <Built-By>Neo Visionaries Inc.</Built-By>-->
                         </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
 
+            <!--
+            This hack is required to publish to maven central using a modern JDK:
+            https://issues.sonatype.org/browse/OSSRH-66257
+            -->
+
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.4</version>
+                <version>1.6.8</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>darutk</serverId>
@@ -162,19 +168,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
-                </configuration>
+                <version>3.0.0-M4</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -182,9 +182,6 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
-                            <keyname>E3F58E5C</keyname>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
