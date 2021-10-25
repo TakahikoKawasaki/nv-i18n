@@ -148,6 +148,11 @@
                 </configuration>
             </plugin>
 
+            <!--
+            This hack is required to publish to maven central using a modern JDK:
+            https://issues.sonatype.org/browse/OSSRH-66257
+            -->
+
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
