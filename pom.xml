@@ -4,7 +4,7 @@
 
     <groupId>com.voodoodyne</groupId>
     <artifactId>nv-i18n-safe</artifactId>
-    <version>1.29-SNAPSHOT</version>
+    <version>1.29</version>
     <packaging>bundle</packaging>
     <name>Neo Visionaries Internationalization Package (safe)</name>
     <description>Package to support internationalization</description>
@@ -27,7 +27,7 @@
         <connection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</connection>
         <developerConnection>scm:git:git@github.com:stickfigure/nv-i18n-safe.git</developerConnection>
         <url>git@github.com:stickfigure/nv-i18n-safe.git</url>
-        <tag>HEAD</tag>
+        <tag>nv-i18n-safe-1.29</tag>
     </scm>
 
     <properties>
