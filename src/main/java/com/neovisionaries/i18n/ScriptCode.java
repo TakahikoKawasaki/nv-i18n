@@ -19,6 +19,7 @@ package com.neovisionaries.i18n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -44,7 +45,14 @@ public enum ScriptCode
      * @see #Zyyy Zyyy: 998 Code for undetermined script
      * @see #Zzzz Zzzz: 999 Code for uncoded script
      */
-    Undefined(-1, "Undefined"),
+    Undefined(-1, "Undefined")
+    {
+        @Override
+        public Locale toLocale()
+        {
+            return LocaleCode.undefined.toLocale();
+        }
+    },
 
     /**
      * Afaka [439]
@@ -1090,6 +1098,23 @@ public enum ScriptCode
 
 
     /**
+     * Convert this {@code ScriptCode} instance to a {@link Locale} instance.
+     *
+     * <p>
+     * This method creates a new {@code Locale} instance
+     * every time it is called.
+     * </p>
+     *
+     * @return
+     *         A {@code Locale} instance that matches this {@code ScriptCode}.
+     * @since 1.30
+     */
+    public Locale toLocale()
+    {
+        return new Locale.Builder().setScript(name()).build();
+    }
+
+    /**
      * Get a {@code ScriptCode} instance that corresponds to the given
      * ISO 15924 alpha-4 code.
      *
@@ -1203,6 +1228,38 @@ public enum ScriptCode
         return numericMap.get(code);
     }
 
+    /**
+     * Get a {@code ScriptCode} that corresponds to the script code of
+     * the given {@link Locale} instance.
+     *
+     * @param locale
+     *         A {@code Locale} instance.
+     *
+     * @return
+     *         A {@code ScriptCode} instance, or {@code null} if not found.
+     *         When {@link Locale#getScript() getScript()} method of the
+     *         given {@code Locale} instance returns {@code null} or an
+     *         empty string, {@link #Undefined ScriptCode.Undefined} is
+     *         returned.
+     *
+     * @see Locale#getScript()
+     */
+    public static ScriptCode getByLocale(Locale locale)
+    {
+        if (locale == null)
+        {
+            return null;
+        }
+
+        String script = locale.getScript();
+
+        if (script.isEmpty())
+        {
+            return ScriptCode.Undefined;
+        }
+
+        return ScriptCode.getByCode(script, true);
+    }
 
     private static String canonicalize(String code, boolean caseSensitive)
     {
