@@ -142,6 +142,7 @@
                     <archive>
                         <manifestEntries>
                             <Built-By>Neo Visionaries Inc.</Built-By>
+                            <Automatic-Module-Name>com.neovisionaries.i18n</Automatic-Module-Name>
                         </manifestEntries>
                     </archive>
                 </configuration>
