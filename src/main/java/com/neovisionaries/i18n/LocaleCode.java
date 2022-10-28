@@ -197,6 +197,11 @@ public enum LocaleCode
     bg_BG(LanguageCode.bg, CountryCode.BG),
 
     /**
+     * {@link LanguageCode#bs Bosnian}, {@link CountryCode#BA Bosnia and Herzegovina}
+     */
+    bs_BA(LanguageCode.bs, CountryCode.BA),
+
+    /**
      * {@link LanguageCode#ca Catalan}
      */
     ca(LanguageCode.ca, null),
