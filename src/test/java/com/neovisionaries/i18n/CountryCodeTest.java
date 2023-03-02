@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 Neo Visionaries Inc.
+ * Copyright (C) 2014-2021 Neo Visionaries Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ public class CountryCodeTest
     {
         List<CountryCode> list = CountryCode.findByName(".*United.*");
 
-        assertEquals(6, list.size());
+        assertEquals(7, list.size());
 
         // AE: United Arab Emirates
         assertTrue(list.contains(CountryCode.AE));
@@ -54,6 +54,9 @@ public class CountryCodeTest
 
         // US: United States
         assertTrue(list.contains(CountryCode.US));
+
+        // XU: United Kingdom (excluding Northern Ireland)
+        assertTrue(list.contains(CountryCode.XU));
     }
 
 
