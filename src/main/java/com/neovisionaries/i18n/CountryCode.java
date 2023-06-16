@@ -1302,7 +1302,7 @@ public enum CountryCode
      * [<a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#MK">MK</a>, MKD, 807,
      * Officially assigned]
      */
-    MK("North Macedonia, Republic of", "MKD", 807, Assignment.OFFICIALLY_ASSIGNED),
+    MK("North Macedonia", "MKD", 807, Assignment.OFFICIALLY_ASSIGNED),
 
     /**
      * <a href="http://en.wikipedia.org/wiki/Mali">Mali</a>
