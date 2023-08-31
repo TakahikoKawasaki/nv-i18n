@@ -87,6 +87,11 @@ public enum LocaleCode
     },
 
     /**
+      * {@link LanguageCode#af Afrikaans}
+      */
+     af(LanguageCode.af, null),
+
+    /**
      * {@link LanguageCode#ar Arabic}
      */
     ar(LanguageCode.ar, null),
@@ -551,6 +556,11 @@ public enum LocaleCode
     he_IL(LanguageCode.he, CountryCode.IL),
 
     /**
+     * {@link LanguageCode#hi Hindi}
+     */
+    hi(LanguageCode.hi, null),
+
+    /**
      * {@link LanguageCode#hi Hindi}, {@link CountryCode#IN India}
      */
     hi_IN(LanguageCode.hi, CountryCode.IN),
@@ -986,7 +996,12 @@ public enum LocaleCode
         {
             return Locale.TRADITIONAL_CHINESE;
         }
-    }
+    },
+
+    /**
+     * {@link LanguageCode#zu Zulu}
+     */
+    zu(LanguageCode.zu, null),
     ;
 
 
