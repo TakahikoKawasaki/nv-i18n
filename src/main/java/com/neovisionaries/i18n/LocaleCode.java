@@ -933,6 +933,29 @@ public enum LocaleCode
     uk_UA(LanguageCode.uk, CountryCode.UA),
 
     /**
+     * {@link LanguageCode#uz Uzbekistan}, {@link CountryCode#UZ Uzbekistan}
+     */
+    uz(LanguageCode.uz, CountryCode.UZ),
+
+    /**
+     * {@link LanguageCode#uz Uzbekistan}, {@link CountryCode#UZ Uzbekistan}
+     * <a href="https://en.wikipedia.org/wiki/Uzbek_alphabet">Uzbek language based on Arabic letters</a>
+     */
+    uz_Arab_UZ(LanguageCode.uz, CountryCode.UZ),
+
+    /**
+     * {@link LanguageCode#uz Uzbekistan}, {@link CountryCode#UZ Uzbekistan}
+     * <a href="https://en.wikipedia.org/wiki/Uzbek_alphabet">Uzbek language based on Cyrillic letters</a>
+     */
+    uz_Cyrl_UZ(LanguageCode.uz, CountryCode.UZ),
+
+    /**
+     * {@link LanguageCode#uz Uzbekistan}, {@link CountryCode#UZ Uzbekistan}
+     * <a href="https://en.wikipedia.org/wiki/Uzbek_alphabet">Uzbek language based Latin letters</a>
+     */
+    uz_Latn_UZ(LanguageCode.uz, CountryCode.UZ),
+
+    /**
      * {@link LanguageCode#vi Vietnamese}
      */
     vi(LanguageCode.vi, null),
